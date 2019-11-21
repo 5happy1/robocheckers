@@ -1,0 +1,118 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2017  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+# Date created = 15:28:25  November 21, 2019
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		processor_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY processor
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:28:25  NOVEMBER 21, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+set_global_assignment -name VERILOG_FILE trie_5bit.v
+set_global_assignment -name VERILOG_FILE trie_3bit.v
+set_global_assignment -name VERILOG_FILE trie_1bit.v
+set_global_assignment -name VERILOG_FILE trie.v
+set_global_assignment -name VERILOG_FILE tflipflop.v
+set_global_assignment -name VERILOG_FILE sra16.v
+set_global_assignment -name VERILOG_FILE sra8.v
+set_global_assignment -name VERILOG_FILE sra4.v
+set_global_assignment -name VERILOG_FILE sra2.v
+set_global_assignment -name VERILOG_FILE sra1.v
+set_global_assignment -name VERILOG_FILE sra.v
+set_global_assignment -name VERILOG_FILE sll16.v
+set_global_assignment -name VERILOG_FILE sll8.v
+set_global_assignment -name VERILOG_FILE sll4.v
+set_global_assignment -name VERILOG_FILE sll2.v
+set_global_assignment -name VERILOG_FILE sll1.v
+set_global_assignment -name VERILOG_FILE sll.v
+set_global_assignment -name VERILOG_FILE skeleton_test.v
+set_global_assignment -name VERILOG_FILE skeleton.v
+set_global_assignment -name VERILOG_FILE sex_17_32.v
+set_global_assignment -name VERILOG_FILE sex_5_32.v
+set_global_assignment -name VERILOG_FILE register_3bit.v
+set_global_assignment -name VERILOG_FILE register.v
+set_global_assignment -name VERILOG_FILE regfile.v
+set_global_assignment -name VERILOG_FILE reg_XM.v
+set_global_assignment -name VERILOG_FILE reg_PW.v
+set_global_assignment -name VERILOG_FILE reg_MW.v
+set_global_assignment -name VERILOG_FILE reg_FD.v
+set_global_assignment -name VERILOG_FILE reg_DX.v
+set_global_assignment -name VERILOG_FILE processor.v
+set_global_assignment -name VERILOG_FILE or_32.v
+set_global_assignment -name VERILOG_FILE op_valid_for_bypass_back.v
+set_global_assignment -name VERILOG_FILE not_32.v
+set_global_assignment -name VERILOG_FILE neq_zero_32.v
+set_global_assignment -name VERILOG_FILE mux_32.v
+set_global_assignment -name VERILOG_FILE mux_8.v
+set_global_assignment -name VERILOG_FILE mux_4.v
+set_global_assignment -name VERILOG_FILE mux_2_5bit.v
+set_global_assignment -name VERILOG_FILE mux_2_3bit.v
+set_global_assignment -name VERILOG_FILE mux_2_1bit.v
+set_global_assignment -name VERILOG_FILE mux_2.v
+set_global_assignment -name VERILOG_FILE multiplier.v
+set_global_assignment -name VERILOG_FILE multdiv_tb.v
+set_global_assignment -name VERILOG_FILE multdiv.v
+set_global_assignment -name VERILOG_FILE imem.v
+set_global_assignment -name VERILOG_FILE exceptions_tb.v
+set_global_assignment -name VERILOG_FILE exception_md.v
+set_global_assignment -name VERILOG_FILE exception_alu.v
+set_global_assignment -name VERILOG_FILE dmem.v
+set_global_assignment -name VERILOG_FILE divider.v
+set_global_assignment -name VERILOG_FILE dflippymcflopface.v
+set_global_assignment -name VERILOG_FILE decoder.v
+set_global_assignment -name VERILOG_FILE controls_W.v
+set_global_assignment -name VERILOG_FILE controls_P.v
+set_global_assignment -name VERILOG_FILE controls_M.v
+set_global_assignment -name VERILOG_FILE controls_E.v
+set_global_assignment -name VERILOG_FILE controls_D.v
+set_global_assignment -name VERILOG_FILE controls_bypassing.v
+set_global_assignment -name VERILOG_FILE comp_32.v
+set_global_assignment -name VERILOG_FILE comp_2_5bit.v
+set_global_assignment -name VERILOG_FILE comp_2.v
+set_global_assignment -name VERILOG_FILE bypassing_tb.v
+set_global_assignment -name VERILOG_FILE branches_tb.v
+set_global_assignment -name VERILOG_FILE block_add_8.v
+set_global_assignment -name VERILOG_FILE basic_tb.v
+set_global_assignment -name VERILOG_FILE and_32.v
+set_global_assignment -name VERILOG_FILE alu.v
+set_global_assignment -name VERILOG_FILE adder.v
+set_global_assignment -name VERILOG_FILE add_1.v
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
