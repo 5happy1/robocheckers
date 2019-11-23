@@ -78,16 +78,15 @@ void loop() {
 void listen_for_other_arduino_state_change() {
 
   String data = Serial.readStringUntil('\n');
-  data.splitflaoiusdhfpmgcaosdhgpai uhdmsf;ocahsfdgpovimcpaghoiusdrja[ptcguwvhprsodtu[fosvyt[ma0sdfg
-  Serial.println(data);
-  
-//  int pin_index_plus_one = Serial.parseInt(); // readString returns 0 if nothing is sent, so send index plus 1 then subtract
-//  if (pin_index_plus_one == 0) {
-//    return;
-//  } else {
-//    int new_state_plus_one = Serial.parseInt();
-//    update_state(pin_index_plus_one - 1, new_state_plus_one - 1);
-//  }
+  if (!data.equals("")) {
+    String pin_index_str = data.substring(0, 2);
+    String state_str = data.substring(2, 4);
+    pin_index_str.trim();
+    state_str.trim();
+    int pin_index = pin_index_str.toInt();
+    int state = state_str.toInt();
+    update_state(pin_index, state);
+  }
   
 }
 
