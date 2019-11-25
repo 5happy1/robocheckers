@@ -1,5 +1,5 @@
 Analysis & Synthesis report for test
-Thu Nov 21 15:53:25 2019
+Sun Nov 24 22:42:26 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,11 +13,12 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "hex_to_7digit_display:h"
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +44,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 21 15:53:25 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 24 22:42:26 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; test                                        ;
-; Top-level Entity Name              ; testhex                                     ;
+; Top-level Entity Name              ; derial                                      ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 7                                           ;
+; Total logic elements               ; 104                                         ;
+;     Total combinational functions  ; 86                                          ;
+;     Dedicated logic registers      ; 66                                          ;
+; Total registers                    ; 66                                          ;
+; Total pins                         ; 68                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -66,7 +67,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; testhex            ; test               ;
+; Top-level entity name                                                      ; derial             ; test               ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -155,52 +156,53 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                   ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
-; testhex.v                        ; yes             ; User Verilog HDL File  ; C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v               ;         ;
-; hex_to_7digit_display.v          ; yes             ; User Verilog HDL File  ; C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/hex_to_7digit_display.v ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                  ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                    ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
+; derial.v                         ; yes             ; User Verilog HDL File  ; C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                    ;
-+---------------------------------------------+------------------+
-; Resource                                    ; Usage            ;
-+---------------------------------------------+------------------+
-;                                             ;                  ;
-; Total combinational functions               ; 0                ;
-; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 0                ;
-;     -- 3 input functions                    ; 0                ;
-;     -- <=2 input functions                  ; 0                ;
-;                                             ;                  ;
-; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 0                ;
-;     -- arithmetic mode                      ; 0                ;
-;                                             ;                  ;
-; Total registers                             ; 0                ;
-;     -- Dedicated logic registers            ; 0                ;
-;     -- I/O registers                        ; 0                ;
-;                                             ;                  ;
-; I/O pins                                    ; 7                ;
-;                                             ;                  ;
-; Embedded Multiplier 9-bit elements          ; 0                ;
-;                                             ;                  ;
-; Maximum fan-out node                        ; hexout[0]~output ;
-; Maximum fan-out                             ; 1                ;
-; Total fan-out                               ; 7                ;
-; Average fan-out                             ; 0.50             ;
-+---------------------------------------------+------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 104            ;
+;                                             ;                ;
+; Total combinational functions               ; 86             ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 41             ;
+;     -- 3 input functions                    ; 2              ;
+;     -- <=2 input functions                  ; 43             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 55             ;
+;     -- arithmetic mode                      ; 31             ;
+;                                             ;                ;
+; Total registers                             ; 66             ;
+;     -- Dedicated logic registers            ; 66             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 68             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; clock_in~input ;
+; Maximum fan-out                             ; 67             ;
+; Total fan-out                               ; 488            ;
+; Average fan-out                             ; 1.69           ;
++---------------------------------------------+----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -208,9 +210,20 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |testhex                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |testhex            ; testhex     ; work         ;
+; |derial                    ; 86 (86)             ; 66 (66)                   ; 0           ; 0            ; 0       ; 0         ; 68   ; 0            ; |derial             ; derial      ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; curr_expected_length[0,2,4..31]        ; Stuck at GND due to stuck port data_in ;
+; curr_expected_length[3]                ; Merged with curr_expected_length[1]    ;
+; Total Number of Removed Registers = 31 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -218,25 +231,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 66    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 20    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------+
-; Port Connectivity Checks: "hex_to_7digit_display:h" ;
-+------------------+-------+----------+---------------+
-; Port             ; Type  ; Severity ; Details       ;
-+------------------+-------+----------+---------------+
-; hex_number[3..2] ; Input ; Info     ; Stuck at VCC  ;
-; hex_number[1]    ; Input ; Info     ; Stuck at GND  ;
-; hex_number[0]    ; Input ; Info     ; Stuck at VCC  ;
-+------------------+-------+----------+---------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; buffer_pos[0]                          ; 9       ;
+; buffer_pos[4]                          ; 2       ;
+; buffer_pos[1]                          ; 8       ;
+; buffer_pos[2]                          ; 8       ;
+; buffer_pos[3]                          ; 12      ;
+; Total number of inverted registers = 5 ;         ;
++----------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -244,13 +260,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 7                           ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         0 data inputs ; 2                           ;
+; boundary_port         ; 68                          ;
+; cycloneiii_ff         ; 66                          ;
+;     ENA               ; 20                          ;
+;     plain             ; 46                          ;
+; cycloneiii_lcell_comb ; 87                          ;
+;     arith             ; 31                          ;
+;         2 data inputs ; 31                          ;
+;     normal            ; 56                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 41                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 10.10                       ;
+; Average LUT depth     ; 6.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -269,33 +294,78 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Nov 21 15:53:15 2019
+    Info: Processing started: Sun Nov 24 22:42:16 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test -c test
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file derial.v
+    Info (12023): Found entity 1: derial File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file testhex.v
     Info (12023): Found entity 1: testhex File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file hex_to_7digit_display.v
     Info (12023): Found entity 1: hex_to_7digit_display File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/hex_to_7digit_display.v Line: 9
-Info (12127): Elaborating entity "testhex" for the top level hierarchy
-Info (12128): Elaborating entity "hex_to_7digit_display" for hierarchy "hex_to_7digit_display:h" File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 5
+Info (12127): Elaborating entity "derial" for the top level hierarchy
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "hexout[0]" is stuck at VCC File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 3
-    Warning (13410): Pin "hexout[1]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 3
-    Warning (13410): Pin "hexout[2]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 3
-    Warning (13410): Pin "hexout[3]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 3
-    Warning (13410): Pin "hexout[4]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 3
-    Warning (13410): Pin "hexout[5]" is stuck at VCC File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 3
-    Warning (13410): Pin "hexout[6]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/testhex.v Line: 3
+    Warning (13410): Pin "r26_out[10]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[11]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[12]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[13]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[14]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[15]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[16]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[17]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[18]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[19]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[20]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[21]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[22]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[23]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[24]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[25]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[26]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[27]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[28]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[29]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[30]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r26_out[31]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[5]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[6]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[7]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[8]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[9]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[10]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[11]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[12]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[13]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[14]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[15]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[16]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[17]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[18]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[19]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[20]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[21]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[22]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[23]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[24]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[25]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[26]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[27]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[28]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[29]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[30]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+    Warning (13410): Pin "r27_out[31]" is stuck at GND File: C:/Users/dam80/Documents/ece350/robocheckers/fpga/test/derial.v Line: 7
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 0 input pins
-    Info (21059): Implemented 7 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4752 megabytes
-    Info: Processing ended: Thu Nov 21 15:53:25 2019
+Info (21057): Implemented 213 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 66 output pins
+    Info (21061): Implemented 145 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 51 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Sun Nov 24 22:42:26 2019
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:19
+    Info: Total CPU time (on all processors): 00:00:20
 
 
