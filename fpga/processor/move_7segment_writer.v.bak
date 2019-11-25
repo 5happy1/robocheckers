@@ -1,0 +1,12 @@
+module move_7segment_writer(in, from1, from2, to1, to2);
+
+input [23:0] in;
+output [6:0] from1, from2, to1, to2;
+
+
+
+
+
+
+
+endmodule
