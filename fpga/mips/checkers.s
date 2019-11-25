@@ -7,6 +7,10 @@
 # Read-only registers:
 # $27 - op code from Arduino via behavioral Verilog on FPGA, with ready flag
 # $26 - data accompanying the op code
+#
+# Write-only registers:
+# $28 - op code to Arduino, with ready flag, and also with 7-segment display values
+# $1  - data accompanying the op code
 
 main:						# Main function
 	addi $s2, $zero, 4		# Stack word size (4 for MARS, 1 for our processor)
@@ -103,27 +107,38 @@ game_loop:
 	# $26 - will contain data associated with opcode
 	#
 	##### Available op codes #####
-	# 0000 - piece moved (not jumped)
-	#        data contains space_from [9:5], space_to [4:0]
+	# 0000 - piece moved
+	#        data contains space_jumped [14:10], space_from [9:5], space_to [4:0]
+	#		 (space_jumped is 0 if no jump occurred (can't jump position A1))
 	
 	#jal print_board
 	
+	# New op code ready flag
 	addi $t0, $zero, 1		# $t0 = 1 for anding
 	and $t0, $27, $t0		# $t0 = 1 iff least significant bit in $27 is 1
-							# $t0 = 0 otherwise.
-							# This is the new op code ready flag
+							# $t0 = 0 otherwise
 
 	bne $s3, $t0, new_data	# Branch if flag set for new op code
 	j game_loop				# Loop again if no new data found
 	
-	new_data:				# New op code flagged, check op code
+	new_data:				# New op code flagged
+	addi $t1, $26, 0		# $t1 = $26 - data that accompanies op code
 	addi $s3, $t0, 0		# Set $s3 to new op code ready flag
 	sra $t0, $27, 1			# $t0 = 4-bit op code
 	bne $t0, $zero, not_move# Branch if op code != 0, i.e. not a move
 	
 	# Op code == 0000, so checker was moved
-	addi $a0, $26, 0		# Move data that accompanies op code into $a0
-	jal move_made			# Update board state to reflect new move
+	addi $a0, $s1, 0		# $a0 = board position in memory
+	addi $t2, $zero, 31		# $t2 = 31 = 1111, "and" with data to get space
+	
+	and $a2, $t1, $t2		# $a2 = space_to
+	sra $t1, $t1, 5			# Shift data right to get space_from
+	and $a1, $t1, $t2		# $a1 = space_from
+	sra $t1, $t1, 5			# Shift data right to get space_jumped
+	and $a3, $t1, $t2		# $a3 = space_jumped
+	
+	jal make_move			# Update board state to reflect new move
+	
 	jal find_move			# Find a move to make
 	
 	not_move:				# Not "move made" op code
@@ -145,34 +160,95 @@ print_board:
 	blt $t2, $t3, test_init	# Keep looping while counter < num checkers
 	jr $ra
 
-move_made:
-	# Updates board with move made as given by FPGA
-	# args: $a0 - data that contains space_from [9:5], space_to [4:0]
+make_move:
+	# Updates a board with a move made
+	# args: $a0 - board position in memory
+	#		$a1 - space_from
+	#		$a2 - space_to
+	#		$a3 - space_jumped
 	
 	# Create stack
 	sub $sp, $sp, $s2		# Reserve 1 word on stack
 	sw $ra, 0($sp)			# [$sp+0] = $ra (save return address)
 	
 	# Get locations of pieces in memory
-	addi $t2, $zero, 31		# $t2 = 31 = 1111, and with data to get space
-	and $t1, $a0, $t2		# $t1 = space_to
-	sra $a0, $a0, 5			# Shift data right to get space_from
-	and $t0, $a0, $t2		# $t0 = space_from
-	
-	add $t2, $s1, $t0		# $t2 = location of space_from in memory
-	add $t3, $s1, $t1		# $t3 = location of space_to in memory
+	add $t1, $a0, $a1		# $t1 = location of space_from in memory
+	add $t2, $a0, $a2		# $t2 = location of space_to in memory
+	add $t3, $a0, $a3		# $t3 = location of space_jumped in memory
 	
 	# Perform swap
-	lw $t4, 0($t2)			# $t4 = checker at space_from
-	lw $t5, 0($t3)			# $t5 = checker at space_to
-	sw $t4, 0($t3)			# [$t3] = checker formerly at space_to now at space_from
-	sw $t5, 0($t2)			# [$t2] = checker formerly at space_from now at space_to	
+	lw $t4, 0($t1)			# $t4 = checker at space_from
+	lw $t5, 0($t2)			# $t5 = checker at space_to
+	sw $t4, 0($t2)			# [$t2] = checker formerly at space_to now at space_from
+	sw $t5, 0($t1)			# [$t1] = checker formerly at space_from now at space_to
+	
+	# Remove jumped piece if needed
+	bne $t3, $zero, jumped	# Branch if jumped
+	j after_jump			# Skip jumping code if no jump
+
+	jumped:
+	add $t6, $a0, $t3		# $t6 = location of space_jumped in memory
+	sw $zero, 0($t7)		# [$t6] = 0 (blank space) in memory
+	
+	after_jump:
+	# Check for kings
+	addi $a0, $s1, 0		# $a0 = $s1, arg0 has start location of main board
+	addi $a1, $a2, 0		# $a1 = $a2, arg1 has space_to
+	jal king_me				# Check for kings
 	
 	# Collapse stack
 	lw $ra, 0($sp)			# $ra = [$sp+0]
 	add $sp, $sp, $s2		# Move stack pointer back to original location
 	
 	jr $ra					# Return
+
+king_me:
+	# Checks if a given checker should be kinged, and if so, kings it
+	# args: $a0 - start location of board in memory
+	#		$a1 - space in [0, 31]
+	
+	# Create stack
+	sub $sp, $sp, $s2		# Reserve 1 word on stack
+	sw $ra, 0($sp)			# [$sp+0] = $ra (save return address)
+	
+	addi $t0, $a0, $a1		# $t0 = location of space in memory
+	lw $t1, 0($t0)			# $t1 = checker at space in memory
+	
+	# If checker == 1...
+	addi $t2, $zero, 1		# $t2 = 1 for comparison
+	bne $t1, $t2, k_not_1	# Branch if checker != 1
+	
+	# If checker is in top row...
+	addi $t2, $zero, 28		# $t2 = 28 for comparison
+	blt $a1, $t2, ret_king	# Branch if checker not in kingable position
+							# because checker == 1 and pos < 28 (not in top row)
+							
+	# Make checker 1 a king!
+	addi $t3, $zero, 3		# $t3 = 3 (king value for player 1)
+	sw $t3, 0($t0)			# Store new king in memory
+	j ret_king				# Return because done
+	
+	# If checker == 2...
+	k_not_1:
+	addi $t2, $zero, 2		# $t2 = 2 for comparison
+	bne $t1, $t2, ret_king	# Branch if checker != 2
+	
+	# If checker is in bottom row...
+	addi $t2, $zero, 3		# $t2 = 3 for comparison
+	blt $t2, $a1, ret_king	# Branch if checker not in kingable position
+							# because checker == 2 and pos > 3 (not in bottom row)
+							
+	# Make checker 2 a king!
+	addi $t3, $zero, 3		# $t3 = 4 (king value for player 2)
+	sw $t3, 0($t0)			# Store new king in memory
+	j ret_king				# Return because done
+	
+	ret_king:
+	# Collapse stack
+	lw $ra, 0($sp)			# $ra = [$sp+0]
+	add $sp, $sp, $s2		# Move stack pointer back to original location
+	
+	jr $ra					# Return	
 
 find_move:
 	# Searches for the best move to make (this is the AI!)
