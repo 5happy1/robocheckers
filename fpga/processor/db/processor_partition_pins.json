@@ -116,6 +116,22 @@
 					"strict" : false
 				},
 				{
+					"name" : "serial_data_out",
+					"strict" : false
+				},
+				{
+					"name" : "serial_clock_out",
+					"strict" : false
+				},
+				{
+					"name" : "serial_data_in",
+					"strict" : false
+				},
+				{
+					"name" : "serial_clock_in",
+					"strict" : false
+				},
+				{
 					"name" : "clock",
 					"strict" : false
 				},

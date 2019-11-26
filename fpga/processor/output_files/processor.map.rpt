@@ -1,5 +1,5 @@
 Analysis & Synthesis report for processor
-Mon Nov 25 23:31:35 2019
+Tue Nov 26 13:05:55 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -109,14 +109,16 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 101. Port Connectivity Checks: "processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A"
 102. Port Connectivity Checks: "processor:my_processor|reg_DX:pipe_reg_dx|register:reg_instr"
 103. Port Connectivity Checks: "processor:my_processor|reg_DX:pipe_reg_dx|register:reg_pc"
-104. Port Connectivity Checks: "regfile_special:my_regfile|register:r0"
-105. Port Connectivity Checks: "regfile_special:my_regfile|decoder:decode_writeReg"
-106. Port Connectivity Checks: "regfile_special:my_regfile"
-107. Port Connectivity Checks: "imem:my_imem"
-108. Post-Synthesis Netlist Statistics for Top Partition
-109. Elapsed Time Per Partition
-110. Analysis & Synthesis Messages
-111. Analysis & Synthesis Suppressed Messages
+104. Port Connectivity Checks: "regfile_special:my_regfile|register:r27"
+105. Port Connectivity Checks: "regfile_special:my_regfile|register:r26"
+106. Port Connectivity Checks: "regfile_special:my_regfile|register:r0"
+107. Port Connectivity Checks: "regfile_special:my_regfile|decoder:decode_writeReg"
+108. Port Connectivity Checks: "regfile_special:my_regfile"
+109. Port Connectivity Checks: "imem:my_imem"
+110. Post-Synthesis Netlist Statistics for Top Partition
+111. Elapsed Time Per Partition
+112. Analysis & Synthesis Messages
+113. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -142,16 +144,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 25 23:31:35 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 26 13:05:55 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; processor                                   ;
 ; Top-level Entity Name              ; skeleton                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 4,730                                       ;
-;     Total combinational functions  ; 3,567                                       ;
-;     Dedicated logic registers      ; 1,912                                       ;
-; Total registers                    ; 1912                                        ;
-; Total pins                         ; 30                                          ;
+; Total logic elements               ; 4,720                                       ;
+;     Total combinational functions  ; 3,588                                       ;
+;     Dedicated logic registers      ; 1,929                                       ;
+; Total registers                    ; 1929                                        ;
+; Total pins                         ; 34                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 262,144                                     ;
 ; Embedded Multiplier 9-bit elements ; 8                                           ;
@@ -269,6 +271,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                   ; Library ;
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
+; derial.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/derial.v                   ;         ;
 ; trie_3bit.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/trie_3bit.v                ;         ;
 ; trie.v                           ; yes             ; User Verilog HDL File                  ; C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/trie.v                     ;         ;
 ; tflipflop.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/tflipflop.v                ;         ;
@@ -353,31 +356,31 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 4,730       ;
+; Estimated Total logic elements              ; 4,720       ;
 ;                                             ;             ;
-; Total combinational functions               ; 3567        ;
+; Total combinational functions               ; 3588        ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 2468        ;
-;     -- 3 input functions                    ; 726         ;
-;     -- <=2 input functions                  ; 373         ;
+;     -- 4 input functions                    ; 2415        ;
+;     -- 3 input functions                    ; 744         ;
+;     -- <=2 input functions                  ; 429         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 3250        ;
-;     -- arithmetic mode                      ; 317         ;
+;     -- normal mode                          ; 3240        ;
+;     -- arithmetic mode                      ; 348         ;
 ;                                             ;             ;
-; Total registers                             ; 1912        ;
-;     -- Dedicated logic registers            ; 1912        ;
+; Total registers                             ; 1929        ;
+;     -- Dedicated logic registers            ; 1929        ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 30          ;
+; I/O pins                                    ; 34          ;
 ; Total memory bits                           ; 262144      ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 8           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 1976        ;
-; Total fan-out                               ; 20948       ;
-; Average fan-out                             ; 3.73        ;
+; Maximum fan-out                             ; 1927        ;
+; Total fan-out                               ; 20844       ;
+; Average fan-out                             ; 3.68        ;
 +---------------------------------------------+-------------+
 
 
@@ -386,7 +389,8 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Entity Name              ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
-; |skeleton                                    ; 3567 (0)            ; 1912 (0)                  ; 262144      ; 8            ; 0       ; 4         ; 30   ; 0            ; |skeleton                                                                                                                ; skeleton                 ; work         ;
+; |skeleton                                    ; 3588 (0)            ; 1929 (0)                  ; 262144      ; 8            ; 0       ; 4         ; 34   ; 0            ; |skeleton                                                                                                                ; skeleton                 ; work         ;
+;    |derial:ddddd|                            ; 88 (88)             ; 66 (66)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|derial:ddddd                                                                                                   ; derial                   ; work         ;
 ;    |dmem:my_dmem|                            ; 0 (0)               ; 0 (0)                     ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|dmem:my_dmem                                                                                                   ; dmem                     ; work         ;
 ;       |altsyncram:altsyncram_component|      ; 0 (0)               ; 0 (0)                     ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|dmem:my_dmem|altsyncram:altsyncram_component                                                                   ; altsyncram               ; work         ;
 ;          |altsyncram_qoi1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_qoi1:auto_generated                                    ; altsyncram_qoi1          ; work         ;
@@ -398,9 +402,9 @@ refer to the applicable agreement for further details.
 ;       |digit_writer:d1|                      ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|move_7segment_writer:reg_7segment|digit_writer:d1                                                              ; digit_writer             ; work         ;
 ;       |digit_writer:d2|                      ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|move_7segment_writer:reg_7segment|digit_writer:d2                                                              ; digit_writer             ; work         ;
 ;       |digit_writer:d3|                      ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|move_7segment_writer:reg_7segment|digit_writer:d3                                                              ; digit_writer             ; work         ;
-;    |processor:my_processor|                  ; 2128 (134)          ; 920 (0)                   ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |skeleton|processor:my_processor                                                                                         ; processor                ; work         ;
-;       |adder:add_j1|                         ; 65 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:add_j1                                                                            ; adder                    ; work         ;
-;          |block_add_8:block_0|               ; 16 (8)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:add_j1|block_add_8:block_0                                                        ; block_add_8              ; work         ;
+;    |processor:my_processor|                  ; 2154 (134)          ; 920 (0)                   ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |skeleton|processor:my_processor                                                                                         ; processor                ; work         ;
+;       |adder:add_j1|                         ; 67 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:add_j1                                                                            ; adder                    ; work         ;
+;          |block_add_8:block_0|               ; 18 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:add_j1|block_add_8:block_0                                                        ; block_add_8              ; work         ;
 ;             |add_1:adder_0|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:add_j1|block_add_8:block_0|add_1:adder_0                                          ; add_1                    ; work         ;
 ;             |add_1:adder_1|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:add_j1|block_add_8:block_0|add_1:adder_1                                          ; add_1                    ; work         ;
 ;             |add_1:adder_2|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:add_j1|block_add_8:block_0|add_1:adder_2                                          ; add_1                    ; work         ;
@@ -474,9 +478,9 @@ refer to the applicable agreement for further details.
 ;             |add_1:adder_5|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:adder_pc|block_add_8:block_3|add_1:adder_5                                        ; add_1                    ; work         ;
 ;             |add_1:adder_6|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:adder_pc|block_add_8:block_3|add_1:adder_6                                        ; add_1                    ; work         ;
 ;             |add_1:adder_7|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|adder:adder_pc|block_add_8:block_3|add_1:adder_7                                        ; add_1                    ; work         ;
-;       |alu:alu_main|                         ; 445 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main                                                                            ; alu                      ; work         ;
-;          |adder:add|                         ; 195 (14)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add                                                                  ; adder                    ; work         ;
-;             |block_add_8:block_0|            ; 48 (39)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0                                              ; block_add_8              ; work         ;
+;       |alu:alu_main|                         ; 451 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main                                                                            ; alu                      ; work         ;
+;          |adder:add|                         ; 200 (14)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add                                                                  ; adder                    ; work         ;
+;             |block_add_8:block_0|            ; 44 (35)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0                                              ; block_add_8              ; work         ;
 ;                |add_1:adder_1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0|add_1:adder_1                                ; add_1                    ; work         ;
 ;                |add_1:adder_2|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0|add_1:adder_2                                ; add_1                    ; work         ;
 ;                |add_1:adder_3|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0|add_1:adder_3                                ; add_1                    ; work         ;
@@ -484,16 +488,16 @@ refer to the applicable agreement for further details.
 ;                |add_1:adder_5|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0|add_1:adder_5                                ; add_1                    ; work         ;
 ;                |add_1:adder_6|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0|add_1:adder_6                                ; add_1                    ; work         ;
 ;                |add_1:adder_7|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_0|add_1:adder_7                                ; add_1                    ; work         ;
-;             |block_add_8:block_1|            ; 47 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1                                              ; block_add_8              ; work         ;
+;             |block_add_8:block_1|            ; 50 (38)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1                                              ; block_add_8              ; work         ;
 ;                |add_1:adder_0|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_0                                ; add_1                    ; work         ;
 ;                |add_1:adder_1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_1                                ; add_1                    ; work         ;
 ;                |add_1:adder_2|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_2                                ; add_1                    ; work         ;
 ;                |add_1:adder_3|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_3                                ; add_1                    ; work         ;
 ;                |add_1:adder_4|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_4                                ; add_1                    ; work         ;
-;                |add_1:adder_5|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_5                                ; add_1                    ; work         ;
-;                |add_1:adder_6|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_6                                ; add_1                    ; work         ;
-;                |add_1:adder_7|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_7                                ; add_1                    ; work         ;
-;             |block_add_8:block_2|            ; 45 (34)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2                                              ; block_add_8              ; work         ;
+;                |add_1:adder_5|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_5                                ; add_1                    ; work         ;
+;                |add_1:adder_6|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_6                                ; add_1                    ; work         ;
+;                |add_1:adder_7|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_1|add_1:adder_7                                ; add_1                    ; work         ;
+;             |block_add_8:block_2|            ; 47 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2                                              ; block_add_8              ; work         ;
 ;                |add_1:adder_0|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2|add_1:adder_0                                ; add_1                    ; work         ;
 ;                |add_1:adder_1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2|add_1:adder_1                                ; add_1                    ; work         ;
 ;                |add_1:adder_2|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2|add_1:adder_2                                ; add_1                    ; work         ;
@@ -502,39 +506,40 @@ refer to the applicable agreement for further details.
 ;                |add_1:adder_5|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2|add_1:adder_5                                ; add_1                    ; work         ;
 ;                |add_1:adder_6|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2|add_1:adder_6                                ; add_1                    ; work         ;
 ;                |add_1:adder_7|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_2|add_1:adder_7                                ; add_1                    ; work         ;
-;             |block_add_8:block_3|            ; 34 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3                                              ; block_add_8              ; work         ;
+;             |block_add_8:block_3|            ; 37 (29)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3                                              ; block_add_8              ; work         ;
 ;                |add_1:adder_0|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_0                                ; add_1                    ; work         ;
 ;                |add_1:adder_2|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_2                                ; add_1                    ; work         ;
-;                |add_1:adder_3|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_3                                ; add_1                    ; work         ;
+;                |add_1:adder_3|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_3                                ; add_1                    ; work         ;
 ;                |add_1:adder_4|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_4                                ; add_1                    ; work         ;
 ;                |add_1:adder_5|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_5                                ; add_1                    ; work         ;
 ;                |add_1:adder_6|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_6                                ; add_1                    ; work         ;
 ;                |add_1:adder_7|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|block_add_8:block_3|add_1:adder_7                                ; add_1                    ; work         ;
-;             |mux_2:mux0|                     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|mux_2:mux0                                                       ; mux_2                    ; work         ;
+;             |mux_2:mux0|                     ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|adder:add|mux_2:mux0                                                       ; mux_2                    ; work         ;
 ;          |mux_8:mux_final|                   ; 17 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|mux_8:mux_final                                                            ; mux_8                    ; work         ;
 ;             |mux_2:mux_00|                   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|mux_8:mux_final|mux_2:mux_00                                               ; mux_2                    ; work         ;
 ;             |mux_4:mux_11|                   ; 9 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|mux_8:mux_final|mux_4:mux_11                                               ; mux_4                    ; work         ;
 ;                |mux_2:mux_10|                ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|mux_8:mux_final|mux_4:mux_11|mux_2:mux_10                                  ; mux_2                    ; work         ;
-;          |sll:sll0|                          ; 104 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0                                                                   ; sll                      ; work         ;
+;          |sll:sll0|                          ; 102 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0                                                                   ; sll                      ; work         ;
 ;             |mux_2:m16|                      ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m16                                                         ; mux_2                    ; work         ;
 ;             |mux_2:m2|                       ; 42 (42)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m2                                                          ; mux_2                    ; work         ;
 ;             |mux_2:m4|                       ; 39 (39)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m4                                                          ; mux_2                    ; work         ;
-;             |mux_2:m8|                       ; 20 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m8                                                          ; mux_2                    ; work         ;
-;          |sra:sra0|                          ; 129 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0                                                                   ; sra                      ; work         ;
+;             |mux_2:m8|                       ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m8                                                          ; mux_2                    ; work         ;
+;          |sra:sra0|                          ; 132 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0                                                                   ; sra                      ; work         ;
 ;             |mux_2:m16|                      ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m16                                                         ; mux_2                    ; work         ;
-;             |mux_2:m2|                       ; 71 (71)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m2                                                          ; mux_2                    ; work         ;
-;             |mux_2:m4|                       ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m4                                                          ; mux_2                    ; work         ;
-;             |mux_2:m8|                       ; 22 (22)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m8                                                          ; mux_2                    ; work         ;
-;       |controls_D:ctrls_D|                   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_D:ctrls_D                                                                      ; controls_D               ; work         ;
-;       |controls_E:ctrls_E|                   ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_E:ctrls_E                                                                      ; controls_E               ; work         ;
+;             |mux_2:m2|                       ; 72 (72)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m2                                                          ; mux_2                    ; work         ;
+;             |mux_2:m4|                       ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m4                                                          ; mux_2                    ; work         ;
+;             |mux_2:m8|                       ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m8                                                          ; mux_2                    ; work         ;
+;       |controls_D:ctrls_D|                   ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_D:ctrls_D                                                                      ; controls_D               ; work         ;
+;       |controls_E:ctrls_E|                   ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_E:ctrls_E                                                                      ; controls_E               ; work         ;
 ;       |controls_P:ctrls_P|                   ; 5 (4)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_P:ctrls_P                                                                      ; controls_P               ; work         ;
 ;          |tflipflop:tff1|                    ; 1 (0)               ; 1 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_P:ctrls_P|tflipflop:tff1                                                       ; tflipflop                ; work         ;
 ;             |dflippymcflopface:dflipper|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_P:ctrls_P|tflipflop:tff1|dflippymcflopface:dflipper                            ; dflippymcflopface        ; work         ;
 ;       |controls_W:ctrls_W|                   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_W:ctrls_W                                                                      ; controls_W               ; work         ;
-;       |controls_bypassing:ctrls_bypassing|   ; 70 (49)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing                                                      ; controls_bypassing       ; work         ;
+;       |controls_bypassing:ctrls_bypassing|   ; 70 (48)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing                                                      ; controls_bypassing       ; work         ;
 ;          |comp_2_5bit:comp_alu_in_A_3|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|comp_2_5bit:comp_alu_in_A_3                          ; comp_2_5bit              ; work         ;
 ;          |comp_2_5bit:comp_alu_in_B_1|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|comp_2_5bit:comp_alu_in_B_1                          ; comp_2_5bit              ; work         ;
-;          |comp_2_5bit:comp_alu_in_B_2|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|comp_2_5bit:comp_alu_in_B_2                          ; comp_2_5bit              ; work         ;
+;          |comp_2_5bit:comp_alu_in_B_4|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|comp_2_5bit:comp_alu_in_B_4                          ; comp_2_5bit              ; work         ;
+;          |comp_2_5bit:comp_alu_in_B_6|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|comp_2_5bit:comp_alu_in_B_6                          ; comp_2_5bit              ; work         ;
 ;          |comp_2_5bit:comp_dm|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|comp_2_5bit:comp_dm                                  ; comp_2_5bit              ; work         ;
 ;          |comp_2_5bit:comp_fd_store|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|comp_2_5bit:comp_fd_store                            ; comp_2_5bit              ; work         ;
 ;          |neq_zero_32:is_dx_A_out_zero|      ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|neq_zero_32:is_dx_A_out_zero                         ; neq_zero_32              ; work         ;
@@ -542,8 +547,8 @@ refer to the applicable agreement for further details.
 ;             |comp_2_5bit:comp_1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|controls_bypassing:ctrls_bypassing|op_valid_for_bypass_back:valid_xm|comp_2_5bit:comp_1 ; comp_2_5bit              ; work         ;
 ;       |exception_alu:ex_alu|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|exception_alu:ex_alu                                                                    ; exception_alu            ; work         ;
 ;       |exception_md:emd|                     ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|exception_md:emd                                                                        ; exception_md             ; work         ;
-;       |multdiv:md|                           ; 698 (35)            ; 368 (0)                   ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |skeleton|processor:my_processor|multdiv:md                                                                              ; multdiv                  ; work         ;
-;          |divider:div|                       ; 363 (363)           ; 200 (200)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|multdiv:md|divider:div                                                                  ; divider                  ; work         ;
+;       |multdiv:md|                           ; 697 (35)            ; 368 (0)                   ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |skeleton|processor:my_processor|multdiv:md                                                                              ; multdiv                  ; work         ;
+;          |divider:div|                       ; 362 (362)           ; 200 (200)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|multdiv:md|divider:div                                                                  ; divider                  ; work         ;
 ;          |multiplier:mult|                   ; 300 (254)           ; 168 (168)                 ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult                                                              ; multiplier               ; work         ;
 ;             |lpm_mult:Mult0|                 ; 46 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|lpm_mult:Mult0                                               ; lpm_mult                 ; work         ;
 ;                |mult_46t:auto_generated|     ; 46 (46)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|lpm_mult:Mult0|mult_46t:auto_generated                       ; mult_46t                 ; work         ;
@@ -552,14 +557,14 @@ refer to the applicable agreement for further details.
 ;       |mux_2:mux_dx_instr_in|                ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2:mux_dx_instr_in                                                                   ; mux_2                    ; work         ;
 ;       |mux_2:mux_fd_instr_in|                ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2:mux_fd_instr_in                                                                   ; mux_2                    ; work         ;
 ;       |mux_2:mux_next_pc|                    ; 69 (69)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2:mux_next_pc                                                                       ; mux_2                    ; work         ;
-;       |mux_2:mux_reg_din_alpha|              ; 68 (68)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha                                                                 ; mux_2                    ; work         ;
-;       |mux_2_3bit:mux_ex_choice|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_3bit:mux_ex_choice                                                                ; mux_2_3bit               ; work         ;
+;       |mux_2:mux_reg_din_alpha|              ; 70 (70)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha                                                                 ; mux_2                    ; work         ;
+;       |mux_2_3bit:mux_ex_choice|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_3bit:mux_ex_choice                                                                ; mux_2_3bit               ; work         ;
 ;       |mux_2_5bit:mux_alu_op|                ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_5bit:mux_alu_op                                                                   ; mux_2_5bit               ; work         ;
-;       |mux_2_5bit:mux_reg_d_alpha|           ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_5bit:mux_reg_d_alpha                                                              ; mux_2_5bit               ; work         ;
-;       |mux_2_5bit:mux_regfile_s1|            ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_5bit:mux_regfile_s1                                                               ; mux_2_5bit               ; work         ;
+;       |mux_2_5bit:mux_reg_d_alpha|           ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_5bit:mux_reg_d_alpha                                                              ; mux_2_5bit               ; work         ;
+;       |mux_2_5bit:mux_regfile_s1|            ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_5bit:mux_regfile_s1                                                               ; mux_2_5bit               ; work         ;
 ;       |mux_2_5bit:mux_regfile_s2|            ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|mux_2_5bit:mux_regfile_s2                                                               ; mux_2_5bit               ; work         ;
-;       |reg_DX:pipe_reg_dx|                   ; 10 (0)              ; 128 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx                                                                      ; reg_DX                   ; work         ;
-;          |register:reg_A|                    ; 5 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A                                                       ; register                 ; work         ;
+;       |reg_DX:pipe_reg_dx|                   ; 26 (0)              ; 128 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx                                                                      ; reg_DX                   ; work         ;
+;          |register:reg_A|                    ; 15 (0)              ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A                                                       ; register                 ; work         ;
 ;             |dflippymcflopface:dffe0|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe0                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe10|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe10                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe11|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe11                              ; dflippymcflopface        ; work         ;
@@ -568,9 +573,9 @@ refer to the applicable agreement for further details.
 ;             |dflippymcflopface:dffe14|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe14                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe15|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe15                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe16|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe16                              ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe17|       ; 5 (5)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe17                              ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe17|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe17                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe18|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe18                              ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe19|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe19                              ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe19|       ; 4 (4)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe19                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe1|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe1                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe20|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe20                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe21|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe21                              ; dflippymcflopface        ; work         ;
@@ -585,20 +590,20 @@ refer to the applicable agreement for further details.
 ;             |dflippymcflopface:dffe2|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe2                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe30|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe30                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe31|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe31                              ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe3|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe3                               ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe3|        ; 6 (6)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe3                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe4|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe4                               ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe5|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe5                               ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe5|        ; 5 (5)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe5                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe6|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe6                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe7|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe7                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe8|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe8                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe9|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe9                               ; dflippymcflopface        ; work         ;
-;          |register:reg_B|                    ; 5 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B                                                       ; register                 ; work         ;
+;          |register:reg_B|                    ; 11 (0)              ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B                                                       ; register                 ; work         ;
 ;             |dflippymcflopface:dffe0|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe0                               ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe10|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe10                              ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe10|       ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe10                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe11|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe11                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe12|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe12                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe13|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe13                              ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe14|       ; 5 (5)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe14                              ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe14|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe14                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe15|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe15                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe16|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe16                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe17|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe17                              ; dflippymcflopface        ; work         ;
@@ -615,14 +620,14 @@ refer to the applicable agreement for further details.
 ;             |dflippymcflopface:dffe27|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe27                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe28|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe28                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe29|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe29                              ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe2|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe2                               ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe2|        ; 5 (5)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe2                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe30|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe30                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe31|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe31                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe3|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe3                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe4|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe4                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe5|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe5                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe6|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe6                               ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe7|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe7                               ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe7|        ; 4 (4)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe7                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe8|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe8                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe9|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe9                               ; dflippymcflopface        ; work         ;
 ;          |register:reg_instr|                ; 0 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_instr                                                   ; register                 ; work         ;
@@ -1006,7 +1011,7 @@ refer to the applicable agreement for further details.
 ;          |register:reg_O|                    ; 3 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O                                                       ; register                 ; work         ;
 ;             |dflippymcflopface:dffe0|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe0                               ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe10|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe10                              ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe11|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe11                              ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe11|       ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe11                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe12|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe12                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe13|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe13                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe14|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe14                              ; dflippymcflopface        ; work         ;
@@ -1023,7 +1028,7 @@ refer to the applicable agreement for further details.
 ;             |dflippymcflopface:dffe24|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe24                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe25|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe25                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe26|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe26                              ; dflippymcflopface        ; work         ;
-;             |dflippymcflopface:dffe27|       ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe27                              ; dflippymcflopface        ; work         ;
+;             |dflippymcflopface:dffe27|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe27                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe28|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe28                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe29|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe29                              ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe2|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe2                               ; dflippymcflopface        ; work         ;
@@ -1105,7 +1110,7 @@ refer to the applicable agreement for further details.
 ;          |register_3bit:reg_E|               ; 0 (0)               ; 2 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register_3bit:reg_E                                                  ; register_3bit            ; work         ;
 ;             |dflippymcflopface:dffe0|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register_3bit:reg_E|dflippymcflopface:dffe0                          ; dflippymcflopface        ; work         ;
 ;             |dflippymcflopface:dffe1|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register_3bit:reg_E|dflippymcflopface:dffe1                          ; dflippymcflopface        ; work         ;
-;       |register:reg_pc|                      ; 2 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc                                                                         ; register                 ; work         ;
+;       |register:reg_pc|                      ; 3 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc                                                                         ; register                 ; work         ;
 ;          |dflippymcflopface:dffe0|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe0                                                 ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe10|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe10                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe11|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe11                                                ; dflippymcflopface        ; work         ;
@@ -1120,9 +1125,9 @@ refer to the applicable agreement for further details.
 ;          |dflippymcflopface:dffe1|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe1                                                 ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe20|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe20                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe21|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe21                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe22|          ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe22                                                ; dflippymcflopface        ; work         ;
+;          |dflippymcflopface:dffe22|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe22                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe23|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe23                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe24|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe24                                                ; dflippymcflopface        ; work         ;
+;          |dflippymcflopface:dffe24|          ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe24                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe25|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe25                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe26|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe26                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe27|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe27                                                ; dflippymcflopface        ; work         ;
@@ -1138,11 +1143,11 @@ refer to the applicable agreement for further details.
 ;          |dflippymcflopface:dffe7|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe7                                                 ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe8|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe8                                                 ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe9|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe9                                                 ; dflippymcflopface        ; work         ;
-;       |trie:t_ex0|                           ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|trie:t_ex0                                                                              ; trie                     ; work         ;
-;       |trie:t_ex1|                           ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|trie:t_ex1                                                                              ; trie                     ; work         ;
-;       |trie:t_pw0|                           ; 70 (70)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|trie:t_pw0                                                                              ; trie                     ; work         ;
-;    |regfile_special:my_regfile|              ; 1383 (1344)         ; 992 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile                                                                                     ; regfile_special          ; work         ;
-;       |decoder:decode_writeReg|              ; 39 (39)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|decoder:decode_writeReg                                                             ; decoder                  ; work         ;
+;       |trie:t_ex0|                           ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|trie:t_ex0                                                                              ; trie                     ; work         ;
+;       |trie:t_ex1|                           ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|trie:t_ex1                                                                              ; trie                     ; work         ;
+;       |trie:t_pw0|                           ; 69 (69)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|processor:my_processor|trie:t_pw0                                                                              ; trie                     ; work         ;
+;    |regfile_special:my_regfile|              ; 1290 (1252)         ; 943 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile                                                                                     ; regfile_special          ; work         ;
+;       |decoder:decode_writeReg|              ; 38 (38)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|decoder:decode_writeReg                                                             ; decoder                  ; work         ;
 ;       |register:r10|                         ; 0 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r10                                                                        ; register                 ; work         ;
 ;          |dflippymcflopface:dffe0|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r10|dflippymcflopface:dffe0                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe10|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r10|dflippymcflopface:dffe10                                               ; dflippymcflopface        ; work         ;
@@ -1704,32 +1709,10 @@ refer to the applicable agreement for further details.
 ;          |dflippymcflopface:dffe7|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r25|dflippymcflopface:dffe7                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe8|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r25|dflippymcflopface:dffe8                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe9|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r25|dflippymcflopface:dffe9                                                ; dflippymcflopface        ; work         ;
-;       |register:r26|                         ; 0 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26                                                                        ; register                 ; work         ;
+;       |register:r26|                         ; 0 (0)               ; 10 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26                                                                        ; register                 ; work         ;
 ;          |dflippymcflopface:dffe0|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe0                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe10|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe10                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe11|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe11                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe12|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe12                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe13|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe13                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe14|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe14                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe15|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe15                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe16|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe16                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe17|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe17                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe18|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe18                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe19|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe19                                               ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe1|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe1                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe20|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe20                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe21|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe21                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe22|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe22                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe23|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe23                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe24|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe24                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe25|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe25                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe26|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe26                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe27|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe27                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe28|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe28                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe29|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe29                                               ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe2|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe2                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe30|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe30                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe31|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe31                                               ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe3|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe3                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe4|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe4                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe5|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe5                                                ; dflippymcflopface        ; work         ;
@@ -1737,39 +1720,12 @@ refer to the applicable agreement for further details.
 ;          |dflippymcflopface:dffe7|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe7                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe8|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe8                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe9|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r26|dflippymcflopface:dffe9                                                ; dflippymcflopface        ; work         ;
-;       |register:r27|                         ; 0 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27                                                                        ; register                 ; work         ;
+;       |register:r27|                         ; 0 (0)               ; 5 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27                                                                        ; register                 ; work         ;
 ;          |dflippymcflopface:dffe0|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe0                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe10|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe10                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe11|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe11                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe12|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe12                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe13|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe13                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe14|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe14                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe15|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe15                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe16|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe16                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe17|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe17                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe18|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe18                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe19|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe19                                               ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe1|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe1                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe20|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe20                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe21|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe21                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe22|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe22                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe23|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe23                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe24|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe24                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe25|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe25                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe26|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe26                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe27|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe27                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe28|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe28                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe29|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe29                                               ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe2|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe2                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe30|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe30                                               ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe31|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe31                                               ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe3|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe3                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe4|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe4                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe5|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe5                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe6|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe6                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe7|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe7                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe8|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe8                                                ; dflippymcflopface        ; work         ;
-;          |dflippymcflopface:dffe9|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r27|dflippymcflopface:dffe9                                                ; dflippymcflopface        ; work         ;
 ;       |register:r28|                         ; 0 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r28                                                                        ; register                 ; work         ;
 ;          |dflippymcflopface:dffe0|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r28|dflippymcflopface:dffe0                                                ; dflippymcflopface        ; work         ;
 ;          |dflippymcflopface:dffe10|          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |skeleton|regfile_special:my_regfile|register:r28|dflippymcflopface:dffe10                                               ; dflippymcflopface        ; work         ;
@@ -2203,8 +2159,58 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +-----------------------------------------------------------------------------------------+---------------------------------------------------------------------+
 ; Register name                                                                           ; Reason for Removal                                                  ;
 +-----------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+; derial:ddddd|curr_expected_length[0,2,4..31]                                            ; Stuck at GND due to stuck port data_in                              ;
 ; processor:my_processor|multdiv:md|multiplier:mult|S[0..32]                              ; Stuck at GND due to stuck port data_in                              ;
 ; processor:my_processor|multdiv:md|multiplier:mult|A[0..32]                              ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe31|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe30|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe29|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe28|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe27|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe26|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe25|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe24|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe23|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe22|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe21|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe20|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe19|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe18|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe17|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe16|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe15|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe14|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe13|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe12|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe11|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe10|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe9|q                       ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe8|q                       ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe7|q                       ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe6|q                       ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r27|dflippymcflopface:dffe5|q                       ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe31|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe30|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe29|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe28|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe27|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe26|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe25|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe24|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe23|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe22|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe21|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe20|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe19|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe18|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe17|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe16|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe15|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe14|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe13|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe12|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe11|q                      ; Stuck at GND due to stuck port data_in                              ;
+; regfile_special:my_regfile|register:r26|dflippymcflopface:dffe10|q                      ; Stuck at GND due to stuck port data_in                              ;
 ; regfile_special:my_regfile|register:r0|dflippymcflopface:dffe31|q                       ; Stuck at GND due to stuck port clock                                ;
 ; regfile_special:my_regfile|register:r0|dflippymcflopface:dffe30|q                       ; Stuck at GND due to stuck port clock                                ;
 ; regfile_special:my_regfile|register:r0|dflippymcflopface:dffe29|q                       ; Stuck at GND due to stuck port clock                                ;
@@ -2240,11 +2246,12 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; processor:my_processor|reg_PW:pipe_reg_pw|register_3bit:reg_e|dflippymcflopface:dffe1|q ; Stuck at GND due to stuck port data_in                              ;
 ; processor:my_processor|reg_XM:pipe_reg_xm|register_3bit:reg_E|dflippymcflopface:dffe2|q ; Stuck at GND due to stuck port data_in                              ;
 ; processor:my_processor|reg_MW:pipe_reg_mw|register_3bit:reg_E|dflippymcflopface:dffe2|q ; Stuck at GND due to stuck port data_in                              ;
+; derial:ddddd|curr_expected_length[3]                                                    ; Merged with derial:ddddd|curr_expected_length[1]                    ;
 ; processor:my_processor|multdiv:md|multiplier:mult|P[64]                                 ; Stuck at GND due to stuck port data_in                              ;
 ; processor:my_processor|multdiv:md|multiplier:mult|A[33]                                 ; Merged with processor:my_processor|multdiv:md|multiplier:mult|S[33] ;
 ; processor:my_processor|multdiv:md|divider:div|divisor_copy[63]                          ; Stuck at GND due to stuck port data_in                              ;
 ; processor:my_processor|multdiv:md|divider:div|dividend_copy[63]                         ; Stuck at GND due to stuck port data_in                              ;
-; Total Number of Removed Registers = 105                                                 ;                                                                     ;
+; Total Number of Removed Registers = 185                                                 ;                                                                     ;
 +-----------------------------------------------------------------------------------------+---------------------------------------------------------------------+
 
 
@@ -2263,12 +2270,12 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1912  ;
+; Total registers                              ; 1929  ;
 ; Number of registers using Synchronous Clear  ; 41    ;
 ; Number of registers using Synchronous Load   ; 95    ;
-; Number of registers using Asynchronous Clear ; 1544  ;
+; Number of registers using Asynchronous Clear ; 1495  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1477  ;
+; Number of registers using Clock Enable       ; 1433  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -2279,7 +2286,12 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; Inverted Register                                      ; Fan out ;
 +--------------------------------------------------------+---------+
 ; processor:my_processor|multdiv:md|divider:div|count[5] ; 2       ;
-; Total number of inverted registers = 1                 ;         ;
+; derial:ddddd|buffer_pos[3]                             ; 12      ;
+; derial:ddddd|buffer_pos[1]                             ; 8       ;
+; derial:ddddd|buffer_pos[4]                             ; 2       ;
+; derial:ddddd|buffer_pos[2]                             ; 8       ;
+; derial:ddddd|buffer_pos[0]                             ; 9       ;
+; Total number of inverted registers = 6                 ;         ;
 +--------------------------------------------------------+---------+
 
 
@@ -2288,29 +2300,33 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
-; 3:1                ; 62 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|Q[15]                                 ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|dividend_copy[38]                     ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|P[1]                              ;
+; 3:1                ; 62 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|Q[29]                                 ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|dividend_copy[59]                     ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|P[25]                             ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|dividend_neg                          ;
-; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|divisor_copy[60]                      ;
-; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|dividend_copy[21]                     ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe27|q                   ;
-; 4:1                ; 27 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe22|q                   ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|P[62]                             ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|count[3]                          ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe14|q ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe17|q ;
-; 9:1                ; 30 bits   ; 180 LEs       ; 150 LEs              ; 30 LEs                 ; Yes        ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe27|q ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha|out[27]                              ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha|out[22]                              ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m8|out[24]                       ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu_in_B4[13]                                                ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|divisor_copy[31]                      ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|divider:div|dividend_copy[27]                     ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe31|q                   ;
+; 4:1                ; 27 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|register:reg_pc|dflippymcflopface:dffe24|q                   ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|P[44]                             ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |skeleton|processor:my_processor|multdiv:md|multiplier:mult|count[4]                          ;
+; 32:1               ; 22 bits   ; 462 LEs       ; 440 LEs              ; 22 LEs                 ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe10|q ;
+; 32:1               ; 5 bits    ; 105 LEs       ; 100 LEs              ; 5 LEs                  ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe7|q  ;
+; 32:1               ; 5 bits    ; 105 LEs       ; 105 LEs              ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_B|dflippymcflopface:dffe2|q  ;
+; 32:1               ; 22 bits   ; 462 LEs       ; 440 LEs              ; 22 LEs                 ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe19|q ;
+; 32:1               ; 5 bits    ; 105 LEs       ; 100 LEs              ; 5 LEs                  ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe5|q  ;
+; 32:1               ; 5 bits    ; 105 LEs       ; 105 LEs              ; 0 LEs                  ; Yes        ; |skeleton|processor:my_processor|reg_DX:pipe_reg_dx|register:reg_A|dflippymcflopface:dffe3|q  ;
+; 9:1                ; 30 bits   ; 180 LEs       ; 150 LEs              ; 30 LEs                 ; Yes        ; |skeleton|processor:my_processor|reg_XM:pipe_reg_xm|register:reg_O|dflippymcflopface:dffe11|q ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha|out[29]                              ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha|out[23]                              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu:alu_main|sra:sra0|mux_2:m8|out[6]                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu_in_B4[1]                                                 ;
 ; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu_in_A[2]                                                  ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |skeleton|processor:my_processor|multdiv:md|divider:div|count                                 ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|multdiv:md|divider:div|count                                 ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|multdiv:md|divider:div|count                                 ;
-; 4:1                ; 22 bits   ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha|out[10]                              ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m4|out[29]                       ;
+; 4:1                ; 22 bits   ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|mux_2:mux_reg_din_alpha|out[12]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m4|out[28]                       ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |skeleton|processor:my_processor|alu:alu_main|sll:sll0|mux_2:m2|out[30]                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
 
@@ -3350,6 +3366,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+-------+----------+-----------------------------------------------------+
 
 
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile_special:my_regfile|register:r27" ;
++--------------+-------+----------+-----------------------------------+
+; Port         ; Type  ; Severity ; Details                           ;
++--------------+-------+----------+-----------------------------------+
+; input_enable ; Input ; Info     ; Stuck at VCC                      ;
++--------------+-------+----------+-----------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile_special:my_regfile|register:r26" ;
++--------------+-------+----------+-----------------------------------+
+; Port         ; Type  ; Severity ; Details                           ;
++--------------+-------+----------+-----------------------------------+
+; input_enable ; Input ; Info     ; Stuck at VCC                      ;
++--------------+-------+----------+-----------------------------------+
+
+
 +--------------------------------------------------------------------+
 ; Port Connectivity Checks: "regfile_special:my_regfile|register:r0" ;
 +--------------+-------+----------+----------------------------------+
@@ -3362,13 +3396,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+-------+----------+----------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "regfile_special:my_regfile|decoder:decode_writeReg"                                   ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; out[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "regfile_special:my_regfile|decoder:decode_writeReg"                                        ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; out[27..26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; out[0]      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------+
@@ -3378,6 +3413,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; r28_outraw[31..25] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; r28_outraw[4..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r1_outraw          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +--------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -3395,31 +3431,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 30                          ;
-; cycloneiii_ff         ; 1912                        ;
-;     CLR               ; 420                         ;
+; boundary_port         ; 34                          ;
+; cycloneiii_ff         ; 1929                        ;
+;     CLR               ; 435                         ;
 ;     CLR SCLR          ; 4                           ;
-;     ENA               ; 225                         ;
-;     ENA CLR           ; 1120                        ;
+;     ENA               ; 245                         ;
+;     ENA CLR           ; 1056                        ;
 ;     ENA SCLR          ; 37                          ;
 ;     ENA SLD           ; 95                          ;
-;     plain             ; 11                          ;
-; cycloneiii_lcell_comb ; 3567                        ;
-;     arith             ; 317                         ;
-;         2 data inputs ; 122                         ;
+;     plain             ; 57                          ;
+; cycloneiii_lcell_comb ; 3588                        ;
+;     arith             ; 348                         ;
+;         2 data inputs ; 153                         ;
 ;         3 data inputs ; 195                         ;
-;     normal            ; 3250                        ;
+;     normal            ; 3240                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 6                           ;
-;         2 data inputs ; 243                         ;
-;         3 data inputs ; 531                         ;
-;         4 data inputs ; 2468                        ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 263                         ;
+;         3 data inputs ; 549                         ;
+;         4 data inputs ; 2415                        ;
 ; cycloneiii_mac_mult   ; 4                           ;
 ; cycloneiii_mac_out    ; 4                           ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 28.00                       ;
-; Average LUT depth     ; 10.01                       ;
+; Max LUT depth         ; 29.00                       ;
+; Average LUT depth     ; 9.79                        ;
 +-----------------------+-----------------------------+
 
 
@@ -3428,7 +3464,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:12     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -3438,10 +3474,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Nov 25 23:30:53 2019
+    Info: Processing started: Tue Nov 26 13:05:28 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file derial.v
+    Info (12023): Found entity 1: derial File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/derial.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file trie_5bit.v
     Info (12023): Found entity 1: trie_5bit File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/trie_5bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file trie_3bit.v
@@ -3587,7 +3625,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file move_7s
 Info (12021): Found 1 design units, including 1 entities, in source file regfile_special.v
     Info (12023): Found entity 1: regfile_special File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 1
 Info (12127): Elaborating entity "skeleton" for the top level hierarchy
-Info (12128): Elaborating entity "imem" for hierarchy "imem:my_imem" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 32
+Info (12128): Elaborating entity "imem" for hierarchy "imem:my_imem" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 36
 Info (12128): Elaborating entity "altsyncram" for hierarchy "imem:my_imem|altsyncram:altsyncram_component" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/imem.v Line: 84
 Info (12130): Elaborated megafunction instantiation "imem:my_imem|altsyncram:altsyncram_component" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/imem.v Line: 84
 Info (12133): Instantiated megafunction "imem:my_imem|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/imem.v Line: 84
@@ -3608,7 +3646,7 @@ Info (12133): Instantiated megafunction "imem:my_imem|altsyncram:altsyncram_comp
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_g9b1.tdf
     Info (12023): Found entity 1: altsyncram_g9b1 File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/db/altsyncram_g9b1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_g9b1" for hierarchy "imem:my_imem|altsyncram:altsyncram_component|altsyncram_g9b1:auto_generated" File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:my_dmem" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 47
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:my_dmem" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 51
 Info (12128): Elaborating entity "altsyncram" for hierarchy "dmem:my_dmem|altsyncram:altsyncram_component" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/dmem.v Line: 85
 Info (12130): Elaborated megafunction instantiation "dmem:my_dmem|altsyncram:altsyncram_component" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/dmem.v Line: 85
 Info (12133): Instantiated megafunction "dmem:my_dmem|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/dmem.v Line: 85
@@ -3630,12 +3668,13 @@ Info (12133): Instantiated megafunction "dmem:my_dmem|altsyncram:altsyncram_comp
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qoi1.tdf
     Info (12023): Found entity 1: altsyncram_qoi1 File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/db/altsyncram_qoi1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_qoi1" for hierarchy "dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_qoi1:auto_generated" File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "regfile_special" for hierarchy "regfile_special:my_regfile" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 66
-Info (12128): Elaborating entity "decoder" for hierarchy "regfile_special:my_regfile|decoder:decode_writeReg" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 29
-Info (12128): Elaborating entity "register" for hierarchy "regfile_special:my_regfile|register:r0" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 64
+Info (12128): Elaborating entity "regfile_special" for hierarchy "regfile_special:my_regfile" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 71
+Warning (10034): Output port "r1_outraw" at regfile_special.v(17) has no driver File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 17
+Info (12128): Elaborating entity "decoder" for hierarchy "regfile_special:my_regfile|decoder:decode_writeReg" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 32
+Info (12128): Elaborating entity "register" for hierarchy "regfile_special:my_regfile|register:r0" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 67
 Info (12128): Elaborating entity "dflippymcflopface" for hierarchy "regfile_special:my_regfile|register:r0|dflippymcflopface:dffe0" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/register.v Line: 7
-Info (12128): Elaborating entity "trie" for hierarchy "regfile_special:my_regfile|trie:trie_a0" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 102
-Info (12128): Elaborating entity "processor" for hierarchy "processor:my_processor" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 92
+Info (12128): Elaborating entity "trie" for hierarchy "regfile_special:my_regfile|trie:trie_a0" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/regfile_special.v Line: 105
+Info (12128): Elaborating entity "processor" for hierarchy "processor:my_processor" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 97
 Info (12128): Elaborating entity "reg_FD" for hierarchy "processor:my_processor|reg_FD:pipe_reg_fd" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/processor.v Line: 148
 Info (12128): Elaborating entity "reg_DX" for hierarchy "processor:my_processor|reg_DX:pipe_reg_dx" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/processor.v Line: 149
 Info (12128): Elaborating entity "reg_XM" for hierarchy "processor:my_processor|reg_XM:pipe_reg_xm" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/processor.v Line: 150
@@ -3694,8 +3733,9 @@ Warning (10036): Verilog HDL or VHDL warning at divider.v(10): object "remainder
 Warning (10230): Verilog HDL assignment warning at divider.v(55): truncated value with size 64 to match size of target (32) File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/divider.v Line: 55
 Warning (10230): Verilog HDL assignment warning at divider.v(83): truncated value with size 32 to match size of target (6) File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/divider.v Line: 83
 Info (12128): Elaborating entity "exception_md" for hierarchy "processor:my_processor|exception_md:emd" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/processor.v Line: 339
-Info (12128): Elaborating entity "move_7segment_writer" for hierarchy "move_7segment_writer:reg_7segment" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 95
+Info (12128): Elaborating entity "move_7segment_writer" for hierarchy "move_7segment_writer:reg_7segment" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 100
 Info (12128): Elaborating entity "digit_writer" for hierarchy "move_7segment_writer:reg_7segment|digit_writer:d0" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/move_7segment_writer.v Line: 6
+Info (12128): Elaborating entity "derial" for hierarchy "derial:ddddd" File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 103
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13048): Converted tri-state node "processor:my_processor|write_instr_out[31]" into a selector File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/controls_W.v Line: 5
     Warning (13048): Converted tri-state node "processor:my_processor|write_instr_out[30]" into a selector File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/controls_W.v Line: 5
@@ -3983,17 +4023,17 @@ Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/output_files/processor.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4966 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 4864 logic cells
+Info (21057): Implemented 5001 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 30 output pins
+    Info (21061): Implemented 4895 logic cells
     Info (21064): Implemented 64 RAM segments
     Info (21062): Implemented 8 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 277 warnings
-    Info: Peak virtual memory: 4870 megabytes
-    Info: Processing ended: Mon Nov 25 23:31:35 2019
-    Info: Elapsed time: 00:00:42
-    Info: Total CPU time (on all processors): 00:00:41
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
+    Info: Peak virtual memory: 4858 megabytes
+    Info: Processing ended: Tue Nov 26 13:05:55 2019
+    Info: Elapsed time: 00:00:27
+    Info: Total CPU time (on all processors): 00:00:37
 
 
 +------------------------------------------+

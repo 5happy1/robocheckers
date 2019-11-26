@@ -9,16 +9,20 @@
  * inspect which signals the processor tries to assert when.
  */
 
-module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2);
+module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2, serial_data_in, serial_clock_in, serial_data_out, serial_clock_out);
 
     input clock, reset_not;
+	 input serial_data_in, serial_clock_in;
+	 
+	 output serial_data_out, serial_clock_out;
 	 output [6:0] hex_from1, hex_from2, hex_to1, hex_to2;
 	 
 	 wire reset;
 	 assign reset = ~reset_not;
 	 
 	 // Special registers
-	 wire [31:0] r1, r28;
+	 wire [31:0] r1, r28; // data out, opcode out plus hex values
+	 wire [31:0] r26, r27; // data in, opcode plus data ready bit
 
     /** IMEM **/
     // Figure out how to generate a Quartus syncram component and commit the generated verilog file.
@@ -62,7 +66,8 @@ module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2);
         data_writeReg,
         data_readRegA,
         data_readRegB,
-		  r28
+		  r28, r1,
+		  r27, r26
     );
 
     /** PROCESSOR **/
@@ -93,5 +98,8 @@ module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2);
 	 
 	 // Hex
 	 move_7segment_writer reg_7segment(r28[24:5], hex_from1, hex_from2, hex_to1, hex_to2);
+	 
+	 // "Serial" communication
+	 derial ddddd(serial_data_in, serial_clock_in, serial_data_out, serial_clock_out, r26, r27);
 
 endmodule

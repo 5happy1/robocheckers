@@ -4,14 +4,17 @@ module regfile_special (
     ctrl_reset, ctrl_writeReg,
     ctrl_readRegA, ctrl_readRegB, data_writeReg,
     data_readRegA, data_readRegB,
-	 r28_outraw
+	 r28_outraw, r1_outraw,
+	 r27_inraw, r26_inraw
 );
 
    input clock, ctrl_writeEnable, ctrl_reset;
    input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
    input [31:0] data_writeReg;
+	input [31:0] r27_inraw, r26_inraw;
+	
    output tri [31:0] data_readRegA, data_readRegB;
-	output [31:0] r28_outraw;
+	output [31:0] r28_outraw, r1_outraw;
 	
 	tri [31:0] wire_readRegA, wire_readRegB;
 
@@ -87,8 +90,8 @@ module regfile_special (
 	register r23(data_writeReg, en23, clock, ctrl_reset, o_23);
 	register r24(data_writeReg, en24, clock, ctrl_reset, o_24);
 	register r25(data_writeReg, en25, clock, ctrl_reset, o_25);
-	register r26(data_writeReg, en26, clock, ctrl_reset, o_26);
-	register r27(data_writeReg, en27, clock, ctrl_reset, o_27);
+	register r26(r26_inraw, 1'b1, clock, ctrl_reset, o_26);
+	register r27(r27_inraw, 1'b1, clock, ctrl_reset, o_27);
 	register r28(data_writeReg, en28, clock, ctrl_reset, o_28);
 	register r29(data_writeReg, en29, clock, ctrl_reset, o_29);
 	register r30(data_writeReg, en30, clock, ctrl_reset, o_30);
