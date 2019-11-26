@@ -9,8 +9,16 @@
  * inspect which signals the processor tries to assert when.
  */
 
-module skeleton(clock, reset);
-    input clock, reset;
+module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2);
+
+    input clock, reset_not;
+	 output [6:0] hex_from1, hex_from2, hex_to1, hex_to2;
+	 
+	 wire reset;
+	 assign reset = ~reset_not;
+	 
+	 // Special registers
+	 wire [31:0] r1, r28;
 
     /** IMEM **/
     // Figure out how to generate a Quartus syncram component and commit the generated verilog file.
@@ -44,8 +52,8 @@ module skeleton(clock, reset);
     wire [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
     wire [31:0] data_writeReg;
     wire [31:0] data_readRegA, data_readRegB;
-    regfile my_regfile(
-        clock,
+    regfile_special my_regfile(
+        ~clock,
         ctrl_writeEnable,
         reset,
         ctrl_writeReg,
@@ -53,7 +61,8 @@ module skeleton(clock, reset);
         ctrl_readRegB,
         data_writeReg,
         data_readRegA,
-        data_readRegB
+        data_readRegB,
+		  r28
     );
 
     /** PROCESSOR **/
@@ -81,5 +90,8 @@ module skeleton(clock, reset);
         data_readRegA,                  // I: Data from port A of regfile
         data_readRegB                   // I: Data from port B of regfile
     );
+	 
+	 // Hex
+	 move_7segment_writer reg_7segment(r28[24:5], hex_from1, hex_from2, hex_to1, hex_to2);
 
 endmodule
