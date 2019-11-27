@@ -9,8 +9,20 @@
  * inspect which signals the processor tries to assert when.
  */
 
-module skeleton(clock, reset);
-    input clock, reset;
+module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2, serial_data_in, serial_clock_in, serial_data_out, serial_clock_out);
+
+    input clock, reset_not;
+	 input serial_data_in, serial_clock_in;
+	 
+	 output serial_data_out, serial_clock_out;
+	 output [6:0] hex_from1, hex_from2, hex_to1, hex_to2;
+	 
+	 wire reset;
+	 assign reset = ~reset_not;
+	 
+	 // Special registers
+	 wire [31:0] r1, r28; // data out, opcode out plus hex values
+	 wire [31:0] r26, r27; // data in, opcode plus data ready bit
 
     /** IMEM **/
     // Figure out how to generate a Quartus syncram component and commit the generated verilog file.
@@ -31,11 +43,11 @@ module skeleton(clock, reset);
     wire wren;
     wire [31:0] q_dmem;
     dmem my_dmem(
-        .address    (/* 12-bit wire */),       // address of data
+        .address    (address_dmem),       // address of data
         .clock      (~clock),                  // may need to invert the clock
-        .data	    (/* 32-bit data in */),    // data you want to write
-        .wren	    (/* 1-bit signal */),      // write enable
-        .q          (/* 32-bit data out */)    // data from dmem
+        .data	    (data),    // data you want to write
+        .wren	    (wren),      // write enable
+        .q          (q_dmem)    // data from dmem
     );
 
     /** REGFILE **/
@@ -44,8 +56,8 @@ module skeleton(clock, reset);
     wire [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
     wire [31:0] data_writeReg;
     wire [31:0] data_readRegA, data_readRegB;
-    regfile my_regfile(
-        clock,
+    regfile_special my_regfile(
+        ~clock,
         ctrl_writeEnable,
         reset,
         ctrl_writeReg,
@@ -53,7 +65,9 @@ module skeleton(clock, reset);
         ctrl_readRegB,
         data_writeReg,
         data_readRegA,
-        data_readRegB
+        data_readRegB,
+		  r28, r1,
+		  r27, r26
     );
 
     /** PROCESSOR **/
@@ -81,5 +95,11 @@ module skeleton(clock, reset);
         data_readRegA,                  // I: Data from port A of regfile
         data_readRegB                   // I: Data from port B of regfile
     );
+	 
+	 // Hex
+	 move_7segment_writer reg_7segment(r28[24:5], hex_from1, hex_from2, hex_to1, hex_to2);
+	 
+	 // "Serial" communication
+	 derial ddddd(serial_data_in, serial_clock_in, serial_data_out, serial_clock_out, r26, r27);
 
 endmodule
