@@ -8,7 +8,7 @@
 # $27 - op code from Arduino via behavioral Verilog on FPGA, with ready flag
 # $26 - data accompanying the op code
 #
-# Write-only registers:
+# Registers for sending commands/data:
 # $28 - op code to Arduino, with ready flag, and also with 7-segment display values
 # $1  - data accompanying the op code
 
@@ -111,7 +111,12 @@ game_loop:
 	#        data contains space_jumped [14:10], space_from [9:5], space_to [4:0]
 	#		 (space_jumped is 0 if no jump occurred (can't jump position A1))
 	
-	#jal print_board
+	# START DEBUGGING
+	jal print_board
+	#addi $27, $zero, 1		# $27 = op code for move and ready flag switch
+	#addi $26, $zero, 300	# $26: space_from = 9, space_to = 12
+	j exit
+	# END DEBUGGING
 	
 	# New op code ready flag
 	addi $t0, $zero, 1		# $t0 = 1 for anding
@@ -143,6 +148,10 @@ game_loop:
 	
 	not_move:				# Not "move made" op code
 	
+	# START DEBUGGING
+	#jal print_board
+	#j exit
+	# END DEBUGGING
 	
 	j game_loop
 
@@ -211,7 +220,7 @@ king_me:
 	sub $sp, $sp, $s2		# Reserve 1 word on stack
 	sw $ra, 0($sp)			# [$sp+0] = $ra (save return address)
 	
-	addi $t0, $a0, $a1		# $t0 = location of space in memory
+	add $t0, $a0, $a1		# $t0 = location of space in memory
 	lw $t1, 0($t0)			# $t1 = checker at space in memory
 	
 	# If checker == 1...
