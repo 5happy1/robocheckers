@@ -19,7 +19,7 @@ void loop() {
     pinvals[i] = analogRead(pins[i]) * (5.0 / 1024);
   }
 
-  Serial.println(analogRead(A14));
+  Serial.println(analogRead(A13));
 //  Serial.println("---------------------------------------------");
 //  for (int i = 3; i >= 0; i--) {
 //    Serial.print(pinvals[4 * i]);

@@ -8,6 +8,11 @@ int pin_samuel_ids [2*num_pins] = {3, 2, 1, 0, 7, 6, 5, 4,
                                      11, 10, 9, 8, 15, 14, 13, 12,
                                      19, 18, 17, 16, 23, 22, 21, 20,
                                      27, 26, 25, 24, 31, 30, 29, 28};
+
+String samuel_to_letters [2*num_pins] = { "A1", "C1", "E1", "G1", "B2", "D2", "F2", "H2",
+                                          "A3", "C3", "E3", "G3", "B4", "D4", "F4", "H4",
+                                          "A5", "C5", "E5", "G5", "B6", "D6", "F6", "H6",
+                                          "A7", "C7", "E7", "G7", "B8", "D8", "F8", "H8" };
 int indicator_led = LED_BUILTIN;
 
 int clock_pin = 6;
@@ -109,9 +114,7 @@ void listen_for_other_arduino_state_change() {
     int pin_index = pin_index_str.toInt();
     int state = state_str.toInt();
 
-    if (pin_index != 30 || pin_index != 29 || pin_index != 28) {
-      update_state(pin_index, state);
-    }
+    update_state(pin_index, state);
   }
   
 }
@@ -127,7 +130,7 @@ void update_state(int pin_index, int value) {
   changes_pos++;
 
   Serial.print("Pin ");
-  Serial.print(pin_index);
+  Serial.print(pin_samuel_ids[pin_index]);
   Serial.print(" state changed, to ");
   Serial.println(states[pin_index]);
 }
@@ -169,15 +172,62 @@ void check_for_move() {
 
     // If a piece was picked up and put down
     else if (changes[0][2] == 0 && (changes[1][2] == -1 || changes[1][2] == 1)) {
+
+      int jumped = check_for_jump(changes[0][0], changes[1][0]);
+      
       Serial.print("Move: ");
       Serial.print(changes[0][0]);
       Serial.print(" to ");
-      Serial.println(changes[1][0]);
+      Serial.print(changes[1][0]);
+      Serial.print(". Jumped: ");
+      Serial.println(jumped);
+      
       send_move_to_fpga(changes[0][0], changes[1][0]);
       changes_pos = 0;
     }
     
   } 
+}
+
+int check_for_jump(int from_pin_samuel, int to_pin_samuel) {
+
+  String from = samuel_to_letters[from_pin_samuel];
+  String to = samuel_to_letters[to_pin_samuel];
+
+  int from_col = from.charAt(0) - 64;
+  int from_row = from.charAt(1) - 48;
+
+  int to_col = to.charAt(0) - 64;
+  int to_row = to.charAt(1) - 48;
+
+  Serial.println(from_row);
+  Serial.println(from_col);
+  Serial.println(to_row);
+  Serial.println(to_col);
+
+  int jumped_row = 0;
+  int jumped_col = 0;
+
+  if (to_row == from_row + 2 || to_row == from_row - 2) {
+    jumped_row = (from_row + to_row) / 2;
+  }
+
+  if (to_col == from_col + 2 || to_col == from_col - 2) {
+    jumped_col = (from_col + to_col) / 2;
+  }
+
+  Serial.println(jumped_row);
+  Serial.println(jumped_col);
+
+  if (jumped_row == 0 && jumped_col == 0) {
+    return 0;
+  }
+
+  return row_col_to_samuel(jumped_row, jumped_col);
+}
+
+int row_col_to_samuel(int row, int col) {
+  return (row - 1) * 4 + ((col - 1) / 2);
 }
 
 // Send a move over clock and data pins. from and to are in samuel coordinates
