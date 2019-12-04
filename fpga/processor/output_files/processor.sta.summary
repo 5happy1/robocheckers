@@ -3,15 +3,15 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -16.876
-TNS   : -13904.510
+Slack : -16.913
+TNS   : -13455.812
 
 Type  : Slow 1200mV 85C Model Setup 'serial_clock_in'
-Slack : -6.244
-TNS   : -243.687
+Slack : -6.565
+TNS   : -297.048
 
 Type  : Slow 1200mV 85C Model Hold 'clock'
-Slack : 0.381
+Slack : 0.304
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'serial_clock_in'
@@ -20,22 +20,22 @@ TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -2614.363
+TNS   : -2620.788
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'serial_clock_in'
 Slack : -3.000
-TNS   : -87.810
+TNS   : -100.660
 
 Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -15.471
-TNS   : -12669.688
+Slack : -15.356
+TNS   : -12215.565
 
 Type  : Slow 1200mV 0C Model Setup 'serial_clock_in'
-Slack : -5.607
-TNS   : -215.026
+Slack : -5.826
+TNS   : -260.776
 
 Type  : Slow 1200mV 0C Model Hold 'clock'
-Slack : 0.349
+Slack : 0.280
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'serial_clock_in'
@@ -44,22 +44,22 @@ TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -2610.139
+TNS   : -2616.564
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'serial_clock_in'
 Slack : -3.000
-TNS   : -87.810
+TNS   : -100.660
 
 Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : -7.938
-TNS   : -5985.775
+Slack : -7.895
+TNS   : -5734.411
 
 Type  : Fast 1200mV 0C Model Setup 'serial_clock_in'
-Slack : -2.468
-TNS   : -83.755
+Slack : -2.681
+TNS   : -105.572
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : 0.165
+Slack : 0.134
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'serial_clock_in'
@@ -68,10 +68,10 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -2098.564
+TNS   : -2102.770
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'serial_clock_in'
 Slack : -3.000
-TNS   : -79.478
+TNS   : -93.115
 
 ------------------------------------------------------------

@@ -1,5 +1,5 @@
 Flow report for processor
-Tue Nov 26 13:06:48 2019
+Wed Dec 04 15:21:58 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Nov 26 13:06:43 2019       ;
+; Flow Status                        ; Successful - Wed Dec 04 15:21:52 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; processor                                   ;
 ; Top-level Entity Name              ; skeleton                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,795 / 114,480 ( 3 % )                     ;
-;     Total combinational functions  ; 3,588 / 114,480 ( 3 % )                     ;
-;     Dedicated logic registers      ; 1,897 / 114,480 ( 2 % )                     ;
-; Total registers                    ; 1897                                        ;
+; Total logic elements               ; 3,794 / 114,480 ( 3 % )                     ;
+;     Total combinational functions  ; 3,601 / 114,480 ( 3 % )                     ;
+;     Dedicated logic registers      ; 1,912 / 114,480 ( 2 % )                     ;
+; Total registers                    ; 1912                                        ;
 ; Total pins                         ; 34 / 529 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 262,144 / 3,981,312 ( 7 % )                 ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/26/2019 13:05:29 ;
+; Start date & time ; 12/04/2019 15:20:48 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; processor           ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 154946507232470.157479152909284        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 154946507232470.157549084715184        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
@@ -94,11 +94,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:26     ; 1.0                     ; 4858 MB             ; 00:00:36                           ;
-; Fitter                    ; 00:00:42     ; 1.1                     ; 5762 MB             ; 00:01:05                           ;
+; Analysis & Synthesis      ; 00:00:24     ; 1.0                     ; 4854 MB             ; 00:00:34                           ;
+; Fitter                    ; 00:00:34     ; 1.1                     ; 5786 MB             ; 00:00:59                           ;
 ; Assembler                 ; 00:00:03     ; 1.0                     ; 4719 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.9                     ; 4917 MB             ; 00:00:05                           ;
-; Total                     ; 00:01:15     ; --                      ; --                  ; 00:01:49                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 2.0                     ; 4919 MB             ; 00:00:05                           ;
+; Total                     ; 00:01:06     ; --                      ; --                  ; 00:01:41                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
