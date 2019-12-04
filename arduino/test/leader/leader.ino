@@ -163,30 +163,44 @@ void check_for_move() {
 
   if (changes_pos == 2) {
 
-    // If piece was picked up and put back down
+    // If piece was picked up and put back down in the same place
     if (changes[0][0] == changes[1][0]) {
 
       // Mark as no changes exist
       changes_pos = 0;
     }
 
-    // If a piece was picked up and put down
+    // If a piece was picked up and put down somewhere else
     else if (changes[0][2] == 0 && (changes[1][2] == -1 || changes[1][2] == 1)) {
 
       int jumped = check_for_jump(changes[0][0], changes[1][0]);
+
+      if (jumped != 0) {
+        return;
+      }
       
       Serial.print("Move: ");
       Serial.print(changes[0][0]);
       Serial.print(" to ");
       Serial.print(changes[1][0]);
-      Serial.print(". Jumped: ");
-      Serial.println(jumped);
+      Serial.println(". No jump.");
       
-      send_move_to_fpga(changes[0][0], changes[1][0]);
+      send_move_to_fpga(changes[0][0], changes[1][0], 0);
       changes_pos = 0;
     }
     
-  } 
+  } else if (changes_pos == 3) {
+
+    Serial.print("Move: ");
+    Serial.print(changes[0][0]);
+    Serial.print(" to ");
+    Serial.print(changes[1][0]);
+    Serial.print(". Jumped: ");
+    Serial.println(changes[2][0]);
+
+    send_move_to_fpga(changes[0][0], changes[1][0], changes[2][0]);
+    changes_pos = 0;
+  }
 }
 
 int check_for_jump(int from_pin_samuel, int to_pin_samuel) {
@@ -200,11 +214,6 @@ int check_for_jump(int from_pin_samuel, int to_pin_samuel) {
   int to_col = to.charAt(0) - 64;
   int to_row = to.charAt(1) - 48;
 
-  Serial.println(from_row);
-  Serial.println(from_col);
-  Serial.println(to_row);
-  Serial.println(to_col);
-
   int jumped_row = 0;
   int jumped_col = 0;
 
@@ -215,9 +224,6 @@ int check_for_jump(int from_pin_samuel, int to_pin_samuel) {
   if (to_col == from_col + 2 || to_col == from_col - 2) {
     jumped_col = (from_col + to_col) / 2;
   }
-
-  Serial.println(jumped_row);
-  Serial.println(jumped_col);
 
   if (jumped_row == 0 && jumped_col == 0) {
     return 0;
@@ -231,11 +237,16 @@ int row_col_to_samuel(int row, int col) {
 }
 
 // Send a move over clock and data pins. from and to are in samuel coordinates
-void send_move_to_fpga(int from, int to) {
+void send_move_to_fpga(int from, int to, int jump) {
   
   for (int i = 3; i >= 0; i--) {
     //Serial.println(get_number_bit(opcode_send_valid_move, i));
     send_bit(get_number_bit(opcode_send_valid_move, i));
+  }
+
+  for (int i = 4; i >= 0; i--) {
+    //Serial.println(get_number_bit(to, i));
+    send_bit(get_number_bit(jump, i));
   }
 
   for (int i = 4; i >= 0; i--) {
@@ -252,9 +263,9 @@ void send_move_to_fpga(int from, int to) {
 // Send a bit over derial. bit_num should be 0 or 1
 void send_bit(int bit_num) {
   digitalWrite(data_pin, bit_num);
-  delay(10);
+  delay(1);
   digitalWrite(clock_pin, HIGH);
-  delay(10);
+  delay(1);
   digitalWrite(clock_pin, LOW);
 }
 
