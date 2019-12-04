@@ -110,7 +110,7 @@ endtask // end update_data_reg
 task handle_valid_move;
 
 	begin
-		r26[14:0] = buffer[27:13];
+		r26[9:0] = buffer[27:18];
 	end
 
 
@@ -127,7 +127,7 @@ function integer expected_data_length;
 	begin
 		expected_data_length = 0;
 		case (opcode)
-			opcode_receive_valid_move : expected_data_length = 15;
+			opcode_receive_valid_move : expected_data_length = 10;
 		endcase
 	
 	end
