@@ -1,5 +1,5 @@
 Fitter report for processor
-Wed Dec 04 15:21:47 2019
+Thu Dec 05 13:18:39 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -32,7 +32,7 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  24. Non-Global High Fan-Out Signals
  25. Fitter RAM Summary
  26. |skeleton|dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_qoi1:auto_generated|ALTSYNCRAM
- 27. |skeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_g9b1:auto_generated|ALTSYNCRAM
+ 27. |skeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_h2b1:auto_generated|ALTSYNCRAM
  28. Fitter DSP Block Usage Summary
  29. DSP Block Details
  30. Routing Usage Summary
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed Dec 04 15:21:47 2019       ;
+; Fitter Status                      ; Successful - Thu Dec 05 13:18:39 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; processor                                   ;
 ; Top-level Entity Name              ; skeleton                                    ;
@@ -167,9 +167,9 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.5%      ;
+;     Processor 2            ;   2.6%      ;
 ;     Processor 3            ;   2.3%      ;
-;     Processor 4            ;   2.2%      ;
+;     Processor 4            ;   2.1%      ;
 +----------------------------+-------------+
 
 
@@ -271,7 +271,7 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/output_files/processor.pin.
+The pin-out file can be found in C:/Users/ssr18/Documents/robocheckers/fpga/processor/output_files/processor.pin.
 
 
 +---------------------------------------------------------------------------+
@@ -1330,7 +1330,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |altsyncram_qoi1:auto_generated|    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |skeleton|dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_qoi1:auto_generated                                    ; altsyncram_qoi1          ; work         ;
 ;    |imem:my_imem|                            ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |skeleton|imem:my_imem                                                                                                   ; imem                     ; work         ;
 ;       |altsyncram:altsyncram_component|      ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |skeleton|imem:my_imem|altsyncram:altsyncram_component                                                                   ; altsyncram               ; work         ;
-;          |altsyncram_g9b1:auto_generated|    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |skeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_g9b1:auto_generated                                    ; altsyncram_g9b1          ; work         ;
+;          |altsyncram_h2b1:auto_generated|    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |skeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_h2b1:auto_generated                                    ; altsyncram_h2b1          ; work         ;
 ;    |move_7segment_writer:reg_7segment|       ; 56 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 47 (0)       ; 0 (0)             ; 9 (0)            ; |skeleton|move_7segment_writer:reg_7segment                                                                              ; move_7segment_writer     ; work         ;
 ;       |digit_writer:d0|                      ; 14 (14)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 0 (0)            ; |skeleton|move_7segment_writer:reg_7segment|digit_writer:d0                                                              ; digit_writer             ; work         ;
 ;       |digit_writer:d1|                      ; 14 (14)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 5 (5)            ; |skeleton|move_7segment_writer:reg_7segment|digit_writer:d1                                                              ; digit_writer             ; work         ;
@@ -4745,7 +4745,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                                   ; Type ; Mode        ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size   ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF            ; Location                                                                                                                                                                                                                                                       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
 +----------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 ; dmem:my_dmem|altsyncram:altsyncram_component|altsyncram_qoi1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; Single Clock ; 4096         ; 32           ; --           ; --           ; yes                    ; yes                     ; --                     ; --                      ; 131072 ; 4096                        ; 32                          ; --                          ; --                          ; 131072              ; 16   ; david_test.mif ; M9K_X78_Y23_N0, M9K_X78_Y25_N0, M9K_X78_Y28_N0, M9K_X64_Y30_N0, M9K_X64_Y27_N0, M9K_X64_Y25_N0, M9K_X64_Y23_N0, M9K_X64_Y29_N0, M9K_X78_Y26_N0, M9K_X64_Y28_N0, M9K_X78_Y24_N0, M9K_X64_Y22_N0, M9K_X78_Y22_N0, M9K_X64_Y26_N0, M9K_X78_Y27_N0, M9K_X64_Y24_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; imem:my_imem|altsyncram:altsyncram_component|altsyncram_g9b1:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; Single Clock ; 4096         ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 131072 ; 4096                        ; 32                          ; --                          ; --                          ; 131072              ; 16   ; david_test.mif ; M9K_X51_Y28_N0, M9K_X64_Y21_N0, M9K_X64_Y20_N0, M9K_X64_Y19_N0, M9K_X51_Y19_N0, M9K_X51_Y21_N0, M9K_X51_Y29_N0, M9K_X51_Y22_N0, M9K_X51_Y20_N0, M9K_X51_Y24_N0, M9K_X64_Y17_N0, M9K_X64_Y18_N0, M9K_X51_Y25_N0, M9K_X51_Y23_N0, M9K_X51_Y27_N0, M9K_X51_Y26_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; imem:my_imem|altsyncram:altsyncram_component|altsyncram_h2b1:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; Single Clock ; 4096         ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 131072 ; 4096                        ; 32                          ; --                          ; --                          ; 131072              ; 16   ; checkers.mif   ; M9K_X51_Y28_N0, M9K_X64_Y21_N0, M9K_X64_Y20_N0, M9K_X64_Y19_N0, M9K_X51_Y19_N0, M9K_X51_Y21_N0, M9K_X51_Y29_N0, M9K_X51_Y22_N0, M9K_X51_Y20_N0, M9K_X51_Y24_N0, M9K_X64_Y17_N0, M9K_X64_Y18_N0, M9K_X51_Y25_N0, M9K_X51_Y23_N0, M9K_X51_Y27_N0, M9K_X51_Y26_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 +----------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
@@ -5272,11 +5272,11 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 
 RAM content values are presented in the following format: (Binary) (Octal) (Decimal) (Hexadecimal) 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; |skeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_g9b1:auto_generated|ALTSYNCRAM                                                                                                                                                                 ;
+; |skeleton|imem:my_imem|altsyncram:altsyncram_component|altsyncram_h2b1:auto_generated|ALTSYNCRAM                                                                                                                                                                 ;
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ;   Addr   ;              +0              ;              +1              ;              +2              ;              +3              ;              +4              ;              +5              ;              +6              ;              +7              ;
 +----------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+
-;0;(00101111001101000000000000000000) (1420032704) (791937024) (2F340000)    ;(00000111001110000000001010010000) (716001220) (121111184) (7380290)   ;(00001000000000000000000000000000) (1000000000) (134217728) (8000000)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
+;0;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
 ;8;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
 ;16;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
 ;24;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
@@ -6233,7 +6233,7 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node clock~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/skeleton.v Line: 14
+Info (176353): Automatically promoted node clock~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: C:/Users/ssr18/Documents/robocheckers/fpga/processor/skeleton.v Line: 14
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -6277,17 +6277,17 @@ Info (170195): Router estimated average interconnect usage is 1% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:11
-Info (11888): Total time spent on timing analysis during the Fitter is 3.16 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 3.20 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
-Info (144001): Generated suppressed messages file C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/output_files/processor.fit.smsg
+Info (144001): Generated suppressed messages file C:/Users/ssr18/Documents/robocheckers/fpga/processor/output_files/processor.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 5786 megabytes
-    Info: Processing ended: Wed Dec 04 15:21:48 2019
+    Info: Peak virtual memory: 5777 megabytes
+    Info: Processing ended: Thu Dec 05 13:18:40 2019
     Info: Elapsed time: 00:00:35
     Info: Total CPU time (on all processors): 00:01:00
 
@@ -6295,6 +6295,6 @@ Info: Quartus Prime Fitter was successful. 0 errors, 19 warnings
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/output_files/processor.fit.smsg.
+The suppressed messages can be found in C:/Users/ssr18/Documents/robocheckers/fpga/processor/output_files/processor.fit.smsg.
 
 

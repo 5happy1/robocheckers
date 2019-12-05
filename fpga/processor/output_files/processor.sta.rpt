@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for processor
-Wed Dec 04 15:21:58 2019
+Thu Dec 05 13:18:50 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -104,14 +104,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.96        ;
+; Average used               ; 1.95        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  38.1%      ;
-;     Processor 3            ;  29.4%      ;
-;     Processor 4            ;  28.6%      ;
+;     Processor 2            ;  38.8%      ;
+;     Processor 3            ;  28.6%      ;
+;     Processor 4            ;  27.4%      ;
 +----------------------------+-------------+
 
 
@@ -514,24 +514,24 @@ No paths to report.
 ; Slack ; From Node                   ; To Node                     ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
 +-------+-----------------------------+-----------------------------+-----------------+-----------------+--------------+------------+------------+
 ; 0.440 ; derial:ddddd|buffer[28]     ; derial:ddddd|buffer[28]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[31]     ; derial:ddddd|buffer[31]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[25]     ; derial:ddddd|buffer[25]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[17]     ; derial:ddddd|buffer[17]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[30]     ; derial:ddddd|buffer[30]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[15]     ; derial:ddddd|buffer[15]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[29]     ; derial:ddddd|buffer[29]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[25]     ; derial:ddddd|buffer[25]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[30]     ; derial:ddddd|buffer[30]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[22]     ; derial:ddddd|buffer[22]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[17]     ; derial:ddddd|buffer[17]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[15]     ; derial:ddddd|buffer[15]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[14]     ; derial:ddddd|buffer[14]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[18]     ; derial:ddddd|buffer[18]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[16]     ; derial:ddddd|buffer[16]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[22]     ; derial:ddddd|buffer[22]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[19]     ; derial:ddddd|buffer[19]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[26]     ; derial:ddddd|buffer[26]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[20]     ; derial:ddddd|buffer[20]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[27]     ; derial:ddddd|buffer[27]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[21]     ; derial:ddddd|buffer[21]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[24]     ; derial:ddddd|buffer[24]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[27]     ; derial:ddddd|buffer[27]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[23]     ; derial:ddddd|buffer[23]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.440 ; derial:ddddd|buffer[13]     ; derial:ddddd|buffer[13]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
-; 0.440 ; derial:ddddd|buffer[14]     ; derial:ddddd|buffer[14]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
+; 0.440 ; derial:ddddd|buffer[31]     ; derial:ddddd|buffer[31]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.669      ;
 ; 0.621 ; derial:ddddd|buffer_pos[31] ; derial:ddddd|buffer_pos[31] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.850      ;
 ; 0.691 ; derial:ddddd|buffer_pos[6]  ; derial:ddddd|buffer_pos[6]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.920      ;
 ; 0.692 ; derial:ddddd|buffer_pos[15] ; derial:ddddd|buffer_pos[15] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.921      ;
@@ -550,15 +550,15 @@ No paths to report.
 ; 0.694 ; derial:ddddd|buffer_pos[10] ; derial:ddddd|buffer_pos[10] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
 ; 0.694 ; derial:ddddd|buffer_pos[20] ; derial:ddddd|buffer_pos[20] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
 ; 0.694 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[21] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
-; 0.694 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
 ; 0.694 ; derial:ddddd|buffer_pos[26] ; derial:ddddd|buffer_pos[26] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
 ; 0.694 ; derial:ddddd|buffer_pos[27] ; derial:ddddd|buffer_pos[27] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
 ; 0.694 ; derial:ddddd|buffer_pos[28] ; derial:ddddd|buffer_pos[28] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
+; 0.694 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.923      ;
 ; 0.696 ; derial:ddddd|buffer_pos[17] ; derial:ddddd|buffer_pos[17] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.925      ;
 ; 0.697 ; derial:ddddd|buffer_pos[7]  ; derial:ddddd|buffer_pos[7]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.926      ;
 ; 0.697 ; derial:ddddd|buffer_pos[9]  ; derial:ddddd|buffer_pos[9]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.926      ;
-; 0.697 ; derial:ddddd|buffer_pos[23] ; derial:ddddd|buffer_pos[23] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.926      ;
 ; 0.697 ; derial:ddddd|buffer_pos[25] ; derial:ddddd|buffer_pos[25] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.926      ;
+; 0.697 ; derial:ddddd|buffer_pos[23] ; derial:ddddd|buffer_pos[23] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.043      ; 0.926      ;
 ; 0.855 ; derial:ddddd|buffer[29]     ; derial:ddddd|curr_opcode[1] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.130      ; 1.171      ;
 ; 0.861 ; derial:ddddd|buffer_pos[15] ; derial:ddddd|buffer_pos[16] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.190      ; 1.237      ;
 ; 0.881 ; derial:ddddd|buffer_pos[14] ; derial:ddddd|buffer_pos[16] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.190      ; 1.257      ;
@@ -582,8 +582,8 @@ No paths to report.
 ; 1.004 ; derial:ddddd|buffer_pos[17] ; derial:ddddd|buffer_pos[18] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.239      ;
 ; 1.004 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.239      ;
 ; 1.004 ; derial:ddddd|buffer_pos[27] ; derial:ddddd|buffer_pos[28] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.239      ;
-; 1.005 ; derial:ddddd|buffer_pos[23] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.240      ;
 ; 1.005 ; derial:ddddd|buffer_pos[25] ; derial:ddddd|buffer_pos[26] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.240      ;
+; 1.005 ; derial:ddddd|buffer_pos[23] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.240      ;
 ; 1.007 ; derial:ddddd|buffer_pos[14] ; derial:ddddd|buffer_pos[18] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.190      ; 1.383      ;
 ; 1.008 ; derial:ddddd|buffer_pos[12] ; derial:ddddd|buffer_pos[16] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.190      ; 1.384      ;
 ; 1.013 ; derial:ddddd|buffer_pos[6]  ; derial:ddddd|buffer_pos[7]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.050      ; 1.249      ;
@@ -597,9 +597,9 @@ No paths to report.
 ; 1.017 ; derial:ddddd|buffer_pos[30] ; derial:ddddd|buffer_pos[31] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.252      ;
 ; 1.018 ; derial:ddddd|buffer_pos[6]  ; derial:ddddd|buffer_pos[8]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.050      ; 1.254      ;
 ; 1.018 ; derial:ddddd|buffer_pos[20] ; derial:ddddd|buffer_pos[21] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.253      ;
-; 1.018 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[25] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.253      ;
 ; 1.018 ; derial:ddddd|buffer_pos[26] ; derial:ddddd|buffer_pos[27] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.253      ;
 ; 1.018 ; derial:ddddd|buffer_pos[28] ; derial:ddddd|buffer_pos[29] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.253      ;
+; 1.018 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[25] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.253      ;
 ; 1.020 ; derial:ddddd|buffer_pos[22] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.255      ;
 ; 1.021 ; derial:ddddd|buffer_pos[3]  ; derial:ddddd|buffer_pos[5]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.050      ; 1.257      ;
 ; 1.022 ; derial:ddddd|buffer_pos[8]  ; derial:ddddd|buffer_pos[10] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.050      ; 1.258      ;
@@ -608,9 +608,9 @@ No paths to report.
 ; 1.022 ; derial:ddddd|buffer_pos[16] ; derial:ddddd|buffer_pos[18] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.257      ;
 ; 1.022 ; derial:ddddd|buffer_pos[18] ; derial:ddddd|buffer_pos[20] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.257      ;
 ; 1.023 ; derial:ddddd|buffer_pos[20] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.258      ;
-; 1.023 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[26] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.258      ;
 ; 1.023 ; derial:ddddd|buffer_pos[26] ; derial:ddddd|buffer_pos[28] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.258      ;
 ; 1.023 ; derial:ddddd|buffer_pos[28] ; derial:ddddd|buffer_pos[30] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.258      ;
+; 1.023 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[26] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.049      ; 1.258      ;
 ; 1.036 ; derial:ddddd|buffer_pos[3]  ; derial:ddddd|buffer[18]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.123      ; 1.345      ;
 ; 1.038 ; derial:ddddd|buffer_pos[3]  ; derial:ddddd|buffer[19]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.123      ; 1.347      ;
 +-------+-----------------------------+-----------------------------+-----------------+-----------------+--------------+------------+------------+
@@ -1004,36 +1004,36 @@ No paths to report.
 +-------+-----------------------------+-----------------------------+-----------------+-----------------+--------------+------------+------------+
 ; Slack ; From Node                   ; To Node                     ; Launch Clock    ; Latch Clock     ; Relationship ; Clock Skew ; Data Delay ;
 +-------+-----------------------------+-----------------------------+-----------------+-----------------+--------------+------------+------------+
-; 0.387 ; derial:ddddd|buffer[28]     ; derial:ddddd|buffer[28]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[31]     ; derial:ddddd|buffer[31]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[25]     ; derial:ddddd|buffer[25]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[17]     ; derial:ddddd|buffer[17]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[30]     ; derial:ddddd|buffer[30]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[15]     ; derial:ddddd|buffer[15]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[28]     ; derial:ddddd|buffer[28]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[29]     ; derial:ddddd|buffer[29]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[18]     ; derial:ddddd|buffer[18]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[25]     ; derial:ddddd|buffer[25]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[22]     ; derial:ddddd|buffer[22]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[16]     ; derial:ddddd|buffer[16]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[14]     ; derial:ddddd|buffer[14]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[31]     ; derial:ddddd|buffer[31]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[18]     ; derial:ddddd|buffer[18]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[16]     ; derial:ddddd|buffer[16]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[17]     ; derial:ddddd|buffer[17]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[26]     ; derial:ddddd|buffer[26]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[20]     ; derial:ddddd|buffer[20]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[15]     ; derial:ddddd|buffer[15]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[21]     ; derial:ddddd|buffer[21]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[27]     ; derial:ddddd|buffer[27]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[19]     ; derial:ddddd|buffer[19]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[24]     ; derial:ddddd|buffer[24]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[23]     ; derial:ddddd|buffer[23]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[24]     ; derial:ddddd|buffer[24]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
+; 0.387 ; derial:ddddd|buffer[20]     ; derial:ddddd|buffer[20]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.387 ; derial:ddddd|buffer[13]     ; derial:ddddd|buffer[13]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
-; 0.387 ; derial:ddddd|buffer[21]     ; derial:ddddd|buffer[21]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.597      ;
 ; 0.572 ; derial:ddddd|buffer_pos[31] ; derial:ddddd|buffer_pos[31] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.782      ;
 ; 0.630 ; derial:ddddd|buffer_pos[15] ; derial:ddddd|buffer_pos[15] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.840      ;
-; 0.631 ; derial:ddddd|buffer_pos[5]  ; derial:ddddd|buffer_pos[5]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
 ; 0.631 ; derial:ddddd|buffer_pos[6]  ; derial:ddddd|buffer_pos[6]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
+; 0.631 ; derial:ddddd|buffer_pos[5]  ; derial:ddddd|buffer_pos[5]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
 ; 0.631 ; derial:ddddd|buffer_pos[13] ; derial:ddddd|buffer_pos[13] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
 ; 0.631 ; derial:ddddd|buffer_pos[19] ; derial:ddddd|buffer_pos[19] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
-; 0.631 ; derial:ddddd|buffer_pos[22] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
 ; 0.631 ; derial:ddddd|buffer_pos[29] ; derial:ddddd|buffer_pos[29] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
+; 0.631 ; derial:ddddd|buffer_pos[22] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.841      ;
 ; 0.632 ; derial:ddddd|buffer_pos[11] ; derial:ddddd|buffer_pos[11] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.842      ;
-; 0.632 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[21] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.842      ;
 ; 0.632 ; derial:ddddd|buffer_pos[27] ; derial:ddddd|buffer_pos[27] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.842      ;
+; 0.632 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[21] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.842      ;
 ; 0.633 ; derial:ddddd|buffer_pos[14] ; derial:ddddd|buffer_pos[14] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.843      ;
 ; 0.633 ; derial:ddddd|buffer_pos[16] ; derial:ddddd|buffer_pos[16] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.843      ;
 ; 0.633 ; derial:ddddd|buffer_pos[18] ; derial:ddddd|buffer_pos[18] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.039      ; 0.843      ;
@@ -1054,8 +1054,8 @@ No paths to report.
 ; 0.786 ; derial:ddddd|buffer_pos[15] ; derial:ddddd|buffer_pos[16] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.168      ; 1.125      ;
 ; 0.805 ; derial:ddddd|buffer_pos[14] ; derial:ddddd|buffer_pos[16] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.168      ; 1.144      ;
 ; 0.828 ; derial:ddddd|buffer[27]     ; derial:ddddd|r26[14]        ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.287      ; 1.286      ;
-; 0.841 ; derial:ddddd|buffer[17]     ; derial:ddddd|r26[4]         ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.287      ; 1.299      ;
 ; 0.841 ; derial:ddddd|buffer[22]     ; derial:ddddd|r26[9]         ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.287      ; 1.299      ;
+; 0.841 ; derial:ddddd|buffer[17]     ; derial:ddddd|r26[4]         ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.287      ; 1.299      ;
 ; 0.844 ; derial:ddddd|buffer[15]     ; derial:ddddd|r26[2]         ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.287      ; 1.302      ;
 ; 0.850 ; derial:ddddd|buffer[18]     ; derial:ddddd|r26[5]         ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.287      ; 1.308      ;
 ; 0.857 ; derial:ddddd|buffer[24]     ; derial:ddddd|r26[11]        ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.287      ; 1.315      ;
@@ -1068,8 +1068,8 @@ No paths to report.
 ; 0.910 ; derial:ddddd|buffer_pos[19] ; derial:ddddd|buffer_pos[20] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.126      ;
 ; 0.910 ; derial:ddddd|buffer_pos[29] ; derial:ddddd|buffer_pos[30] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.126      ;
 ; 0.911 ; derial:ddddd|buffer_pos[11] ; derial:ddddd|buffer_pos[12] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.127      ;
-; 0.911 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.127      ;
 ; 0.911 ; derial:ddddd|buffer_pos[27] ; derial:ddddd|buffer_pos[28] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.127      ;
+; 0.911 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.127      ;
 ; 0.914 ; derial:ddddd|buffer_pos[6]  ; derial:ddddd|buffer_pos[7]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.130      ;
 ; 0.914 ; derial:ddddd|buffer_pos[17] ; derial:ddddd|buffer_pos[18] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.130      ;
 ; 0.914 ; derial:ddddd|buffer_pos[22] ; derial:ddddd|buffer_pos[23] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.045      ; 1.130      ;
@@ -1487,21 +1487,21 @@ No paths to report.
 ; 0.201 ; derial:ddddd|buffer[30]     ; derial:ddddd|buffer[30]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[29]     ; derial:ddddd|buffer[29]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[28]     ; derial:ddddd|buffer[28]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[25]     ; derial:ddddd|buffer[25]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[22]     ; derial:ddddd|buffer[22]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[14]     ; derial:ddddd|buffer[14]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[31]     ; derial:ddddd|buffer[31]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[18]     ; derial:ddddd|buffer[18]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[16]     ; derial:ddddd|buffer[16]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[17]     ; derial:ddddd|buffer[17]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[26]     ; derial:ddddd|buffer[26]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[19]     ; derial:ddddd|buffer[19]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[31]     ; derial:ddddd|buffer[31]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[15]     ; derial:ddddd|buffer[15]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[27]     ; derial:ddddd|buffer[27]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[14]     ; derial:ddddd|buffer[14]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[25]     ; derial:ddddd|buffer[25]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[18]     ; derial:ddddd|buffer[18]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[19]     ; derial:ddddd|buffer[19]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[26]     ; derial:ddddd|buffer[26]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[20]     ; derial:ddddd|buffer[20]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[21]     ; derial:ddddd|buffer[21]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[27]     ; derial:ddddd|buffer[27]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[24]     ; derial:ddddd|buffer[24]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[23]     ; derial:ddddd|buffer[23]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
-; 0.201 ; derial:ddddd|buffer[20]     ; derial:ddddd|buffer[20]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
+; 0.201 ; derial:ddddd|buffer[16]     ; derial:ddddd|buffer[16]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.201 ; derial:ddddd|buffer[13]     ; derial:ddddd|buffer[13]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.307      ;
 ; 0.278 ; derial:ddddd|buffer_pos[31] ; derial:ddddd|buffer_pos[31] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.384      ;
 ; 0.318 ; derial:ddddd|buffer_pos[6]  ; derial:ddddd|buffer_pos[6]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.424      ;
@@ -1511,8 +1511,8 @@ No paths to report.
 ; 0.318 ; derial:ddddd|buffer_pos[13] ; derial:ddddd|buffer_pos[13] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.424      ;
 ; 0.318 ; derial:ddddd|buffer_pos[22] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.424      ;
 ; 0.318 ; derial:ddddd|buffer_pos[30] ; derial:ddddd|buffer_pos[30] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.424      ;
-; 0.319 ; derial:ddddd|buffer_pos[5]  ; derial:ddddd|buffer_pos[5]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[8]  ; derial:ddddd|buffer_pos[8]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
+; 0.319 ; derial:ddddd|buffer_pos[5]  ; derial:ddddd|buffer_pos[5]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[12] ; derial:ddddd|buffer_pos[12] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[10] ; derial:ddddd|buffer_pos[10] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[11] ; derial:ddddd|buffer_pos[11] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
@@ -1521,11 +1521,11 @@ No paths to report.
 ; 0.319 ; derial:ddddd|buffer_pos[19] ; derial:ddddd|buffer_pos[19] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[20] ; derial:ddddd|buffer_pos[20] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[21] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
-; 0.319 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[26] ; derial:ddddd|buffer_pos[26] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
-; 0.319 ; derial:ddddd|buffer_pos[29] ; derial:ddddd|buffer_pos[29] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
-; 0.319 ; derial:ddddd|buffer_pos[28] ; derial:ddddd|buffer_pos[28] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.319 ; derial:ddddd|buffer_pos[27] ; derial:ddddd|buffer_pos[27] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
+; 0.319 ; derial:ddddd|buffer_pos[28] ; derial:ddddd|buffer_pos[28] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
+; 0.319 ; derial:ddddd|buffer_pos[29] ; derial:ddddd|buffer_pos[29] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
+; 0.319 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.425      ;
 ; 0.320 ; derial:ddddd|buffer_pos[7]  ; derial:ddddd|buffer_pos[7]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.426      ;
 ; 0.320 ; derial:ddddd|buffer_pos[9]  ; derial:ddddd|buffer_pos[9]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.426      ;
 ; 0.320 ; derial:ddddd|buffer_pos[23] ; derial:ddddd|buffer_pos[23] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.022      ; 0.426      ;
@@ -1548,8 +1548,8 @@ No paths to report.
 ; 0.465 ; derial:ddddd|buffer_pos[17] ; derial:ddddd|buffer_pos[18] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.573      ;
 ; 0.465 ; derial:ddddd|buffer_pos[19] ; derial:ddddd|buffer_pos[20] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.573      ;
 ; 0.465 ; derial:ddddd|buffer_pos[21] ; derial:ddddd|buffer_pos[22] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.573      ;
-; 0.465 ; derial:ddddd|buffer_pos[29] ; derial:ddddd|buffer_pos[30] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.573      ;
 ; 0.465 ; derial:ddddd|buffer_pos[27] ; derial:ddddd|buffer_pos[28] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.573      ;
+; 0.465 ; derial:ddddd|buffer_pos[29] ; derial:ddddd|buffer_pos[30] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.573      ;
 ; 0.466 ; derial:ddddd|buffer_pos[7]  ; derial:ddddd|buffer_pos[8]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.574      ;
 ; 0.466 ; derial:ddddd|buffer_pos[9]  ; derial:ddddd|buffer_pos[10] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.574      ;
 ; 0.466 ; derial:ddddd|buffer_pos[23] ; derial:ddddd|buffer_pos[24] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.574      ;
@@ -1572,10 +1572,10 @@ No paths to report.
 ; 0.476 ; derial:ddddd|buffer_pos[10] ; derial:ddddd|buffer_pos[11] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.584      ;
 ; 0.476 ; derial:ddddd|buffer_pos[18] ; derial:ddddd|buffer_pos[19] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.584      ;
 ; 0.476 ; derial:ddddd|buffer_pos[20] ; derial:ddddd|buffer_pos[21] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.584      ;
-; 0.476 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[25] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.584      ;
 ; 0.476 ; derial:ddddd|buffer_pos[26] ; derial:ddddd|buffer_pos[27] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.584      ;
-; 0.476 ; derial:ddddd|buffer[30]     ; derial:ddddd|curr_opcode[2] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.075      ; 0.635      ;
 ; 0.476 ; derial:ddddd|buffer_pos[28] ; derial:ddddd|buffer_pos[29] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.584      ;
+; 0.476 ; derial:ddddd|buffer[30]     ; derial:ddddd|curr_opcode[2] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.075      ; 0.635      ;
+; 0.476 ; derial:ddddd|buffer_pos[24] ; derial:ddddd|buffer_pos[25] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.584      ;
 ; 0.476 ; derial:ddddd|buffer_pos[3]  ; derial:ddddd|buffer[27]     ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.066      ; 0.626      ;
 ; 0.478 ; derial:ddddd|buffer_pos[6]  ; derial:ddddd|buffer_pos[8]  ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.586      ;
 ; 0.478 ; derial:ddddd|buffer_pos[16] ; derial:ddddd|buffer_pos[18] ; serial_clock_in ; serial_clock_in ; 0.000        ; 0.024      ; 0.586      ;
@@ -1946,7 +1946,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Dec 04 15:21:53 2019
+    Info: Processing started: Thu Dec 05 13:18:45 2019
 Info: Command: quartus_sta processor -c processor
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -2028,8 +2028,8 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4919 megabytes
-    Info: Processing ended: Wed Dec 04 15:21:58 2019
+    Info: Peak virtual memory: 4920 megabytes
+    Info: Processing ended: Thu Dec 05 13:18:50 2019
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 
