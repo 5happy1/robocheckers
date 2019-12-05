@@ -158,17 +158,17 @@ game_loop:
 	addi $28, $t1, 0
 	sll $28, $28, 5
 	
-	addi $t0, $t0, 1
+	sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
 	lw $t1, 0($t0)
 	addi $28, $t1, 0
 	sll $28, $28, 5
 
-	addi $t0, $t0, 1
+	sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
 	lw $t1, 0($t0)
 	addi $28, $t1, 0
 	sll $28, $28, 5
 
-	addi $t0, $t0, 1
+	sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
 	lw $t1, 0($t0)
 	addi $28, $t1, 0
 	sll $28, $28, 5
@@ -240,9 +240,9 @@ make_move:
 	sw $ra, 0($sp)			# [$sp+0] = $ra (save return address)
 	
 	# Get locations of pieces in memory
-	add $t1, $a0, $a1		# $t1 = location of space_from in memory
-	add $t2, $a0, $a2		# $t2 = location of space_to in memory
-	add $t3, $a0, $a3		# $t3 = location of space_jumped in memory
+	sub $t1, $a0, $a1		# $t1 = location of space_from in memory
+	sub $t2, $a0, $a2		# $t2 = location of space_to in memory
+	sub $t3, $a0, $a3		# $t3 = location of space_jumped in memory
 	
 	# Perform swap
 	lw $t4, 0($t1)			# $t4 = checker at space_from
@@ -255,7 +255,7 @@ make_move:
 	j after_jump			# Skip jumping code if no jump
 
 	jumped:
-	add $t6, $a0, $t3		# $t6 = location of space_jumped in memory
+	sub $t6, $a0, $t3		# $t6 = location of space_jumped in memory
 	sw $zero, 0($t7)		# [$t6] = 0 (blank space) in memory
 	
 	after_jump:
@@ -279,7 +279,7 @@ king_me:
 	sub $sp, $sp, $s2		# Reserve 1 word on stack
 	sw $ra, 0($sp)			# [$sp+0] = $ra (save return address)
 	
-	add $t0, $a0, $a1		# $t0 = location of space in memory
+	sub $t0, $a0, $a1		# $t0 = location of space in memory
 	lw $t1, 0($t0)			# $t1 = checker at space in memory
 	
 	# If checker == 1...
@@ -508,9 +508,10 @@ find_move:
 
 	##### BEGIN GENERATED CODE #####
 	
+	
 	# Space 0
 	p2s0:
-	addi $t0, $s1, 0
+	addi $t0, $s1, -0
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s0n2
@@ -522,7 +523,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s0ur_end
 	p2s0ur:
-	addi $t0, $s1, 4
+	addi $t0, $s1, -4
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s0urj
 	addi $t0, $zero, -1
@@ -539,7 +540,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s0ur_end
 	p2s0s4_1or3:
-	addi $t0, $zero, 9
+	addi $t0, $s1, -9
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s0ur_end
 	addi $t0, $zero, -2
@@ -551,7 +552,7 @@ find_move:
 
 	# Space 1
 	p2s1:
-	addi $t0, $s1, 1
+	addi $t0, $s1, -1
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s1n2
@@ -563,7 +564,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s1ul_end
 	p2s1ul:
-	addi $t0, $s1, 4
+	addi $t0, $s1, -4
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s1ulj
 	addi $t0, $zero, -1
@@ -580,7 +581,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s1ul_end
 	p2s1s4_1or3:
-	addi $t0, $zero, 8
+	addi $t0, $s1, -8
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s1ul_end
 	addi $t0, $zero, -4
@@ -592,7 +593,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s1ur_end
 	p2s1ur:
-	addi $t0, $s1, 5
+	addi $t0, $s1, -5
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s1urj
 	addi $t0, $zero, -1
@@ -609,7 +610,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s1ur_end
 	p2s1s5_1or3:
-	addi $t0, $zero, 10
+	addi $t0, $s1, -10
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s1ur_end
 	addi $t0, $zero, -2
@@ -621,7 +622,7 @@ find_move:
 
 	# Space 2
 	p2s2:
-	addi $t0, $s1, 2
+	addi $t0, $s1, -2
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s2n2
@@ -633,7 +634,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s2ul_end
 	p2s2ul:
-	addi $t0, $s1, 5
+	addi $t0, $s1, -5
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s2ulj
 	addi $t0, $zero, -1
@@ -650,7 +651,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s2ul_end
 	p2s2s5_1or3:
-	addi $t0, $zero, 9
+	addi $t0, $s1, -9
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s2ul_end
 	addi $t0, $zero, -2
@@ -662,7 +663,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s2ur_end
 	p2s2ur:
-	addi $t0, $s1, 6
+	addi $t0, $s1, -6
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s2urj
 	addi $t0, $zero, -1
@@ -679,7 +680,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s2ur_end
 	p2s2s6_1or3:
-	addi $t0, $zero, 11
+	addi $t0, $s1, -11
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s2ur_end
 	addi $t0, $zero, -2
@@ -691,7 +692,7 @@ find_move:
 
 	# Space 3
 	p2s3:
-	addi $t0, $s1, 3
+	addi $t0, $s1, -3
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s3n2
@@ -703,7 +704,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s3ul_end
 	p2s3ul:
-	addi $t0, $s1, 6
+	addi $t0, $s1, -6
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s3ulj
 	addi $t0, $zero, -1
@@ -720,7 +721,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s3ul_end
 	p2s3s6_1or3:
-	addi $t0, $zero, 10
+	addi $t0, $s1, -10
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s3ul_end
 	addi $t0, $zero, -2
@@ -732,7 +733,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s3ur_end
 	p2s3ur:
-	addi $t0, $s1, 7
+	addi $t0, $s1, -7
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s3urj
 	addi $t0, $zero, -3
@@ -746,7 +747,7 @@ find_move:
 
 	# Space 4
 	p2s4:
-	addi $t0, $s1, 4
+	addi $t0, $s1, -4
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s4n2
@@ -758,7 +759,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s4ul_end
 	p2s4ul:
-	addi $t0, $s1, 8
+	addi $t0, $s1, -8
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s4ulj
 	addi $t0, $zero, -3
@@ -772,7 +773,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s4ur_end
 	p2s4ur:
-	addi $t0, $s1, 9
+	addi $t0, $s1, -9
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s4urj
 	addi $t0, $zero, -1
@@ -789,7 +790,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s4ur_end
 	p2s4s9_1or3:
-	addi $t0, $zero, 13
+	addi $t0, $s1, -13
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s4ur_end
 	addi $t0, $zero, -2
@@ -799,7 +800,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s4ur_end:  # End label for moving to next
 	p2s4dl:
-	addi $t0, $s1, 0
+	addi $t0, $s1, -0
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s4dlj
 	addi $t0, $zero, -5
@@ -811,7 +812,7 @@ find_move:
 	p2s4dlj:
 	p2s4dl_end:  # End label for moving to next
 	p2s4dr:
-	addi $t0, $s1, 1
+	addi $t0, $s1, -1
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s4drj
 	addi $t0, $zero, -5
@@ -825,7 +826,7 @@ find_move:
 
 	# Space 5
 	p2s5:
-	addi $t0, $s1, 5
+	addi $t0, $s1, -5
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s5n2
@@ -837,7 +838,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s5ul_end
 	p2s5ul:
-	addi $t0, $s1, 9
+	addi $t0, $s1, -9
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s5ulj
 	addi $t0, $zero, -1
@@ -854,7 +855,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s5ul_end
 	p2s5s9_1or3:
-	addi $t0, $zero, 12
+	addi $t0, $s1, -12
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s5ul_end
 	addi $t0, $zero, -2
@@ -866,7 +867,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s5ur_end
 	p2s5ur:
-	addi $t0, $s1, 10
+	addi $t0, $s1, -10
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s5urj
 	addi $t0, $zero, -1
@@ -883,7 +884,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s5ur_end
 	p2s5s10_1or3:
-	addi $t0, $zero, 14
+	addi $t0, $s1, -14
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s5ur_end
 	addi $t0, $zero, -2
@@ -893,7 +894,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s5ur_end:  # End label for moving to next
 	p2s5dl:
-	addi $t0, $s1, 1
+	addi $t0, $s1, -1
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s5dlj
 	addi $t0, $zero, -5
@@ -905,7 +906,7 @@ find_move:
 	p2s5dlj:
 	p2s5dl_end:  # End label for moving to next
 	p2s5dr:
-	addi $t0, $s1, 2
+	addi $t0, $s1, -2
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s5drj
 	addi $t0, $zero, -5
@@ -919,7 +920,7 @@ find_move:
 
 	# Space 6
 	p2s6:
-	addi $t0, $s1, 6
+	addi $t0, $s1, -6
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s6n2
@@ -931,7 +932,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s6ul_end
 	p2s6ul:
-	addi $t0, $s1, 10
+	addi $t0, $s1, -10
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s6ulj
 	addi $t0, $zero, -1
@@ -948,7 +949,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s6ul_end
 	p2s6s10_1or3:
-	addi $t0, $zero, 13
+	addi $t0, $s1, -13
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s6ul_end
 	addi $t0, $zero, -2
@@ -960,7 +961,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s6ur_end
 	p2s6ur:
-	addi $t0, $s1, 11
+	addi $t0, $s1, -11
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s6urj
 	addi $t0, $zero, -1
@@ -977,7 +978,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s6ur_end
 	p2s6s11_1or3:
-	addi $t0, $zero, 15
+	addi $t0, $s1, -15
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s6ur_end
 	addi $t0, $zero, -4
@@ -987,7 +988,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s6ur_end:  # End label for moving to next
 	p2s6dl:
-	addi $t0, $s1, 2
+	addi $t0, $s1, -2
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s6dlj
 	addi $t0, $zero, -5
@@ -999,7 +1000,7 @@ find_move:
 	p2s6dlj:
 	p2s6dl_end:  # End label for moving to next
 	p2s6dr:
-	addi $t0, $s1, 3
+	addi $t0, $s1, -3
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s6drj
 	addi $t0, $zero, -5
@@ -1013,7 +1014,7 @@ find_move:
 
 	# Space 7
 	p2s7:
-	addi $t0, $s1, 7
+	addi $t0, $s1, -7
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s7n2
@@ -1025,7 +1026,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s7ul_end
 	p2s7ul:
-	addi $t0, $s1, 11
+	addi $t0, $s1, -11
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s7ulj
 	addi $t0, $zero, -1
@@ -1042,7 +1043,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s7ul_end
 	p2s7s11_1or3:
-	addi $t0, $zero, 14
+	addi $t0, $s1, -14
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s7ul_end
 	addi $t0, $zero, -2
@@ -1052,7 +1053,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s7ul_end:  # End label for moving to next
 	p2s7dl:
-	addi $t0, $s1, 3
+	addi $t0, $s1, -3
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s7dlj
 	addi $t0, $zero, -5
@@ -1066,7 +1067,7 @@ find_move:
 
 	# Space 8
 	p2s8:
-	addi $t0, $s1, 8
+	addi $t0, $s1, -8
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s8n2
@@ -1078,7 +1079,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s8ur_end
 	p2s8ur:
-	addi $t0, $s1, 12
+	addi $t0, $s1, -12
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s8urj
 	addi $t0, $zero, -1
@@ -1095,7 +1096,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s8ur_end
 	p2s8s12_1or3:
-	addi $t0, $zero, 17
+	addi $t0, $s1, -17
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s8ur_end
 	addi $t0, $zero, -2
@@ -1105,7 +1106,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s8ur_end:  # End label for moving to next
 	p2s8dr:
-	addi $t0, $s1, 4
+	addi $t0, $s1, -4
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s8drj
 	addi $t0, $zero, -1
@@ -1122,7 +1123,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s8dr_end
 	p2s8s4_1or3:
-	addi $t0, $zero, 1
+	addi $t0, $s1, -1
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s8dr_end
 	addi $t0, $zero, -6
@@ -1134,7 +1135,7 @@ find_move:
 
 	# Space 9
 	p2s9:
-	addi $t0, $s1, 9
+	addi $t0, $s1, -9
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s9n2
@@ -1146,7 +1147,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s9ul_end
 	p2s9ul:
-	addi $t0, $s1, 12
+	addi $t0, $s1, -12
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s9ulj
 	addi $t0, $zero, -1
@@ -1163,7 +1164,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9ul_end
 	p2s9s12_1or3:
-	addi $t0, $zero, 16
+	addi $t0, $s1, -16
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s9ul_end
 	addi $t0, $zero, -4
@@ -1175,7 +1176,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s9ur_end
 	p2s9ur:
-	addi $t0, $s1, 13
+	addi $t0, $s1, -13
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s9urj
 	addi $t0, $zero, -1
@@ -1192,7 +1193,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9ur_end
 	p2s9s13_1or3:
-	addi $t0, $zero, 18
+	addi $t0, $s1, -18
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s9ur_end
 	addi $t0, $zero, -2
@@ -1202,7 +1203,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s9ur_end:  # End label for moving to next
 	p2s9dl:
-	addi $t0, $s1, 4
+	addi $t0, $s1, -4
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s9dlj
 	addi $t0, $zero, -1
@@ -1219,7 +1220,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9dl_end
 	p2s9s4_1or3:
-	addi $t0, $zero, 0
+	addi $t0, $s1, -0
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s9dl_end
 	addi $t0, $zero, -6
@@ -1229,7 +1230,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s9dl_end:  # End label for moving to next
 	p2s9dr:
-	addi $t0, $s1, 5
+	addi $t0, $s1, -5
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s9drj
 	addi $t0, $zero, -1
@@ -1246,7 +1247,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9dr_end
 	p2s9s5_1or3:
-	addi $t0, $zero, 2
+	addi $t0, $s1, -2
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s9dr_end
 	addi $t0, $zero, -6
@@ -1258,7 +1259,7 @@ find_move:
 
 	# Space 10
 	p2s10:
-	addi $t0, $s1, 10
+	addi $t0, $s1, -10
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s10n2
@@ -1270,7 +1271,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s10ul_end
 	p2s10ul:
-	addi $t0, $s1, 13
+	addi $t0, $s1, -13
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s10ulj
 	addi $t0, $zero, -1
@@ -1287,7 +1288,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10ul_end
 	p2s10s13_1or3:
-	addi $t0, $zero, 17
+	addi $t0, $s1, -17
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s10ul_end
 	addi $t0, $zero, -2
@@ -1299,7 +1300,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s10ur_end
 	p2s10ur:
-	addi $t0, $s1, 14
+	addi $t0, $s1, -14
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s10urj
 	addi $t0, $zero, -1
@@ -1316,7 +1317,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10ur_end
 	p2s10s14_1or3:
-	addi $t0, $zero, 19
+	addi $t0, $s1, -19
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s10ur_end
 	addi $t0, $zero, -2
@@ -1326,7 +1327,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s10ur_end:  # End label for moving to next
 	p2s10dl:
-	addi $t0, $s1, 5
+	addi $t0, $s1, -5
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s10dlj
 	addi $t0, $zero, -1
@@ -1343,7 +1344,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10dl_end
 	p2s10s5_1or3:
-	addi $t0, $zero, 1
+	addi $t0, $s1, -1
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s10dl_end
 	addi $t0, $zero, -6
@@ -1353,7 +1354,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s10dl_end:  # End label for moving to next
 	p2s10dr:
-	addi $t0, $s1, 6
+	addi $t0, $s1, -6
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s10drj
 	addi $t0, $zero, -1
@@ -1370,7 +1371,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10dr_end
 	p2s10s6_1or3:
-	addi $t0, $zero, 3
+	addi $t0, $s1, -3
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s10dr_end
 	addi $t0, $zero, -6
@@ -1382,7 +1383,7 @@ find_move:
 
 	# Space 11
 	p2s11:
-	addi $t0, $s1, 11
+	addi $t0, $s1, -11
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s11n2
@@ -1394,7 +1395,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s11ul_end
 	p2s11ul:
-	addi $t0, $s1, 14
+	addi $t0, $s1, -14
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s11ulj
 	addi $t0, $zero, -1
@@ -1411,7 +1412,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s11ul_end
 	p2s11s14_1or3:
-	addi $t0, $zero, 18
+	addi $t0, $s1, -18
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s11ul_end
 	addi $t0, $zero, -2
@@ -1423,7 +1424,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s11ur_end
 	p2s11ur:
-	addi $t0, $s1, 15
+	addi $t0, $s1, -15
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s11urj
 	addi $t0, $zero, -3
@@ -1435,7 +1436,7 @@ find_move:
 	p2s11urj:
 	p2s11ur_end:  # End label for moving to next
 	p2s11dl:
-	addi $t0, $s1, 6
+	addi $t0, $s1, -6
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s11dlj
 	addi $t0, $zero, -1
@@ -1452,7 +1453,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s11dl_end
 	p2s11s6_1or3:
-	addi $t0, $zero, 2
+	addi $t0, $s1, -2
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s11dl_end
 	addi $t0, $zero, -6
@@ -1462,7 +1463,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s11dl_end:  # End label for moving to next
 	p2s11dr:
-	addi $t0, $s1, 7
+	addi $t0, $s1, -7
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s11drj
 	addi $t0, $zero, -3
@@ -1476,7 +1477,7 @@ find_move:
 
 	# Space 12
 	p2s12:
-	addi $t0, $s1, 12
+	addi $t0, $s1, -12
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s12n2
@@ -1488,7 +1489,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s12ul_end
 	p2s12ul:
-	addi $t0, $s1, 16
+	addi $t0, $s1, -16
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s12ulj
 	addi $t0, $zero, -3
@@ -1502,7 +1503,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s12ur_end
 	p2s12ur:
-	addi $t0, $s1, 17
+	addi $t0, $s1, -17
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s12urj
 	addi $t0, $zero, -1
@@ -1519,7 +1520,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s12ur_end
 	p2s12s17_1or3:
-	addi $t0, $zero, 21
+	addi $t0, $s1, -21
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s12ur_end
 	addi $t0, $zero, -2
@@ -1529,7 +1530,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s12ur_end:  # End label for moving to next
 	p2s12dl:
-	addi $t0, $s1, 8
+	addi $t0, $s1, -8
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s12dlj
 	addi $t0, $zero, -3
@@ -1541,7 +1542,7 @@ find_move:
 	p2s12dlj:
 	p2s12dl_end:  # End label for moving to next
 	p2s12dr:
-	addi $t0, $s1, 9
+	addi $t0, $s1, -9
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s12drj
 	addi $t0, $zero, -1
@@ -1558,7 +1559,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s12dr_end
 	p2s12s9_1or3:
-	addi $t0, $zero, 5
+	addi $t0, $s1, -5
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s12dr_end
 	addi $t0, $zero, -2
@@ -1570,7 +1571,7 @@ find_move:
 
 	# Space 13
 	p2s13:
-	addi $t0, $s1, 13
+	addi $t0, $s1, -13
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s13n2
@@ -1582,7 +1583,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s13ul_end
 	p2s13ul:
-	addi $t0, $s1, 17
+	addi $t0, $s1, -17
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s13ulj
 	addi $t0, $zero, -1
@@ -1599,7 +1600,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13ul_end
 	p2s13s17_1or3:
-	addi $t0, $zero, 20
+	addi $t0, $s1, -20
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s13ul_end
 	addi $t0, $zero, -2
@@ -1611,7 +1612,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s13ur_end
 	p2s13ur:
-	addi $t0, $s1, 18
+	addi $t0, $s1, -18
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s13urj
 	addi $t0, $zero, -1
@@ -1628,7 +1629,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13ur_end
 	p2s13s18_1or3:
-	addi $t0, $zero, 22
+	addi $t0, $s1, -22
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s13ur_end
 	addi $t0, $zero, -2
@@ -1638,7 +1639,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s13ur_end:  # End label for moving to next
 	p2s13dl:
-	addi $t0, $s1, 9
+	addi $t0, $s1, -9
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s13dlj
 	addi $t0, $zero, -1
@@ -1655,7 +1656,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13dl_end
 	p2s13s9_1or3:
-	addi $t0, $zero, 4
+	addi $t0, $s1, -4
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s13dl_end
 	addi $t0, $zero, -2
@@ -1665,7 +1666,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s13dl_end:  # End label for moving to next
 	p2s13dr:
-	addi $t0, $s1, 10
+	addi $t0, $s1, -10
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s13drj
 	addi $t0, $zero, -1
@@ -1682,7 +1683,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13dr_end
 	p2s13s10_1or3:
-	addi $t0, $zero, 6
+	addi $t0, $s1, -6
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s13dr_end
 	addi $t0, $zero, -2
@@ -1694,7 +1695,7 @@ find_move:
 
 	# Space 14
 	p2s14:
-	addi $t0, $s1, 14
+	addi $t0, $s1, -14
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s14n2
@@ -1706,7 +1707,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s14ul_end
 	p2s14ul:
-	addi $t0, $s1, 18
+	addi $t0, $s1, -18
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s14ulj
 	addi $t0, $zero, -1
@@ -1723,7 +1724,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14ul_end
 	p2s14s18_1or3:
-	addi $t0, $zero, 21
+	addi $t0, $s1, -21
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s14ul_end
 	addi $t0, $zero, -2
@@ -1735,7 +1736,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s14ur_end
 	p2s14ur:
-	addi $t0, $s1, 19
+	addi $t0, $s1, -19
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s14urj
 	addi $t0, $zero, -1
@@ -1752,7 +1753,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14ur_end
 	p2s14s19_1or3:
-	addi $t0, $zero, 23
+	addi $t0, $s1, -23
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s14ur_end
 	addi $t0, $zero, -4
@@ -1762,7 +1763,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s14ur_end:  # End label for moving to next
 	p2s14dl:
-	addi $t0, $s1, 10
+	addi $t0, $s1, -10
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s14dlj
 	addi $t0, $zero, -1
@@ -1779,7 +1780,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14dl_end
 	p2s14s10_1or3:
-	addi $t0, $zero, 5
+	addi $t0, $s1, -5
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s14dl_end
 	addi $t0, $zero, -2
@@ -1789,7 +1790,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s14dl_end:  # End label for moving to next
 	p2s14dr:
-	addi $t0, $s1, 11
+	addi $t0, $s1, -11
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s14drj
 	addi $t0, $zero, -1
@@ -1806,7 +1807,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14dr_end
 	p2s14s11_1or3:
-	addi $t0, $zero, 7
+	addi $t0, $s1, -7
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s14dr_end
 	addi $t0, $zero, -4
@@ -1818,7 +1819,7 @@ find_move:
 
 	# Space 15
 	p2s15:
-	addi $t0, $s1, 15
+	addi $t0, $s1, -15
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s15n2
@@ -1830,7 +1831,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s15ul_end
 	p2s15ul:
-	addi $t0, $s1, 19
+	addi $t0, $s1, -19
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s15ulj
 	addi $t0, $zero, -1
@@ -1847,7 +1848,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s15ul_end
 	p2s15s19_1or3:
-	addi $t0, $zero, 22
+	addi $t0, $s1, -22
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s15ul_end
 	addi $t0, $zero, -2
@@ -1857,7 +1858,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s15ul_end:  # End label for moving to next
 	p2s15dl:
-	addi $t0, $s1, 11
+	addi $t0, $s1, -11
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s15dlj
 	addi $t0, $zero, -1
@@ -1874,7 +1875,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s15dl_end
 	p2s15s11_1or3:
-	addi $t0, $zero, 6
+	addi $t0, $s1, -6
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s15dl_end
 	addi $t0, $zero, -2
@@ -1886,7 +1887,7 @@ find_move:
 
 	# Space 16
 	p2s16:
-	addi $t0, $s1, 16
+	addi $t0, $s1, -16
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s16n2
@@ -1898,7 +1899,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s16ur_end
 	p2s16ur:
-	addi $t0, $s1, 20
+	addi $t0, $s1, -20
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s16urj
 	addi $t0, $zero, -1
@@ -1915,7 +1916,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s16ur_end
 	p2s16s20_1or3:
-	addi $t0, $zero, 25
+	addi $t0, $s1, -25
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s16ur_end
 	addi $t0, $zero, -2
@@ -1925,7 +1926,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s16ur_end:  # End label for moving to next
 	p2s16dr:
-	addi $t0, $s1, 12
+	addi $t0, $s1, -12
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s16drj
 	addi $t0, $zero, -1
@@ -1942,7 +1943,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s16dr_end
 	p2s16s12_1or3:
-	addi $t0, $zero, 9
+	addi $t0, $s1, -9
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s16dr_end
 	addi $t0, $zero, -2
@@ -1954,7 +1955,7 @@ find_move:
 
 	# Space 17
 	p2s17:
-	addi $t0, $s1, 17
+	addi $t0, $s1, -17
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s17n2
@@ -1966,7 +1967,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s17ul_end
 	p2s17ul:
-	addi $t0, $s1, 20
+	addi $t0, $s1, -20
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s17ulj
 	addi $t0, $zero, -1
@@ -1983,7 +1984,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17ul_end
 	p2s17s20_1or3:
-	addi $t0, $zero, 24
+	addi $t0, $s1, -24
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s17ul_end
 	addi $t0, $zero, -4
@@ -1995,7 +1996,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s17ur_end
 	p2s17ur:
-	addi $t0, $s1, 21
+	addi $t0, $s1, -21
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s17urj
 	addi $t0, $zero, -1
@@ -2012,7 +2013,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17ur_end
 	p2s17s21_1or3:
-	addi $t0, $zero, 26
+	addi $t0, $s1, -26
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s17ur_end
 	addi $t0, $zero, -2
@@ -2022,7 +2023,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s17ur_end:  # End label for moving to next
 	p2s17dl:
-	addi $t0, $s1, 12
+	addi $t0, $s1, -12
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s17dlj
 	addi $t0, $zero, -1
@@ -2039,7 +2040,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17dl_end
 	p2s17s12_1or3:
-	addi $t0, $zero, 8
+	addi $t0, $s1, -8
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s17dl_end
 	addi $t0, $zero, -4
@@ -2049,7 +2050,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s17dl_end:  # End label for moving to next
 	p2s17dr:
-	addi $t0, $s1, 13
+	addi $t0, $s1, -13
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s17drj
 	addi $t0, $zero, -1
@@ -2066,7 +2067,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17dr_end
 	p2s17s13_1or3:
-	addi $t0, $zero, 10
+	addi $t0, $s1, -10
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s17dr_end
 	addi $t0, $zero, -2
@@ -2078,7 +2079,7 @@ find_move:
 
 	# Space 18
 	p2s18:
-	addi $t0, $s1, 18
+	addi $t0, $s1, -18
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s18n2
@@ -2090,7 +2091,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s18ul_end
 	p2s18ul:
-	addi $t0, $s1, 21
+	addi $t0, $s1, -21
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s18ulj
 	addi $t0, $zero, -1
@@ -2107,7 +2108,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18ul_end
 	p2s18s21_1or3:
-	addi $t0, $zero, 25
+	addi $t0, $s1, -25
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s18ul_end
 	addi $t0, $zero, -2
@@ -2119,7 +2120,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s18ur_end
 	p2s18ur:
-	addi $t0, $s1, 22
+	addi $t0, $s1, -22
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s18urj
 	addi $t0, $zero, -1
@@ -2136,7 +2137,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18ur_end
 	p2s18s22_1or3:
-	addi $t0, $zero, 27
+	addi $t0, $s1, -27
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s18ur_end
 	addi $t0, $zero, -2
@@ -2146,7 +2147,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s18ur_end:  # End label for moving to next
 	p2s18dl:
-	addi $t0, $s1, 13
+	addi $t0, $s1, -13
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s18dlj
 	addi $t0, $zero, -1
@@ -2163,7 +2164,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18dl_end
 	p2s18s13_1or3:
-	addi $t0, $zero, 9
+	addi $t0, $s1, -9
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s18dl_end
 	addi $t0, $zero, -2
@@ -2173,7 +2174,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s18dl_end:  # End label for moving to next
 	p2s18dr:
-	addi $t0, $s1, 14
+	addi $t0, $s1, -14
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s18drj
 	addi $t0, $zero, -1
@@ -2190,7 +2191,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18dr_end
 	p2s18s14_1or3:
-	addi $t0, $zero, 11
+	addi $t0, $s1, -11
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s18dr_end
 	addi $t0, $zero, -2
@@ -2202,7 +2203,7 @@ find_move:
 
 	# Space 19
 	p2s19:
-	addi $t0, $s1, 19
+	addi $t0, $s1, -19
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s19n2
@@ -2214,7 +2215,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s19ul_end
 	p2s19ul:
-	addi $t0, $s1, 22
+	addi $t0, $s1, -22
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s19ulj
 	addi $t0, $zero, -1
@@ -2231,7 +2232,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s19ul_end
 	p2s19s22_1or3:
-	addi $t0, $zero, 26
+	addi $t0, $s1, -26
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s19ul_end
 	addi $t0, $zero, -2
@@ -2243,7 +2244,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s19ur_end
 	p2s19ur:
-	addi $t0, $s1, 23
+	addi $t0, $s1, -23
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s19urj
 	addi $t0, $zero, -3
@@ -2255,7 +2256,7 @@ find_move:
 	p2s19urj:
 	p2s19ur_end:  # End label for moving to next
 	p2s19dl:
-	addi $t0, $s1, 14
+	addi $t0, $s1, -14
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s19dlj
 	addi $t0, $zero, -1
@@ -2272,7 +2273,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s19dl_end
 	p2s19s14_1or3:
-	addi $t0, $zero, 10
+	addi $t0, $s1, -10
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s19dl_end
 	addi $t0, $zero, -2
@@ -2282,7 +2283,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s19dl_end:  # End label for moving to next
 	p2s19dr:
-	addi $t0, $s1, 15
+	addi $t0, $s1, -15
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s19drj
 	addi $t0, $zero, -3
@@ -2296,7 +2297,7 @@ find_move:
 
 	# Space 20
 	p2s20:
-	addi $t0, $s1, 20
+	addi $t0, $s1, -20
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s20n2
@@ -2308,7 +2309,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s20ul_end
 	p2s20ul:
-	addi $t0, $s1, 24
+	addi $t0, $s1, -24
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s20ulj
 	addi $t0, $zero, -3
@@ -2322,7 +2323,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s20ur_end
 	p2s20ur:
-	addi $t0, $s1, 25
+	addi $t0, $s1, -25
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s20urj
 	addi $t0, $zero, -1
@@ -2339,7 +2340,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s20ur_end
 	p2s20s25_1or3:
-	addi $t0, $zero, 29
+	addi $t0, $s1, -29
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s20ur_end
 	addi $t0, $zero, -4
@@ -2349,7 +2350,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s20ur_end:  # End label for moving to next
 	p2s20dl:
-	addi $t0, $s1, 16
+	addi $t0, $s1, -16
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s20dlj
 	addi $t0, $zero, -3
@@ -2361,7 +2362,7 @@ find_move:
 	p2s20dlj:
 	p2s20dl_end:  # End label for moving to next
 	p2s20dr:
-	addi $t0, $s1, 17
+	addi $t0, $s1, -17
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s20drj
 	addi $t0, $zero, -1
@@ -2378,7 +2379,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s20dr_end
 	p2s20s17_1or3:
-	addi $t0, $zero, 13
+	addi $t0, $s1, -13
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s20dr_end
 	addi $t0, $zero, -2
@@ -2390,7 +2391,7 @@ find_move:
 
 	# Space 21
 	p2s21:
-	addi $t0, $s1, 21
+	addi $t0, $s1, -21
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s21n2
@@ -2402,7 +2403,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s21ul_end
 	p2s21ul:
-	addi $t0, $s1, 25
+	addi $t0, $s1, -25
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s21ulj
 	addi $t0, $zero, -1
@@ -2419,7 +2420,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21ul_end
 	p2s21s25_1or3:
-	addi $t0, $zero, 28
+	addi $t0, $s1, -28
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s21ul_end
 	addi $t0, $zero, -4
@@ -2431,7 +2432,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s21ur_end
 	p2s21ur:
-	addi $t0, $s1, 26
+	addi $t0, $s1, -26
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s21urj
 	addi $t0, $zero, -1
@@ -2448,7 +2449,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21ur_end
 	p2s21s26_1or3:
-	addi $t0, $zero, 30
+	addi $t0, $s1, -30
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s21ur_end
 	addi $t0, $zero, -4
@@ -2458,7 +2459,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s21ur_end:  # End label for moving to next
 	p2s21dl:
-	addi $t0, $s1, 17
+	addi $t0, $s1, -17
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s21dlj
 	addi $t0, $zero, -1
@@ -2475,7 +2476,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21dl_end
 	p2s21s17_1or3:
-	addi $t0, $zero, 12
+	addi $t0, $s1, -12
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s21dl_end
 	addi $t0, $zero, -2
@@ -2485,7 +2486,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s21dl_end:  # End label for moving to next
 	p2s21dr:
-	addi $t0, $s1, 18
+	addi $t0, $s1, -18
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s21drj
 	addi $t0, $zero, -1
@@ -2502,7 +2503,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21dr_end
 	p2s21s18_1or3:
-	addi $t0, $zero, 14
+	addi $t0, $s1, -14
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s21dr_end
 	addi $t0, $zero, -2
@@ -2514,7 +2515,7 @@ find_move:
 
 	# Space 22
 	p2s22:
-	addi $t0, $s1, 22
+	addi $t0, $s1, -22
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s22n2
@@ -2526,7 +2527,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s22ul_end
 	p2s22ul:
-	addi $t0, $s1, 26
+	addi $t0, $s1, -26
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s22ulj
 	addi $t0, $zero, -1
@@ -2543,7 +2544,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22ul_end
 	p2s22s26_1or3:
-	addi $t0, $zero, 29
+	addi $t0, $s1, -29
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s22ul_end
 	addi $t0, $zero, -4
@@ -2555,7 +2556,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s22ur_end
 	p2s22ur:
-	addi $t0, $s1, 27
+	addi $t0, $s1, -27
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s22urj
 	addi $t0, $zero, -1
@@ -2572,7 +2573,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22ur_end
 	p2s22s27_1or3:
-	addi $t0, $zero, 31
+	addi $t0, $s1, -31
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s22ur_end
 	addi $t0, $zero, -4
@@ -2582,7 +2583,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s22ur_end:  # End label for moving to next
 	p2s22dl:
-	addi $t0, $s1, 18
+	addi $t0, $s1, -18
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s22dlj
 	addi $t0, $zero, -1
@@ -2599,7 +2600,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22dl_end
 	p2s22s18_1or3:
-	addi $t0, $zero, 13
+	addi $t0, $s1, -13
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s22dl_end
 	addi $t0, $zero, -2
@@ -2609,7 +2610,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s22dl_end:  # End label for moving to next
 	p2s22dr:
-	addi $t0, $s1, 19
+	addi $t0, $s1, -19
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s22drj
 	addi $t0, $zero, -1
@@ -2626,7 +2627,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22dr_end
 	p2s22s19_1or3:
-	addi $t0, $zero, 15
+	addi $t0, $s1, -15
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s22dr_end
 	addi $t0, $zero, -4
@@ -2638,7 +2639,7 @@ find_move:
 
 	# Space 23
 	p2s23:
-	addi $t0, $s1, 23
+	addi $t0, $s1, -23
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s23n2
@@ -2650,7 +2651,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s23ul_end
 	p2s23ul:
-	addi $t0, $s1, 27
+	addi $t0, $s1, -27
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s23ulj
 	addi $t0, $zero, -1
@@ -2667,7 +2668,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s23ul_end
 	p2s23s27_1or3:
-	addi $t0, $zero, 30
+	addi $t0, $s1, -30
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s23ul_end
 	addi $t0, $zero, -4
@@ -2677,7 +2678,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s23ul_end:  # End label for moving to next
 	p2s23dl:
-	addi $t0, $s1, 19
+	addi $t0, $s1, -19
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s23dlj
 	addi $t0, $zero, -1
@@ -2694,7 +2695,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s23dl_end
 	p2s23s19_1or3:
-	addi $t0, $zero, 14
+	addi $t0, $s1, -14
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s23dl_end
 	addi $t0, $zero, -2
@@ -2706,7 +2707,7 @@ find_move:
 
 	# Space 24
 	p2s24:
-	addi $t0, $s1, 24
+	addi $t0, $s1, -24
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s24n2
@@ -2718,7 +2719,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s24ur_end
 	p2s24ur:
-	addi $t0, $s1, 28
+	addi $t0, $s1, -28
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s24urj
 	addi $t0, $zero, -3
@@ -2730,7 +2731,7 @@ find_move:
 	p2s24urj:
 	p2s24ur_end:  # End label for moving to next
 	p2s24dr:
-	addi $t0, $s1, 20
+	addi $t0, $s1, -20
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s24drj
 	addi $t0, $zero, -1
@@ -2747,7 +2748,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s24dr_end
 	p2s24s20_1or3:
-	addi $t0, $zero, 17
+	addi $t0, $s1, -17
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s24dr_end
 	addi $t0, $zero, -2
@@ -2759,7 +2760,7 @@ find_move:
 
 	# Space 25
 	p2s25:
-	addi $t0, $s1, 25
+	addi $t0, $s1, -25
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s25n2
@@ -2771,7 +2772,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s25ul_end
 	p2s25ul:
-	addi $t0, $s1, 28
+	addi $t0, $s1, -28
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s25ulj
 	addi $t0, $zero, -3
@@ -2785,7 +2786,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s25ur_end
 	p2s25ur:
-	addi $t0, $s1, 29
+	addi $t0, $s1, -29
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s25urj
 	addi $t0, $zero, -3
@@ -2797,7 +2798,7 @@ find_move:
 	p2s25urj:
 	p2s25ur_end:  # End label for moving to next
 	p2s25dl:
-	addi $t0, $s1, 20
+	addi $t0, $s1, -20
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s25dlj
 	addi $t0, $zero, -1
@@ -2814,7 +2815,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s25dl_end
 	p2s25s20_1or3:
-	addi $t0, $zero, 16
+	addi $t0, $s1, -16
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s25dl_end
 	addi $t0, $zero, -4
@@ -2824,7 +2825,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s25dl_end:  # End label for moving to next
 	p2s25dr:
-	addi $t0, $s1, 21
+	addi $t0, $s1, -21
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s25drj
 	addi $t0, $zero, -1
@@ -2841,7 +2842,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s25dr_end
 	p2s25s21_1or3:
-	addi $t0, $zero, 18
+	addi $t0, $s1, -18
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s25dr_end
 	addi $t0, $zero, -2
@@ -2853,7 +2854,7 @@ find_move:
 
 	# Space 26
 	p2s26:
-	addi $t0, $s1, 26
+	addi $t0, $s1, -26
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s26n2
@@ -2865,7 +2866,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s26ul_end
 	p2s26ul:
-	addi $t0, $s1, 29
+	addi $t0, $s1, -29
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s26ulj
 	addi $t0, $zero, -3
@@ -2879,7 +2880,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s26ur_end
 	p2s26ur:
-	addi $t0, $s1, 30
+	addi $t0, $s1, -30
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s26urj
 	addi $t0, $zero, -3
@@ -2891,7 +2892,7 @@ find_move:
 	p2s26urj:
 	p2s26ur_end:  # End label for moving to next
 	p2s26dl:
-	addi $t0, $s1, 21
+	addi $t0, $s1, -21
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s26dlj
 	addi $t0, $zero, -1
@@ -2908,7 +2909,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s26dl_end
 	p2s26s21_1or3:
-	addi $t0, $zero, 17
+	addi $t0, $s1, -17
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s26dl_end
 	addi $t0, $zero, -2
@@ -2918,7 +2919,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s26dl_end:  # End label for moving to next
 	p2s26dr:
-	addi $t0, $s1, 22
+	addi $t0, $s1, -22
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s26drj
 	addi $t0, $zero, -1
@@ -2935,7 +2936,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s26dr_end
 	p2s26s22_1or3:
-	addi $t0, $zero, 19
+	addi $t0, $s1, -19
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s26dr_end
 	addi $t0, $zero, -2
@@ -2947,7 +2948,7 @@ find_move:
 
 	# Space 27
 	p2s27:
-	addi $t0, $s1, 27
+	addi $t0, $s1, -27
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s27n2
@@ -2959,7 +2960,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s27ul_end
 	p2s27ul:
-	addi $t0, $s1, 30
+	addi $t0, $s1, -30
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s27ulj
 	addi $t0, $zero, -3
@@ -2973,7 +2974,7 @@ find_move:
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s27ur_end
 	p2s27ur:
-	addi $t0, $s1, 31
+	addi $t0, $s1, -31
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s27urj
 	addi $t0, $zero, -3
@@ -2985,7 +2986,7 @@ find_move:
 	p2s27urj:
 	p2s27ur_end:  # End label for moving to next
 	p2s27dl:
-	addi $t0, $s1, 22
+	addi $t0, $s1, -22
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s27dlj
 	addi $t0, $zero, -1
@@ -3002,7 +3003,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s27dl_end
 	p2s27s22_1or3:
-	addi $t0, $zero, 18
+	addi $t0, $s1, -18
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s27dl_end
 	addi $t0, $zero, -2
@@ -3012,7 +3013,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s27dl_end:  # End label for moving to next
 	p2s27dr:
-	addi $t0, $s1, 23
+	addi $t0, $s1, -23
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s27drj
 	addi $t0, $zero, -3
@@ -3026,7 +3027,7 @@ find_move:
 
 	# Space 28
 	p2s28:
-	addi $t0, $s1, 28
+	addi $t0, $s1, -28
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s28n2
@@ -3036,7 +3037,7 @@ find_move:
 	bne $t1, $t0, p2s29
 	p2s28_2or4:  # Space 28 is 2 or 4
 	p2s28dl:
-	addi $t0, $s1, 24
+	addi $t0, $s1, -24
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s28dlj
 	addi $t0, $zero, -3
@@ -3048,7 +3049,7 @@ find_move:
 	p2s28dlj:
 	p2s28dl_end:  # End label for moving to next
 	p2s28dr:
-	addi $t0, $s1, 25
+	addi $t0, $s1, -25
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s28drj
 	addi $t0, $zero, -1
@@ -3065,7 +3066,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s28dr_end
 	p2s28s25_1or3:
-	addi $t0, $zero, 21
+	addi $t0, $s1, -21
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s28dr_end
 	addi $t0, $zero, -2
@@ -3077,7 +3078,7 @@ find_move:
 
 	# Space 29
 	p2s29:
-	addi $t0, $s1, 29
+	addi $t0, $s1, -29
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s29n2
@@ -3087,7 +3088,7 @@ find_move:
 	bne $t1, $t0, p2s30
 	p2s29_2or4:  # Space 29 is 2 or 4
 	p2s29dl:
-	addi $t0, $s1, 25
+	addi $t0, $s1, -25
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s29dlj
 	addi $t0, $zero, -1
@@ -3104,7 +3105,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s29dl_end
 	p2s29s25_1or3:
-	addi $t0, $zero, 20
+	addi $t0, $s1, -20
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s29dl_end
 	addi $t0, $zero, -2
@@ -3114,7 +3115,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s29dl_end:  # End label for moving to next
 	p2s29dr:
-	addi $t0, $s1, 26
+	addi $t0, $s1, -26
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s29drj
 	addi $t0, $zero, -1
@@ -3131,7 +3132,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s29dr_end
 	p2s29s26_1or3:
-	addi $t0, $zero, 22
+	addi $t0, $s1, -22
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s29dr_end
 	addi $t0, $zero, -2
@@ -3143,7 +3144,7 @@ find_move:
 
 	# Space 30
 	p2s30:
-	addi $t0, $s1, 30
+	addi $t0, $s1, -30
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s30n2
@@ -3153,7 +3154,7 @@ find_move:
 	bne $t1, $t0, p2s31
 	p2s30_2or4:  # Space 30 is 2 or 4
 	p2s30dl:
-	addi $t0, $s1, 26
+	addi $t0, $s1, -26
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s30dlj
 	addi $t0, $zero, -1
@@ -3170,7 +3171,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s30dl_end
 	p2s30s26_1or3:
-	addi $t0, $zero, 21
+	addi $t0, $s1, -21
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s30dl_end
 	addi $t0, $zero, -2
@@ -3180,7 +3181,7 @@ find_move:
 	add $t9, $zero, $t0
 	p2s30dl_end:  # End label for moving to next
 	p2s30dr:
-	addi $t0, $s1, 27
+	addi $t0, $s1, -27
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s30drj
 	addi $t0, $zero, -1
@@ -3197,7 +3198,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s30dr_end
 	p2s30s27_1or3:
-	addi $t0, $zero, 23
+	addi $t0, $s1, -23
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s30dr_end
 	addi $t0, $zero, -4
@@ -3209,7 +3210,7 @@ find_move:
 
 	# Space 31
 	p2s31:
-	addi $t0, $s1, 31
+	addi $t0, $s1, -31
 	lw $t1, 0($t0)
 	addi $t0, $zero, 2
 	bne $t1, $t0, p2s31n2
@@ -3219,7 +3220,7 @@ find_move:
 	bne $t1, $t0, p2s32
 	p2s31_2or4:  # Space 31 is 2 or 4
 	p2s31dl:
-	addi $t0, $s1, 27
+	addi $t0, $s1, -27
 	lw $t2, 0($t0)
 	bne $t2, $zero, p2s31dlj
 	addi $t0, $zero, -1
@@ -3236,7 +3237,7 @@ find_move:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s31dl_end
 	p2s31s27_1or3:
-	addi $t0, $zero, 22
+	addi $t0, $s1, -22
 	lw $t3, 0($t0)
 	bne $t3, $zero, p2s31dl_end
 	addi $t0, $zero, -2

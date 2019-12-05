@@ -15,7 +15,7 @@ def space(p, i):
     s += f"p{p}s{i}:\n"
 
     # Load piece from memory into $t1
-    s += f"addi $t0, $s1, {i}\n"
+    s += f"addi $t0, $s1, -{i}\n"
     s += f"lw $t1, 0($t0)\n"
 
     # Check if space is player's piece
@@ -66,7 +66,7 @@ def move(p, i, mo, d):
     s += f"p{p}s{i}{d}:\n"
 
     # Load space to move to
-    s += f"addi $t0, $s1, {i+mo}\n"
+    s += f"addi $t0, $s1, -{i+mo}\n"
     s += f"lw $t2, 0($t0)\n"
 
     # Check if empty
@@ -105,7 +105,7 @@ def jump(p, e, i, mo, jo, d):
     s += f"addi $t0, $zero, {e+2}\n"
     s += f"bne $t2, $t0, p{p}s{i}{d}_end\n"  # Branch if != king, go to next space
     s += f"p{p}s{i}s{i+mo}_{e}or{e+2}:\n"
-    s += f"addi $t0, $zero, {i+jo}\n"
+    s += f"addi $t0, $s1, -{i+jo}\n"
     s += f"lw $t3, 0($t0)\n"
     s += f"bne $t3, $zero, p{p}s{i}{d}_end\n"  # Branch if jump to space is not empty
     s += f"addi $t0, $zero, {score(p, i+jo, 'j')}\n"
