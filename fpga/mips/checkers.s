@@ -103,7 +103,7 @@ game_loop:
 	#####
 	# Game loop - wait for op code from behavioral Verilog via Arduino
 	# $27 - will contain opcode in bits [4:1], bit 0 will contain flag
-	#       that a new opcode is available (1) or not (0)
+	#       that a new opcode is available (toggled on every new opcode)
 	# $26 - will contain data associated with opcode
 	#
 	##### Available op codes #####
@@ -112,10 +112,10 @@ game_loop:
 	#		 (space_jumped is 0 if no jump occurred (can't jump position A1))
 	
 	# START DEBUGGING
-#	jal print_board
-	#addi $27, $zero, 1		# $27 = op code for move and ready flag switch
-	#addi $26, $zero, 300	# $26: space_from = 9, space_to = 12
-#	j exit
+	# jal print_board
+	# addi $27, $zero, 1		# $27 = op code for move and ready flag switch
+	# addi $26, $zero, 300	# $26: space_from = 9, space_to = 12
+	# j exit
 	# END DEBUGGING
 	
 	# New op code ready flag
@@ -128,7 +128,7 @@ game_loop:
 	
 	new_data:				# New op code flagged
 	addi $t1, $26, 0		# $t1 = $26 - data that accompanies op code
-	addi $s3, $t0, 0		# Set $s3 to new op code ready flag
+	addi $s3, $t0, 0		# Set $s3 to previously seen op code ready flag
 	sra $t0, $27, 1			# $t0 = 4-bit op code
 	bne $t0, $zero, not_move# Branch if op code != 0, i.e. not a move
 	
@@ -141,8 +141,40 @@ game_loop:
 	and $a1, $t1, $t2		# $a1 = space_from
 	sra $t1, $t1, 5			# Shift data right to get space_jumped
 	and $a3, $t1, $t2		# $a3 = space_jumped
+
+	# START DEBUGGING - display move made on 7sd displays
+	# addi $a0, $a1, 0		# $a0 = space_from
+	# addi $a1, $a2, 0		# $a1 = space_to
+	# jal move_to_7sd
+	# addi $28, $v0, 0
+	# j game_loop
+	# END DEBUGGING
 	
 	jal make_move			# Update board state to reflect new move
+
+	# START DEBUGGING - display values of spaces 0-3 in memory on 7sd displays
+	addi $t0, $s1, 0		# $t0 = board position in memory
+	lw $t1, 0($t0)			# $t1 = checker in space 0
+	addi $28, $t1, 0
+	sll $28, $28, 5
+	
+	addi $t0, $t0, 1
+	lw $t1, 0($t0)
+	addi $28, $t1, 0
+	sll $28, $28, 5
+
+	addi $t0, $t0, 1
+	lw $t1, 0($t0)
+	addi $28, $t1, 0
+	sll $28, $28, 5
+
+	addi $t0, $t0, 1
+	lw $t1, 0($t0)
+	addi $28, $t1, 0
+	sll $28, $28, 5
+
+	j game_loop
+	# END DEBUGGING
 	
 	# Check win
 	addi $a0, $s1, 0		# $a0 = board position in memory
@@ -158,7 +190,7 @@ game_loop:
 	addi $s0, $zero, 1		# Change to player 1
 	done_changing_player:	# After player changed
 
-	jal find_move			# Find a move to make
+	# jal find_move			# Find a move to make
 
 	# Convert and put move into $28 for seven-segment diplays
 	addi $a0, $v0, 0		# Put space_from in $a0
@@ -170,8 +202,8 @@ game_loop:
 	not_move:				# Not "move made" op code
 	
 	# START DEBUGGING
-	#jal print_board
-	#j exit
+	# jal print_board
+	# j exit
 	# END DEBUGGING
 	
 	j game_loop
