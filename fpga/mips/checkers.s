@@ -460,8 +460,8 @@ find_move:
 	bne $s0, $t0, find2		# If $s0 != 1, branch becaues current player is 2
 	
 	### Find moves for player 1
-	addi $v0, $zero, $zero
-	addi $v1, $zero, $zero
+	addi $v0, $zero, 0
+	addi $v1, $zero, 0
 	j return_find_move
 
 	### Find moves for player 2
@@ -475,8 +475,7 @@ find_move:
 
 
 	##### BEGIN GENERATED CODE #####
-
-
+	
 	# Space 0
 	p2s0:
 	addi $t0, $s1, 0
@@ -498,13 +497,13 @@ find_move:
 	blt $t9, $t0, p2s0ur_end
 	addi $v0, $zero, 0
 	addi $v1, $zero, 4
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s0ur_end  # Skip check jump piece since space is empty for move
 	p2s0urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s0n1
+	bne $t2, $t0, p2s0ur_n1
 	j p2s0s4_1or3
-	p2s0n1:
+	p2s0ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s0ur_end
 	p2s0s4_1or3:
@@ -515,7 +514,7 @@ find_move:
 	blt $t9, $t0, p2s0ur_end
 	addi $v0, $zero, 0
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s0ur_end:  # End label for moving to next
 
 	# Space 1
@@ -539,13 +538,13 @@ find_move:
 	blt $t9, $t0, p2s1ul_end
 	addi $v0, $zero, 1
 	addi $v1, $zero, 4
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s1ul_end  # Skip check jump piece since space is empty for move
 	p2s1ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s1n1
+	bne $t2, $t0, p2s1ul_n1
 	j p2s1s4_1or3
-	p2s1n1:
+	p2s1ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s1ul_end
 	p2s1s4_1or3:
@@ -556,7 +555,7 @@ find_move:
 	blt $t9, $t0, p2s1ul_end
 	addi $v0, $zero, 1
 	addi $v1, $zero, 8
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s1ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s1ur_end
@@ -568,13 +567,13 @@ find_move:
 	blt $t9, $t0, p2s1ur_end
 	addi $v0, $zero, 1
 	addi $v1, $zero, 5
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s1ur_end  # Skip check jump piece since space is empty for move
 	p2s1urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s1n1
+	bne $t2, $t0, p2s1ur_n1
 	j p2s1s5_1or3
-	p2s1n1:
+	p2s1ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s1ur_end
 	p2s1s5_1or3:
@@ -585,7 +584,7 @@ find_move:
 	blt $t9, $t0, p2s1ur_end
 	addi $v0, $zero, 1
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s1ur_end:  # End label for moving to next
 
 	# Space 2
@@ -609,13 +608,13 @@ find_move:
 	blt $t9, $t0, p2s2ul_end
 	addi $v0, $zero, 2
 	addi $v1, $zero, 5
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s2ul_end  # Skip check jump piece since space is empty for move
 	p2s2ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s2n1
+	bne $t2, $t0, p2s2ul_n1
 	j p2s2s5_1or3
-	p2s2n1:
+	p2s2ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s2ul_end
 	p2s2s5_1or3:
@@ -626,7 +625,7 @@ find_move:
 	blt $t9, $t0, p2s2ul_end
 	addi $v0, $zero, 2
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s2ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s2ur_end
@@ -638,13 +637,13 @@ find_move:
 	blt $t9, $t0, p2s2ur_end
 	addi $v0, $zero, 2
 	addi $v1, $zero, 6
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s2ur_end  # Skip check jump piece since space is empty for move
 	p2s2urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s2n1
+	bne $t2, $t0, p2s2ur_n1
 	j p2s2s6_1or3
-	p2s2n1:
+	p2s2ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s2ur_end
 	p2s2s6_1or3:
@@ -655,7 +654,7 @@ find_move:
 	blt $t9, $t0, p2s2ur_end
 	addi $v0, $zero, 2
 	addi $v1, $zero, 11
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s2ur_end:  # End label for moving to next
 
 	# Space 3
@@ -679,13 +678,13 @@ find_move:
 	blt $t9, $t0, p2s3ul_end
 	addi $v0, $zero, 3
 	addi $v1, $zero, 6
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s3ul_end  # Skip check jump piece since space is empty for move
 	p2s3ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s3n1
+	bne $t2, $t0, p2s3ul_n1
 	j p2s3s6_1or3
-	p2s3n1:
+	p2s3ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s3ul_end
 	p2s3s6_1or3:
@@ -696,7 +695,7 @@ find_move:
 	blt $t9, $t0, p2s3ul_end
 	addi $v0, $zero, 3
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s3ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s3ur_end
@@ -708,7 +707,7 @@ find_move:
 	blt $t9, $t0, p2s3ur_end
 	addi $v0, $zero, 3
 	addi $v1, $zero, 7
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s3ur_end  # Skip check jump piece since space is empty for move
 	p2s3urj:
 	p2s3ur_end:  # End label for moving to next
@@ -734,7 +733,7 @@ find_move:
 	blt $t9, $t0, p2s4ul_end
 	addi $v0, $zero, 4
 	addi $v1, $zero, 8
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s4ul_end  # Skip check jump piece since space is empty for move
 	p2s4ulj:
 	p2s4ul_end:  # End label for moving to next
@@ -748,13 +747,13 @@ find_move:
 	blt $t9, $t0, p2s4ur_end
 	addi $v0, $zero, 4
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s4ur_end  # Skip check jump piece since space is empty for move
 	p2s4urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s4n1
+	bne $t2, $t0, p2s4ur_n1
 	j p2s4s9_1or3
-	p2s4n1:
+	p2s4ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s4ur_end
 	p2s4s9_1or3:
@@ -765,7 +764,7 @@ find_move:
 	blt $t9, $t0, p2s4ur_end
 	addi $v0, $zero, 4
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s4ur_end:  # End label for moving to next
 	p2s4dl:
 	addi $t0, $s1, 0
@@ -775,7 +774,7 @@ find_move:
 	blt $t9, $t0, p2s4dl_end
 	addi $v0, $zero, 4
 	addi $v1, $zero, 0
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s4dl_end  # Skip check jump piece since space is empty for move
 	p2s4dlj:
 	p2s4dl_end:  # End label for moving to next
@@ -787,7 +786,7 @@ find_move:
 	blt $t9, $t0, p2s4dr_end
 	addi $v0, $zero, 4
 	addi $v1, $zero, 1
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s4dr_end  # Skip check jump piece since space is empty for move
 	p2s4drj:
 	p2s4dr_end:  # End label for moving to next
@@ -813,13 +812,13 @@ find_move:
 	blt $t9, $t0, p2s5ul_end
 	addi $v0, $zero, 5
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s5ul_end  # Skip check jump piece since space is empty for move
 	p2s5ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s5n1
+	bne $t2, $t0, p2s5ul_n1
 	j p2s5s9_1or3
-	p2s5n1:
+	p2s5ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s5ul_end
 	p2s5s9_1or3:
@@ -830,7 +829,7 @@ find_move:
 	blt $t9, $t0, p2s5ul_end
 	addi $v0, $zero, 5
 	addi $v1, $zero, 12
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s5ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s5ur_end
@@ -842,13 +841,13 @@ find_move:
 	blt $t9, $t0, p2s5ur_end
 	addi $v0, $zero, 5
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s5ur_end  # Skip check jump piece since space is empty for move
 	p2s5urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s5n1
+	bne $t2, $t0, p2s5ur_n1
 	j p2s5s10_1or3
-	p2s5n1:
+	p2s5ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s5ur_end
 	p2s5s10_1or3:
@@ -859,7 +858,7 @@ find_move:
 	blt $t9, $t0, p2s5ur_end
 	addi $v0, $zero, 5
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s5ur_end:  # End label for moving to next
 	p2s5dl:
 	addi $t0, $s1, 1
@@ -869,7 +868,7 @@ find_move:
 	blt $t9, $t0, p2s5dl_end
 	addi $v0, $zero, 5
 	addi $v1, $zero, 1
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s5dl_end  # Skip check jump piece since space is empty for move
 	p2s5dlj:
 	p2s5dl_end:  # End label for moving to next
@@ -881,7 +880,7 @@ find_move:
 	blt $t9, $t0, p2s5dr_end
 	addi $v0, $zero, 5
 	addi $v1, $zero, 2
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s5dr_end  # Skip check jump piece since space is empty for move
 	p2s5drj:
 	p2s5dr_end:  # End label for moving to next
@@ -907,13 +906,13 @@ find_move:
 	blt $t9, $t0, p2s6ul_end
 	addi $v0, $zero, 6
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s6ul_end  # Skip check jump piece since space is empty for move
 	p2s6ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s6n1
+	bne $t2, $t0, p2s6ul_n1
 	j p2s6s10_1or3
-	p2s6n1:
+	p2s6ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s6ul_end
 	p2s6s10_1or3:
@@ -924,7 +923,7 @@ find_move:
 	blt $t9, $t0, p2s6ul_end
 	addi $v0, $zero, 6
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s6ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s6ur_end
@@ -936,13 +935,13 @@ find_move:
 	blt $t9, $t0, p2s6ur_end
 	addi $v0, $zero, 6
 	addi $v1, $zero, 11
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s6ur_end  # Skip check jump piece since space is empty for move
 	p2s6urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s6n1
+	bne $t2, $t0, p2s6ur_n1
 	j p2s6s11_1or3
-	p2s6n1:
+	p2s6ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s6ur_end
 	p2s6s11_1or3:
@@ -953,7 +952,7 @@ find_move:
 	blt $t9, $t0, p2s6ur_end
 	addi $v0, $zero, 6
 	addi $v1, $zero, 15
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s6ur_end:  # End label for moving to next
 	p2s6dl:
 	addi $t0, $s1, 2
@@ -963,7 +962,7 @@ find_move:
 	blt $t9, $t0, p2s6dl_end
 	addi $v0, $zero, 6
 	addi $v1, $zero, 2
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s6dl_end  # Skip check jump piece since space is empty for move
 	p2s6dlj:
 	p2s6dl_end:  # End label for moving to next
@@ -975,7 +974,7 @@ find_move:
 	blt $t9, $t0, p2s6dr_end
 	addi $v0, $zero, 6
 	addi $v1, $zero, 3
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s6dr_end  # Skip check jump piece since space is empty for move
 	p2s6drj:
 	p2s6dr_end:  # End label for moving to next
@@ -1001,13 +1000,13 @@ find_move:
 	blt $t9, $t0, p2s7ul_end
 	addi $v0, $zero, 7
 	addi $v1, $zero, 11
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s7ul_end  # Skip check jump piece since space is empty for move
 	p2s7ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s7n1
+	bne $t2, $t0, p2s7ul_n1
 	j p2s7s11_1or3
-	p2s7n1:
+	p2s7ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s7ul_end
 	p2s7s11_1or3:
@@ -1018,7 +1017,7 @@ find_move:
 	blt $t9, $t0, p2s7ul_end
 	addi $v0, $zero, 7
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s7ul_end:  # End label for moving to next
 	p2s7dl:
 	addi $t0, $s1, 3
@@ -1028,7 +1027,7 @@ find_move:
 	blt $t9, $t0, p2s7dl_end
 	addi $v0, $zero, 7
 	addi $v1, $zero, 3
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s7dl_end  # Skip check jump piece since space is empty for move
 	p2s7dlj:
 	p2s7dl_end:  # End label for moving to next
@@ -1054,13 +1053,13 @@ find_move:
 	blt $t9, $t0, p2s8ur_end
 	addi $v0, $zero, 8
 	addi $v1, $zero, 12
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s8ur_end  # Skip check jump piece since space is empty for move
 	p2s8urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s8n1
+	bne $t2, $t0, p2s8ur_n1
 	j p2s8s12_1or3
-	p2s8n1:
+	p2s8ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s8ur_end
 	p2s8s12_1or3:
@@ -1071,7 +1070,7 @@ find_move:
 	blt $t9, $t0, p2s8ur_end
 	addi $v0, $zero, 8
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s8ur_end:  # End label for moving to next
 	p2s8dr:
 	addi $t0, $s1, 4
@@ -1081,13 +1080,13 @@ find_move:
 	blt $t9, $t0, p2s8dr_end
 	addi $v0, $zero, 8
 	addi $v1, $zero, 4
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s8dr_end  # Skip check jump piece since space is empty for move
 	p2s8drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s8n1
+	bne $t2, $t0, p2s8dr_n1
 	j p2s8s4_1or3
-	p2s8n1:
+	p2s8dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s8dr_end
 	p2s8s4_1or3:
@@ -1098,7 +1097,7 @@ find_move:
 	blt $t9, $t0, p2s8dr_end
 	addi $v0, $zero, 8
 	addi $v1, $zero, 1
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s8dr_end:  # End label for moving to next
 
 	# Space 9
@@ -1122,13 +1121,13 @@ find_move:
 	blt $t9, $t0, p2s9ul_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 12
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s9ul_end  # Skip check jump piece since space is empty for move
 	p2s9ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s9n1
+	bne $t2, $t0, p2s9ul_n1
 	j p2s9s12_1or3
-	p2s9n1:
+	p2s9ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9ul_end
 	p2s9s12_1or3:
@@ -1139,7 +1138,7 @@ find_move:
 	blt $t9, $t0, p2s9ul_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 16
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s9ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s9ur_end
@@ -1151,13 +1150,13 @@ find_move:
 	blt $t9, $t0, p2s9ur_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s9ur_end  # Skip check jump piece since space is empty for move
 	p2s9urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s9n1
+	bne $t2, $t0, p2s9ur_n1
 	j p2s9s13_1or3
-	p2s9n1:
+	p2s9ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9ur_end
 	p2s9s13_1or3:
@@ -1168,7 +1167,7 @@ find_move:
 	blt $t9, $t0, p2s9ur_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s9ur_end:  # End label for moving to next
 	p2s9dl:
 	addi $t0, $s1, 4
@@ -1178,13 +1177,13 @@ find_move:
 	blt $t9, $t0, p2s9dl_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 4
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s9dl_end  # Skip check jump piece since space is empty for move
 	p2s9dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s9n1
+	bne $t2, $t0, p2s9dl_n1
 	j p2s9s4_1or3
-	p2s9n1:
+	p2s9dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9dl_end
 	p2s9s4_1or3:
@@ -1195,7 +1194,7 @@ find_move:
 	blt $t9, $t0, p2s9dl_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 0
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s9dl_end:  # End label for moving to next
 	p2s9dr:
 	addi $t0, $s1, 5
@@ -1205,13 +1204,13 @@ find_move:
 	blt $t9, $t0, p2s9dr_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 5
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s9dr_end  # Skip check jump piece since space is empty for move
 	p2s9drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s9n1
+	bne $t2, $t0, p2s9dr_n1
 	j p2s9s5_1or3
-	p2s9n1:
+	p2s9dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s9dr_end
 	p2s9s5_1or3:
@@ -1222,7 +1221,7 @@ find_move:
 	blt $t9, $t0, p2s9dr_end
 	addi $v0, $zero, 9
 	addi $v1, $zero, 2
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s9dr_end:  # End label for moving to next
 
 	# Space 10
@@ -1246,13 +1245,13 @@ find_move:
 	blt $t9, $t0, p2s10ul_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s10ul_end  # Skip check jump piece since space is empty for move
 	p2s10ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s10n1
+	bne $t2, $t0, p2s10ul_n1
 	j p2s10s13_1or3
-	p2s10n1:
+	p2s10ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10ul_end
 	p2s10s13_1or3:
@@ -1263,7 +1262,7 @@ find_move:
 	blt $t9, $t0, p2s10ul_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s10ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s10ur_end
@@ -1275,13 +1274,13 @@ find_move:
 	blt $t9, $t0, p2s10ur_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s10ur_end  # Skip check jump piece since space is empty for move
 	p2s10urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s10n1
+	bne $t2, $t0, p2s10ur_n1
 	j p2s10s14_1or3
-	p2s10n1:
+	p2s10ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10ur_end
 	p2s10s14_1or3:
@@ -1292,7 +1291,7 @@ find_move:
 	blt $t9, $t0, p2s10ur_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 19
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s10ur_end:  # End label for moving to next
 	p2s10dl:
 	addi $t0, $s1, 5
@@ -1302,13 +1301,13 @@ find_move:
 	blt $t9, $t0, p2s10dl_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 5
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s10dl_end  # Skip check jump piece since space is empty for move
 	p2s10dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s10n1
+	bne $t2, $t0, p2s10dl_n1
 	j p2s10s5_1or3
-	p2s10n1:
+	p2s10dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10dl_end
 	p2s10s5_1or3:
@@ -1319,7 +1318,7 @@ find_move:
 	blt $t9, $t0, p2s10dl_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 1
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s10dl_end:  # End label for moving to next
 	p2s10dr:
 	addi $t0, $s1, 6
@@ -1329,13 +1328,13 @@ find_move:
 	blt $t9, $t0, p2s10dr_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 6
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s10dr_end  # Skip check jump piece since space is empty for move
 	p2s10drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s10n1
+	bne $t2, $t0, p2s10dr_n1
 	j p2s10s6_1or3
-	p2s10n1:
+	p2s10dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s10dr_end
 	p2s10s6_1or3:
@@ -1346,7 +1345,7 @@ find_move:
 	blt $t9, $t0, p2s10dr_end
 	addi $v0, $zero, 10
 	addi $v1, $zero, 3
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s10dr_end:  # End label for moving to next
 
 	# Space 11
@@ -1370,13 +1369,13 @@ find_move:
 	blt $t9, $t0, p2s11ul_end
 	addi $v0, $zero, 11
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s11ul_end  # Skip check jump piece since space is empty for move
 	p2s11ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s11n1
+	bne $t2, $t0, p2s11ul_n1
 	j p2s11s14_1or3
-	p2s11n1:
+	p2s11ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s11ul_end
 	p2s11s14_1or3:
@@ -1387,7 +1386,7 @@ find_move:
 	blt $t9, $t0, p2s11ul_end
 	addi $v0, $zero, 11
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s11ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s11ur_end
@@ -1399,7 +1398,7 @@ find_move:
 	blt $t9, $t0, p2s11ur_end
 	addi $v0, $zero, 11
 	addi $v1, $zero, 15
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s11ur_end  # Skip check jump piece since space is empty for move
 	p2s11urj:
 	p2s11ur_end:  # End label for moving to next
@@ -1411,13 +1410,13 @@ find_move:
 	blt $t9, $t0, p2s11dl_end
 	addi $v0, $zero, 11
 	addi $v1, $zero, 6
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s11dl_end  # Skip check jump piece since space is empty for move
 	p2s11dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s11n1
+	bne $t2, $t0, p2s11dl_n1
 	j p2s11s6_1or3
-	p2s11n1:
+	p2s11dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s11dl_end
 	p2s11s6_1or3:
@@ -1428,7 +1427,7 @@ find_move:
 	blt $t9, $t0, p2s11dl_end
 	addi $v0, $zero, 11
 	addi $v1, $zero, 2
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s11dl_end:  # End label for moving to next
 	p2s11dr:
 	addi $t0, $s1, 7
@@ -1438,7 +1437,7 @@ find_move:
 	blt $t9, $t0, p2s11dr_end
 	addi $v0, $zero, 11
 	addi $v1, $zero, 7
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s11dr_end  # Skip check jump piece since space is empty for move
 	p2s11drj:
 	p2s11dr_end:  # End label for moving to next
@@ -1464,7 +1463,7 @@ find_move:
 	blt $t9, $t0, p2s12ul_end
 	addi $v0, $zero, 12
 	addi $v1, $zero, 16
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s12ul_end  # Skip check jump piece since space is empty for move
 	p2s12ulj:
 	p2s12ul_end:  # End label for moving to next
@@ -1478,13 +1477,13 @@ find_move:
 	blt $t9, $t0, p2s12ur_end
 	addi $v0, $zero, 12
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s12ur_end  # Skip check jump piece since space is empty for move
 	p2s12urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s12n1
+	bne $t2, $t0, p2s12ur_n1
 	j p2s12s17_1or3
-	p2s12n1:
+	p2s12ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s12ur_end
 	p2s12s17_1or3:
@@ -1495,7 +1494,7 @@ find_move:
 	blt $t9, $t0, p2s12ur_end
 	addi $v0, $zero, 12
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s12ur_end:  # End label for moving to next
 	p2s12dl:
 	addi $t0, $s1, 8
@@ -1505,7 +1504,7 @@ find_move:
 	blt $t9, $t0, p2s12dl_end
 	addi $v0, $zero, 12
 	addi $v1, $zero, 8
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s12dl_end  # Skip check jump piece since space is empty for move
 	p2s12dlj:
 	p2s12dl_end:  # End label for moving to next
@@ -1517,13 +1516,13 @@ find_move:
 	blt $t9, $t0, p2s12dr_end
 	addi $v0, $zero, 12
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s12dr_end  # Skip check jump piece since space is empty for move
 	p2s12drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s12n1
+	bne $t2, $t0, p2s12dr_n1
 	j p2s12s9_1or3
-	p2s12n1:
+	p2s12dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s12dr_end
 	p2s12s9_1or3:
@@ -1534,7 +1533,7 @@ find_move:
 	blt $t9, $t0, p2s12dr_end
 	addi $v0, $zero, 12
 	addi $v1, $zero, 5
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s12dr_end:  # End label for moving to next
 
 	# Space 13
@@ -1558,13 +1557,13 @@ find_move:
 	blt $t9, $t0, p2s13ul_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s13ul_end  # Skip check jump piece since space is empty for move
 	p2s13ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s13n1
+	bne $t2, $t0, p2s13ul_n1
 	j p2s13s17_1or3
-	p2s13n1:
+	p2s13ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13ul_end
 	p2s13s17_1or3:
@@ -1575,7 +1574,7 @@ find_move:
 	blt $t9, $t0, p2s13ul_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 20
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s13ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s13ur_end
@@ -1587,13 +1586,13 @@ find_move:
 	blt $t9, $t0, p2s13ur_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s13ur_end  # Skip check jump piece since space is empty for move
 	p2s13urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s13n1
+	bne $t2, $t0, p2s13ur_n1
 	j p2s13s18_1or3
-	p2s13n1:
+	p2s13ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13ur_end
 	p2s13s18_1or3:
@@ -1604,7 +1603,7 @@ find_move:
 	blt $t9, $t0, p2s13ur_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s13ur_end:  # End label for moving to next
 	p2s13dl:
 	addi $t0, $s1, 9
@@ -1614,13 +1613,13 @@ find_move:
 	blt $t9, $t0, p2s13dl_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s13dl_end  # Skip check jump piece since space is empty for move
 	p2s13dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s13n1
+	bne $t2, $t0, p2s13dl_n1
 	j p2s13s9_1or3
-	p2s13n1:
+	p2s13dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13dl_end
 	p2s13s9_1or3:
@@ -1631,7 +1630,7 @@ find_move:
 	blt $t9, $t0, p2s13dl_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 4
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s13dl_end:  # End label for moving to next
 	p2s13dr:
 	addi $t0, $s1, 10
@@ -1641,13 +1640,13 @@ find_move:
 	blt $t9, $t0, p2s13dr_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s13dr_end  # Skip check jump piece since space is empty for move
 	p2s13drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s13n1
+	bne $t2, $t0, p2s13dr_n1
 	j p2s13s10_1or3
-	p2s13n1:
+	p2s13dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s13dr_end
 	p2s13s10_1or3:
@@ -1658,7 +1657,7 @@ find_move:
 	blt $t9, $t0, p2s13dr_end
 	addi $v0, $zero, 13
 	addi $v1, $zero, 6
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s13dr_end:  # End label for moving to next
 
 	# Space 14
@@ -1682,13 +1681,13 @@ find_move:
 	blt $t9, $t0, p2s14ul_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s14ul_end  # Skip check jump piece since space is empty for move
 	p2s14ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s14n1
+	bne $t2, $t0, p2s14ul_n1
 	j p2s14s18_1or3
-	p2s14n1:
+	p2s14ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14ul_end
 	p2s14s18_1or3:
@@ -1699,7 +1698,7 @@ find_move:
 	blt $t9, $t0, p2s14ul_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s14ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s14ur_end
@@ -1711,13 +1710,13 @@ find_move:
 	blt $t9, $t0, p2s14ur_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 19
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s14ur_end  # Skip check jump piece since space is empty for move
 	p2s14urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s14n1
+	bne $t2, $t0, p2s14ur_n1
 	j p2s14s19_1or3
-	p2s14n1:
+	p2s14ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14ur_end
 	p2s14s19_1or3:
@@ -1728,7 +1727,7 @@ find_move:
 	blt $t9, $t0, p2s14ur_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 23
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s14ur_end:  # End label for moving to next
 	p2s14dl:
 	addi $t0, $s1, 10
@@ -1738,13 +1737,13 @@ find_move:
 	blt $t9, $t0, p2s14dl_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s14dl_end  # Skip check jump piece since space is empty for move
 	p2s14dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s14n1
+	bne $t2, $t0, p2s14dl_n1
 	j p2s14s10_1or3
-	p2s14n1:
+	p2s14dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14dl_end
 	p2s14s10_1or3:
@@ -1755,7 +1754,7 @@ find_move:
 	blt $t9, $t0, p2s14dl_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 5
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s14dl_end:  # End label for moving to next
 	p2s14dr:
 	addi $t0, $s1, 11
@@ -1765,13 +1764,13 @@ find_move:
 	blt $t9, $t0, p2s14dr_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 11
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s14dr_end  # Skip check jump piece since space is empty for move
 	p2s14drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s14n1
+	bne $t2, $t0, p2s14dr_n1
 	j p2s14s11_1or3
-	p2s14n1:
+	p2s14dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s14dr_end
 	p2s14s11_1or3:
@@ -1782,7 +1781,7 @@ find_move:
 	blt $t9, $t0, p2s14dr_end
 	addi $v0, $zero, 14
 	addi $v1, $zero, 7
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s14dr_end:  # End label for moving to next
 
 	# Space 15
@@ -1806,13 +1805,13 @@ find_move:
 	blt $t9, $t0, p2s15ul_end
 	addi $v0, $zero, 15
 	addi $v1, $zero, 19
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s15ul_end  # Skip check jump piece since space is empty for move
 	p2s15ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s15n1
+	bne $t2, $t0, p2s15ul_n1
 	j p2s15s19_1or3
-	p2s15n1:
+	p2s15ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s15ul_end
 	p2s15s19_1or3:
@@ -1823,7 +1822,7 @@ find_move:
 	blt $t9, $t0, p2s15ul_end
 	addi $v0, $zero, 15
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s15ul_end:  # End label for moving to next
 	p2s15dl:
 	addi $t0, $s1, 11
@@ -1833,13 +1832,13 @@ find_move:
 	blt $t9, $t0, p2s15dl_end
 	addi $v0, $zero, 15
 	addi $v1, $zero, 11
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s15dl_end  # Skip check jump piece since space is empty for move
 	p2s15dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s15n1
+	bne $t2, $t0, p2s15dl_n1
 	j p2s15s11_1or3
-	p2s15n1:
+	p2s15dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s15dl_end
 	p2s15s11_1or3:
@@ -1850,7 +1849,7 @@ find_move:
 	blt $t9, $t0, p2s15dl_end
 	addi $v0, $zero, 15
 	addi $v1, $zero, 6
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s15dl_end:  # End label for moving to next
 
 	# Space 16
@@ -1874,13 +1873,13 @@ find_move:
 	blt $t9, $t0, p2s16ur_end
 	addi $v0, $zero, 16
 	addi $v1, $zero, 20
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s16ur_end  # Skip check jump piece since space is empty for move
 	p2s16urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s16n1
+	bne $t2, $t0, p2s16ur_n1
 	j p2s16s20_1or3
-	p2s16n1:
+	p2s16ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s16ur_end
 	p2s16s20_1or3:
@@ -1891,7 +1890,7 @@ find_move:
 	blt $t9, $t0, p2s16ur_end
 	addi $v0, $zero, 16
 	addi $v1, $zero, 25
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s16ur_end:  # End label for moving to next
 	p2s16dr:
 	addi $t0, $s1, 12
@@ -1901,13 +1900,13 @@ find_move:
 	blt $t9, $t0, p2s16dr_end
 	addi $v0, $zero, 16
 	addi $v1, $zero, 12
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s16dr_end  # Skip check jump piece since space is empty for move
 	p2s16drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s16n1
+	bne $t2, $t0, p2s16dr_n1
 	j p2s16s12_1or3
-	p2s16n1:
+	p2s16dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s16dr_end
 	p2s16s12_1or3:
@@ -1918,7 +1917,7 @@ find_move:
 	blt $t9, $t0, p2s16dr_end
 	addi $v0, $zero, 16
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s16dr_end:  # End label for moving to next
 
 	# Space 17
@@ -1942,13 +1941,13 @@ find_move:
 	blt $t9, $t0, p2s17ul_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 20
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s17ul_end  # Skip check jump piece since space is empty for move
 	p2s17ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s17n1
+	bne $t2, $t0, p2s17ul_n1
 	j p2s17s20_1or3
-	p2s17n1:
+	p2s17ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17ul_end
 	p2s17s20_1or3:
@@ -1959,7 +1958,7 @@ find_move:
 	blt $t9, $t0, p2s17ul_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 24
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s17ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s17ur_end
@@ -1971,13 +1970,13 @@ find_move:
 	blt $t9, $t0, p2s17ur_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s17ur_end  # Skip check jump piece since space is empty for move
 	p2s17urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s17n1
+	bne $t2, $t0, p2s17ur_n1
 	j p2s17s21_1or3
-	p2s17n1:
+	p2s17ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17ur_end
 	p2s17s21_1or3:
@@ -1988,7 +1987,7 @@ find_move:
 	blt $t9, $t0, p2s17ur_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 26
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s17ur_end:  # End label for moving to next
 	p2s17dl:
 	addi $t0, $s1, 12
@@ -1998,13 +1997,13 @@ find_move:
 	blt $t9, $t0, p2s17dl_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 12
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s17dl_end  # Skip check jump piece since space is empty for move
 	p2s17dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s17n1
+	bne $t2, $t0, p2s17dl_n1
 	j p2s17s12_1or3
-	p2s17n1:
+	p2s17dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17dl_end
 	p2s17s12_1or3:
@@ -2015,7 +2014,7 @@ find_move:
 	blt $t9, $t0, p2s17dl_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 8
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s17dl_end:  # End label for moving to next
 	p2s17dr:
 	addi $t0, $s1, 13
@@ -2025,13 +2024,13 @@ find_move:
 	blt $t9, $t0, p2s17dr_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s17dr_end  # Skip check jump piece since space is empty for move
 	p2s17drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s17n1
+	bne $t2, $t0, p2s17dr_n1
 	j p2s17s13_1or3
-	p2s17n1:
+	p2s17dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s17dr_end
 	p2s17s13_1or3:
@@ -2042,7 +2041,7 @@ find_move:
 	blt $t9, $t0, p2s17dr_end
 	addi $v0, $zero, 17
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s17dr_end:  # End label for moving to next
 
 	# Space 18
@@ -2066,13 +2065,13 @@ find_move:
 	blt $t9, $t0, p2s18ul_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s18ul_end  # Skip check jump piece since space is empty for move
 	p2s18ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s18n1
+	bne $t2, $t0, p2s18ul_n1
 	j p2s18s21_1or3
-	p2s18n1:
+	p2s18ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18ul_end
 	p2s18s21_1or3:
@@ -2083,7 +2082,7 @@ find_move:
 	blt $t9, $t0, p2s18ul_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 25
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s18ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s18ur_end
@@ -2095,13 +2094,13 @@ find_move:
 	blt $t9, $t0, p2s18ur_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s18ur_end  # Skip check jump piece since space is empty for move
 	p2s18urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s18n1
+	bne $t2, $t0, p2s18ur_n1
 	j p2s18s22_1or3
-	p2s18n1:
+	p2s18ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18ur_end
 	p2s18s22_1or3:
@@ -2112,7 +2111,7 @@ find_move:
 	blt $t9, $t0, p2s18ur_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 27
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s18ur_end:  # End label for moving to next
 	p2s18dl:
 	addi $t0, $s1, 13
@@ -2122,13 +2121,13 @@ find_move:
 	blt $t9, $t0, p2s18dl_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s18dl_end  # Skip check jump piece since space is empty for move
 	p2s18dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s18n1
+	bne $t2, $t0, p2s18dl_n1
 	j p2s18s13_1or3
-	p2s18n1:
+	p2s18dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18dl_end
 	p2s18s13_1or3:
@@ -2139,7 +2138,7 @@ find_move:
 	blt $t9, $t0, p2s18dl_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 9
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s18dl_end:  # End label for moving to next
 	p2s18dr:
 	addi $t0, $s1, 14
@@ -2149,13 +2148,13 @@ find_move:
 	blt $t9, $t0, p2s18dr_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s18dr_end  # Skip check jump piece since space is empty for move
 	p2s18drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s18n1
+	bne $t2, $t0, p2s18dr_n1
 	j p2s18s14_1or3
-	p2s18n1:
+	p2s18dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s18dr_end
 	p2s18s14_1or3:
@@ -2166,7 +2165,7 @@ find_move:
 	blt $t9, $t0, p2s18dr_end
 	addi $v0, $zero, 18
 	addi $v1, $zero, 11
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s18dr_end:  # End label for moving to next
 
 	# Space 19
@@ -2190,13 +2189,13 @@ find_move:
 	blt $t9, $t0, p2s19ul_end
 	addi $v0, $zero, 19
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s19ul_end  # Skip check jump piece since space is empty for move
 	p2s19ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s19n1
+	bne $t2, $t0, p2s19ul_n1
 	j p2s19s22_1or3
-	p2s19n1:
+	p2s19ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s19ul_end
 	p2s19s22_1or3:
@@ -2207,7 +2206,7 @@ find_move:
 	blt $t9, $t0, p2s19ul_end
 	addi $v0, $zero, 19
 	addi $v1, $zero, 26
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s19ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s19ur_end
@@ -2219,7 +2218,7 @@ find_move:
 	blt $t9, $t0, p2s19ur_end
 	addi $v0, $zero, 19
 	addi $v1, $zero, 23
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s19ur_end  # Skip check jump piece since space is empty for move
 	p2s19urj:
 	p2s19ur_end:  # End label for moving to next
@@ -2231,13 +2230,13 @@ find_move:
 	blt $t9, $t0, p2s19dl_end
 	addi $v0, $zero, 19
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s19dl_end  # Skip check jump piece since space is empty for move
 	p2s19dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s19n1
+	bne $t2, $t0, p2s19dl_n1
 	j p2s19s14_1or3
-	p2s19n1:
+	p2s19dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s19dl_end
 	p2s19s14_1or3:
@@ -2248,7 +2247,7 @@ find_move:
 	blt $t9, $t0, p2s19dl_end
 	addi $v0, $zero, 19
 	addi $v1, $zero, 10
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s19dl_end:  # End label for moving to next
 	p2s19dr:
 	addi $t0, $s1, 15
@@ -2258,7 +2257,7 @@ find_move:
 	blt $t9, $t0, p2s19dr_end
 	addi $v0, $zero, 19
 	addi $v1, $zero, 15
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s19dr_end  # Skip check jump piece since space is empty for move
 	p2s19drj:
 	p2s19dr_end:  # End label for moving to next
@@ -2284,7 +2283,7 @@ find_move:
 	blt $t9, $t0, p2s20ul_end
 	addi $v0, $zero, 20
 	addi $v1, $zero, 24
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s20ul_end  # Skip check jump piece since space is empty for move
 	p2s20ulj:
 	p2s20ul_end:  # End label for moving to next
@@ -2298,13 +2297,13 @@ find_move:
 	blt $t9, $t0, p2s20ur_end
 	addi $v0, $zero, 20
 	addi $v1, $zero, 25
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s20ur_end  # Skip check jump piece since space is empty for move
 	p2s20urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s20n1
+	bne $t2, $t0, p2s20ur_n1
 	j p2s20s25_1or3
-	p2s20n1:
+	p2s20ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s20ur_end
 	p2s20s25_1or3:
@@ -2315,7 +2314,7 @@ find_move:
 	blt $t9, $t0, p2s20ur_end
 	addi $v0, $zero, 20
 	addi $v1, $zero, 29
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s20ur_end:  # End label for moving to next
 	p2s20dl:
 	addi $t0, $s1, 16
@@ -2325,7 +2324,7 @@ find_move:
 	blt $t9, $t0, p2s20dl_end
 	addi $v0, $zero, 20
 	addi $v1, $zero, 16
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s20dl_end  # Skip check jump piece since space is empty for move
 	p2s20dlj:
 	p2s20dl_end:  # End label for moving to next
@@ -2337,13 +2336,13 @@ find_move:
 	blt $t9, $t0, p2s20dr_end
 	addi $v0, $zero, 20
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s20dr_end  # Skip check jump piece since space is empty for move
 	p2s20drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s20n1
+	bne $t2, $t0, p2s20dr_n1
 	j p2s20s17_1or3
-	p2s20n1:
+	p2s20dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s20dr_end
 	p2s20s17_1or3:
@@ -2354,7 +2353,7 @@ find_move:
 	blt $t9, $t0, p2s20dr_end
 	addi $v0, $zero, 20
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s20dr_end:  # End label for moving to next
 
 	# Space 21
@@ -2378,13 +2377,13 @@ find_move:
 	blt $t9, $t0, p2s21ul_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 25
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s21ul_end  # Skip check jump piece since space is empty for move
 	p2s21ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s21n1
+	bne $t2, $t0, p2s21ul_n1
 	j p2s21s25_1or3
-	p2s21n1:
+	p2s21ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21ul_end
 	p2s21s25_1or3:
@@ -2395,7 +2394,7 @@ find_move:
 	blt $t9, $t0, p2s21ul_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 28
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s21ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s21ur_end
@@ -2407,13 +2406,13 @@ find_move:
 	blt $t9, $t0, p2s21ur_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 26
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s21ur_end  # Skip check jump piece since space is empty for move
 	p2s21urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s21n1
+	bne $t2, $t0, p2s21ur_n1
 	j p2s21s26_1or3
-	p2s21n1:
+	p2s21ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21ur_end
 	p2s21s26_1or3:
@@ -2424,7 +2423,7 @@ find_move:
 	blt $t9, $t0, p2s21ur_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 30
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s21ur_end:  # End label for moving to next
 	p2s21dl:
 	addi $t0, $s1, 17
@@ -2434,13 +2433,13 @@ find_move:
 	blt $t9, $t0, p2s21dl_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s21dl_end  # Skip check jump piece since space is empty for move
 	p2s21dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s21n1
+	bne $t2, $t0, p2s21dl_n1
 	j p2s21s17_1or3
-	p2s21n1:
+	p2s21dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21dl_end
 	p2s21s17_1or3:
@@ -2451,7 +2450,7 @@ find_move:
 	blt $t9, $t0, p2s21dl_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 12
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s21dl_end:  # End label for moving to next
 	p2s21dr:
 	addi $t0, $s1, 18
@@ -2461,13 +2460,13 @@ find_move:
 	blt $t9, $t0, p2s21dr_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s21dr_end  # Skip check jump piece since space is empty for move
 	p2s21drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s21n1
+	bne $t2, $t0, p2s21dr_n1
 	j p2s21s18_1or3
-	p2s21n1:
+	p2s21dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s21dr_end
 	p2s21s18_1or3:
@@ -2478,7 +2477,7 @@ find_move:
 	blt $t9, $t0, p2s21dr_end
 	addi $v0, $zero, 21
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s21dr_end:  # End label for moving to next
 
 	# Space 22
@@ -2502,13 +2501,13 @@ find_move:
 	blt $t9, $t0, p2s22ul_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 26
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s22ul_end  # Skip check jump piece since space is empty for move
 	p2s22ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s22n1
+	bne $t2, $t0, p2s22ul_n1
 	j p2s22s26_1or3
-	p2s22n1:
+	p2s22ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22ul_end
 	p2s22s26_1or3:
@@ -2519,7 +2518,7 @@ find_move:
 	blt $t9, $t0, p2s22ul_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 29
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s22ul_end:  # End label for moving to next
 	addi $t0, $zero, 4
 	bne $t1, $t0, p2s22ur_end
@@ -2531,13 +2530,13 @@ find_move:
 	blt $t9, $t0, p2s22ur_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 27
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s22ur_end  # Skip check jump piece since space is empty for move
 	p2s22urj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s22n1
+	bne $t2, $t0, p2s22ur_n1
 	j p2s22s27_1or3
-	p2s22n1:
+	p2s22ur_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22ur_end
 	p2s22s27_1or3:
@@ -2548,7 +2547,7 @@ find_move:
 	blt $t9, $t0, p2s22ur_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 31
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s22ur_end:  # End label for moving to next
 	p2s22dl:
 	addi $t0, $s1, 18
@@ -2558,13 +2557,13 @@ find_move:
 	blt $t9, $t0, p2s22dl_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s22dl_end  # Skip check jump piece since space is empty for move
 	p2s22dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s22n1
+	bne $t2, $t0, p2s22dl_n1
 	j p2s22s18_1or3
-	p2s22n1:
+	p2s22dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22dl_end
 	p2s22s18_1or3:
@@ -2575,7 +2574,7 @@ find_move:
 	blt $t9, $t0, p2s22dl_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 13
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s22dl_end:  # End label for moving to next
 	p2s22dr:
 	addi $t0, $s1, 19
@@ -2585,13 +2584,13 @@ find_move:
 	blt $t9, $t0, p2s22dr_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 19
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s22dr_end  # Skip check jump piece since space is empty for move
 	p2s22drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s22n1
+	bne $t2, $t0, p2s22dr_n1
 	j p2s22s19_1or3
-	p2s22n1:
+	p2s22dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s22dr_end
 	p2s22s19_1or3:
@@ -2602,7 +2601,7 @@ find_move:
 	blt $t9, $t0, p2s22dr_end
 	addi $v0, $zero, 22
 	addi $v1, $zero, 15
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s22dr_end:  # End label for moving to next
 
 	# Space 23
@@ -2626,13 +2625,13 @@ find_move:
 	blt $t9, $t0, p2s23ul_end
 	addi $v0, $zero, 23
 	addi $v1, $zero, 27
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s23ul_end  # Skip check jump piece since space is empty for move
 	p2s23ulj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s23n1
+	bne $t2, $t0, p2s23ul_n1
 	j p2s23s27_1or3
-	p2s23n1:
+	p2s23ul_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s23ul_end
 	p2s23s27_1or3:
@@ -2643,7 +2642,7 @@ find_move:
 	blt $t9, $t0, p2s23ul_end
 	addi $v0, $zero, 23
 	addi $v1, $zero, 30
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s23ul_end:  # End label for moving to next
 	p2s23dl:
 	addi $t0, $s1, 19
@@ -2653,13 +2652,13 @@ find_move:
 	blt $t9, $t0, p2s23dl_end
 	addi $v0, $zero, 23
 	addi $v1, $zero, 19
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s23dl_end  # Skip check jump piece since space is empty for move
 	p2s23dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s23n1
+	bne $t2, $t0, p2s23dl_n1
 	j p2s23s19_1or3
-	p2s23n1:
+	p2s23dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s23dl_end
 	p2s23s19_1or3:
@@ -2670,7 +2669,7 @@ find_move:
 	blt $t9, $t0, p2s23dl_end
 	addi $v0, $zero, 23
 	addi $v1, $zero, 14
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s23dl_end:  # End label for moving to next
 
 	# Space 24
@@ -2694,7 +2693,7 @@ find_move:
 	blt $t9, $t0, p2s24ur_end
 	addi $v0, $zero, 24
 	addi $v1, $zero, 28
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s24ur_end  # Skip check jump piece since space is empty for move
 	p2s24urj:
 	p2s24ur_end:  # End label for moving to next
@@ -2706,13 +2705,13 @@ find_move:
 	blt $t9, $t0, p2s24dr_end
 	addi $v0, $zero, 24
 	addi $v1, $zero, 20
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s24dr_end  # Skip check jump piece since space is empty for move
 	p2s24drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s24n1
+	bne $t2, $t0, p2s24dr_n1
 	j p2s24s20_1or3
-	p2s24n1:
+	p2s24dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s24dr_end
 	p2s24s20_1or3:
@@ -2723,7 +2722,7 @@ find_move:
 	blt $t9, $t0, p2s24dr_end
 	addi $v0, $zero, 24
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s24dr_end:  # End label for moving to next
 
 	# Space 25
@@ -2747,7 +2746,7 @@ find_move:
 	blt $t9, $t0, p2s25ul_end
 	addi $v0, $zero, 25
 	addi $v1, $zero, 28
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s25ul_end  # Skip check jump piece since space is empty for move
 	p2s25ulj:
 	p2s25ul_end:  # End label for moving to next
@@ -2761,7 +2760,7 @@ find_move:
 	blt $t9, $t0, p2s25ur_end
 	addi $v0, $zero, 25
 	addi $v1, $zero, 29
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s25ur_end  # Skip check jump piece since space is empty for move
 	p2s25urj:
 	p2s25ur_end:  # End label for moving to next
@@ -2773,13 +2772,13 @@ find_move:
 	blt $t9, $t0, p2s25dl_end
 	addi $v0, $zero, 25
 	addi $v1, $zero, 20
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s25dl_end  # Skip check jump piece since space is empty for move
 	p2s25dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s25n1
+	bne $t2, $t0, p2s25dl_n1
 	j p2s25s20_1or3
-	p2s25n1:
+	p2s25dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s25dl_end
 	p2s25s20_1or3:
@@ -2790,7 +2789,7 @@ find_move:
 	blt $t9, $t0, p2s25dl_end
 	addi $v0, $zero, 25
 	addi $v1, $zero, 16
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s25dl_end:  # End label for moving to next
 	p2s25dr:
 	addi $t0, $s1, 21
@@ -2800,13 +2799,13 @@ find_move:
 	blt $t9, $t0, p2s25dr_end
 	addi $v0, $zero, 25
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s25dr_end  # Skip check jump piece since space is empty for move
 	p2s25drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s25n1
+	bne $t2, $t0, p2s25dr_n1
 	j p2s25s21_1or3
-	p2s25n1:
+	p2s25dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s25dr_end
 	p2s25s21_1or3:
@@ -2817,7 +2816,7 @@ find_move:
 	blt $t9, $t0, p2s25dr_end
 	addi $v0, $zero, 25
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s25dr_end:  # End label for moving to next
 
 	# Space 26
@@ -2841,7 +2840,7 @@ find_move:
 	blt $t9, $t0, p2s26ul_end
 	addi $v0, $zero, 26
 	addi $v1, $zero, 29
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s26ul_end  # Skip check jump piece since space is empty for move
 	p2s26ulj:
 	p2s26ul_end:  # End label for moving to next
@@ -2855,7 +2854,7 @@ find_move:
 	blt $t9, $t0, p2s26ur_end
 	addi $v0, $zero, 26
 	addi $v1, $zero, 30
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s26ur_end  # Skip check jump piece since space is empty for move
 	p2s26urj:
 	p2s26ur_end:  # End label for moving to next
@@ -2867,13 +2866,13 @@ find_move:
 	blt $t9, $t0, p2s26dl_end
 	addi $v0, $zero, 26
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s26dl_end  # Skip check jump piece since space is empty for move
 	p2s26dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s26n1
+	bne $t2, $t0, p2s26dl_n1
 	j p2s26s21_1or3
-	p2s26n1:
+	p2s26dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s26dl_end
 	p2s26s21_1or3:
@@ -2884,7 +2883,7 @@ find_move:
 	blt $t9, $t0, p2s26dl_end
 	addi $v0, $zero, 26
 	addi $v1, $zero, 17
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s26dl_end:  # End label for moving to next
 	p2s26dr:
 	addi $t0, $s1, 22
@@ -2894,13 +2893,13 @@ find_move:
 	blt $t9, $t0, p2s26dr_end
 	addi $v0, $zero, 26
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s26dr_end  # Skip check jump piece since space is empty for move
 	p2s26drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s26n1
+	bne $t2, $t0, p2s26dr_n1
 	j p2s26s22_1or3
-	p2s26n1:
+	p2s26dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s26dr_end
 	p2s26s22_1or3:
@@ -2911,7 +2910,7 @@ find_move:
 	blt $t9, $t0, p2s26dr_end
 	addi $v0, $zero, 26
 	addi $v1, $zero, 19
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s26dr_end:  # End label for moving to next
 
 	# Space 27
@@ -2935,7 +2934,7 @@ find_move:
 	blt $t9, $t0, p2s27ul_end
 	addi $v0, $zero, 27
 	addi $v1, $zero, 30
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s27ul_end  # Skip check jump piece since space is empty for move
 	p2s27ulj:
 	p2s27ul_end:  # End label for moving to next
@@ -2949,7 +2948,7 @@ find_move:
 	blt $t9, $t0, p2s27ur_end
 	addi $v0, $zero, 27
 	addi $v1, $zero, 31
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s27ur_end  # Skip check jump piece since space is empty for move
 	p2s27urj:
 	p2s27ur_end:  # End label for moving to next
@@ -2961,13 +2960,13 @@ find_move:
 	blt $t9, $t0, p2s27dl_end
 	addi $v0, $zero, 27
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s27dl_end  # Skip check jump piece since space is empty for move
 	p2s27dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s27n1
+	bne $t2, $t0, p2s27dl_n1
 	j p2s27s22_1or3
-	p2s27n1:
+	p2s27dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s27dl_end
 	p2s27s22_1or3:
@@ -2978,7 +2977,7 @@ find_move:
 	blt $t9, $t0, p2s27dl_end
 	addi $v0, $zero, 27
 	addi $v1, $zero, 18
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s27dl_end:  # End label for moving to next
 	p2s27dr:
 	addi $t0, $s1, 23
@@ -2988,7 +2987,7 @@ find_move:
 	blt $t9, $t0, p2s27dr_end
 	addi $v0, $zero, 27
 	addi $v1, $zero, 23
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s27dr_end  # Skip check jump piece since space is empty for move
 	p2s27drj:
 	p2s27dr_end:  # End label for moving to next
@@ -3012,7 +3011,7 @@ find_move:
 	blt $t9, $t0, p2s28dl_end
 	addi $v0, $zero, 28
 	addi $v1, $zero, 24
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s28dl_end  # Skip check jump piece since space is empty for move
 	p2s28dlj:
 	p2s28dl_end:  # End label for moving to next
@@ -3024,13 +3023,13 @@ find_move:
 	blt $t9, $t0, p2s28dr_end
 	addi $v0, $zero, 28
 	addi $v1, $zero, 25
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s28dr_end  # Skip check jump piece since space is empty for move
 	p2s28drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s28n1
+	bne $t2, $t0, p2s28dr_n1
 	j p2s28s25_1or3
-	p2s28n1:
+	p2s28dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s28dr_end
 	p2s28s25_1or3:
@@ -3041,7 +3040,7 @@ find_move:
 	blt $t9, $t0, p2s28dr_end
 	addi $v0, $zero, 28
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s28dr_end:  # End label for moving to next
 
 	# Space 29
@@ -3063,13 +3062,13 @@ find_move:
 	blt $t9, $t0, p2s29dl_end
 	addi $v0, $zero, 29
 	addi $v1, $zero, 25
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s29dl_end  # Skip check jump piece since space is empty for move
 	p2s29dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s29n1
+	bne $t2, $t0, p2s29dl_n1
 	j p2s29s25_1or3
-	p2s29n1:
+	p2s29dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s29dl_end
 	p2s29s25_1or3:
@@ -3080,7 +3079,7 @@ find_move:
 	blt $t9, $t0, p2s29dl_end
 	addi $v0, $zero, 29
 	addi $v1, $zero, 20
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s29dl_end:  # End label for moving to next
 	p2s29dr:
 	addi $t0, $s1, 26
@@ -3090,13 +3089,13 @@ find_move:
 	blt $t9, $t0, p2s29dr_end
 	addi $v0, $zero, 29
 	addi $v1, $zero, 26
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s29dr_end  # Skip check jump piece since space is empty for move
 	p2s29drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s29n1
+	bne $t2, $t0, p2s29dr_n1
 	j p2s29s26_1or3
-	p2s29n1:
+	p2s29dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s29dr_end
 	p2s29s26_1or3:
@@ -3107,7 +3106,7 @@ find_move:
 	blt $t9, $t0, p2s29dr_end
 	addi $v0, $zero, 29
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s29dr_end:  # End label for moving to next
 
 	# Space 30
@@ -3129,13 +3128,13 @@ find_move:
 	blt $t9, $t0, p2s30dl_end
 	addi $v0, $zero, 30
 	addi $v1, $zero, 26
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s30dl_end  # Skip check jump piece since space is empty for move
 	p2s30dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s30n1
+	bne $t2, $t0, p2s30dl_n1
 	j p2s30s26_1or3
-	p2s30n1:
+	p2s30dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s30dl_end
 	p2s30s26_1or3:
@@ -3146,7 +3145,7 @@ find_move:
 	blt $t9, $t0, p2s30dl_end
 	addi $v0, $zero, 30
 	addi $v1, $zero, 21
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s30dl_end:  # End label for moving to next
 	p2s30dr:
 	addi $t0, $s1, 27
@@ -3156,13 +3155,13 @@ find_move:
 	blt $t9, $t0, p2s30dr_end
 	addi $v0, $zero, 30
 	addi $v1, $zero, 27
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s30dr_end  # Skip check jump piece since space is empty for move
 	p2s30drj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s30n1
+	bne $t2, $t0, p2s30dr_n1
 	j p2s30s27_1or3
-	p2s30n1:
+	p2s30dr_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s30dr_end
 	p2s30s27_1or3:
@@ -3173,7 +3172,7 @@ find_move:
 	blt $t9, $t0, p2s30dr_end
 	addi $v0, $zero, 30
 	addi $v1, $zero, 23
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s30dr_end:  # End label for moving to next
 
 	# Space 31
@@ -3195,13 +3194,13 @@ find_move:
 	blt $t9, $t0, p2s31dl_end
 	addi $v0, $zero, 31
 	addi $v1, $zero, 27
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	j p2s31dl_end  # Skip check jump piece since space is empty for move
 	p2s31dlj:
 	addi $t0, $zero, 1
-	bne $t2, $t0, p2s31n1
+	bne $t2, $t0, p2s31dl_n1
 	j p2s31s27_1or3
-	p2s31n1:
+	p2s31dl_n1:
 	addi $t0, $zero, 3
 	bne $t2, $t0, p2s31dl_end
 	p2s31s27_1or3:
@@ -3212,7 +3211,7 @@ find_move:
 	blt $t9, $t0, p2s31dl_end
 	addi $v0, $zero, 31
 	addi $v1, $zero, 22
-	addi $t9, $zero, $t0
+	add $t9, $zero, $t0
 	p2s31dl_end:  # End label for moving to next
 
 	p2s32:

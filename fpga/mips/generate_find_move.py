@@ -77,13 +77,15 @@ def move(p, i, mo, d):
     s += f"blt $t{0 if p == 1 else 9}, $t{9 if p == 1 else 0}, p{p}s{i}{d}_end\n"
     s += f"addi $v0, $zero, {i}\n"
     s += f"addi $v1, $zero, {i+mo}\n"
-    s += f"addi $t9, $zero, $t0\n"
+    s += f"add $t9, $zero, $t0\n"
     s += f"j p{p}s{i}{d}_end  # Skip check jump piece since space is empty for move\n"
     
     return s
 
 def jump(p, e, i, mo, jo, d):
     """
+    Only call after corresponding move() call, because it assumes some registers
+    were already written to.
     :param p: player (1 or 2)
     :param e: enemy (1 or 2, opposite player)
     :param i: space (0 to 31)
@@ -94,13 +96,12 @@ def jump(p, e, i, mo, jo, d):
 
     :return: string of MIPS code to check for jump
     """
-    # TODO: add checks for kings
     s = f""
     # Check if space to jump over is enemy piece
     s += f"addi $t0, $zero, {e}\n"
-    s += f"bne $t2, $t0, p{p}s{i}n{e}\n"  # Branch if != enemy piece, check king
+    s += f"bne $t2, $t0, p{p}s{i}{d}_n{e}\n"  # Branch if != enemy piece, check king
     s += f"j p{p}s{i}s{i+mo}_{e}or{e+2}\n"
-    s += f"p{p}s{i}n{e}:\n"
+    s += f"p{p}s{i}{d}_n{e}:\n"
     s += f"addi $t0, $zero, {e+2}\n"
     s += f"bne $t2, $t0, p{p}s{i}{d}_end\n"  # Branch if != king, go to next space
     s += f"p{p}s{i}s{i+mo}_{e}or{e+2}:\n"
@@ -111,7 +112,7 @@ def jump(p, e, i, mo, jo, d):
     s += f"blt $t{0 if p == 1 else 9}, $t{9 if p == 1 else 0}, p{p}s{i}{d}_end\n"
     s += f"addi $v0, $zero, {i}\n"
     s += f"addi $v1, $zero, {i+jo}\n"
-    s += f"addi $t9, $zero, $t0\n"
+    s += f"add $t9, $zero, $t0\n"
     return s
 
 def movejump(p, e, i, mo, jo, d, r, c):
