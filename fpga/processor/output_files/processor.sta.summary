@@ -3,15 +3,15 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -16.913
-TNS   : -13455.812
+Slack : -17.244
+TNS   : -14212.424
 
 Type  : Slow 1200mV 85C Model Setup 'serial_clock_in'
-Slack : -6.565
-TNS   : -297.048
+Slack : -7.421
+TNS   : -327.315
 
 Type  : Slow 1200mV 85C Model Hold 'clock'
-Slack : 0.304
+Slack : 0.402
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'serial_clock_in'
@@ -27,15 +27,15 @@ Slack : -3.000
 TNS   : -100.660
 
 Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -15.356
-TNS   : -12215.565
+Slack : -15.476
+TNS   : -12970.402
 
 Type  : Slow 1200mV 0C Model Setup 'serial_clock_in'
-Slack : -5.826
-TNS   : -260.776
+Slack : -6.661
+TNS   : -289.109
 
 Type  : Slow 1200mV 0C Model Hold 'clock'
-Slack : 0.280
+Slack : 0.353
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'serial_clock_in'
@@ -51,15 +51,15 @@ Slack : -3.000
 TNS   : -100.660
 
 Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : -7.895
-TNS   : -5734.411
+Slack : -7.918
+TNS   : -6138.144
 
 Type  : Fast 1200mV 0C Model Setup 'serial_clock_in'
-Slack : -2.681
-TNS   : -105.572
+Slack : -3.068
+TNS   : -120.670
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : 0.134
+Slack : 0.178
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'serial_clock_in'
@@ -68,10 +68,10 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -2102.770
+TNS   : -2102.627
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'serial_clock_in'
 Slack : -3.000
-TNS   : -93.115
+TNS   : -93.459
 
 ------------------------------------------------------------

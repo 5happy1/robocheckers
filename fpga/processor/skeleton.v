@@ -9,13 +9,14 @@
  * inspect which signals the processor tries to assert when.
  */
 
-module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2, serial_data_in, serial_clock_in, serial_data_out, serial_clock_out);
+module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2, serial_data_in, serial_clock_in, serial_data_out, serial_clock_out, pc_test);
 
     input clock, reset_not;
 	 input serial_data_in, serial_clock_in;
 	 
 	 output serial_data_out, serial_clock_out;
 	 output [6:0] hex_from1, hex_from2, hex_to1, hex_to2;
+	 output [11:0] pc_test;
 	 
 	 wire reset;
 	 assign reset = ~reset_not;
@@ -28,6 +29,7 @@ module skeleton(clock, reset_not, hex_from1, hex_from2, hex_to1, hex_to2, serial
     // Figure out how to generate a Quartus syncram component and commit the generated verilog file.
     // Make sure you configure it correctly!
     wire [11:0] address_imem;
+	 assign pc_test = address_imem;
     wire [31:0] q_imem;
     imem my_imem(
         .address    (address_imem),            // address of data

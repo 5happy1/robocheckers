@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("C:/Users/dam80/Documents/ece350checkers/robocheckers/fpga/processor/output_files/") File("processor.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("C:/Users/ssr18/Documents/robocheckers/fpga/processor/output_files/") File("processor.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
