@@ -124,6 +124,54 @@
 					"strict" : false
 				},
 				{
+					"name" : "pc_test[0]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[1]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[2]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[3]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[4]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[5]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[6]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[7]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[8]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[9]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[10]",
+					"strict" : false
+				},
+				{
+					"name" : "pc_test[11]",
+					"strict" : false
+				},
+				{
 					"name" : "serial_data_in",
 					"strict" : false
 				},

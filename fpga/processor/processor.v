@@ -131,6 +131,7 @@ module processor(
 	 wire ctrl_bypass_dm, ctrl_nop_dx, ctrl_nop_fd, ctrl_disable_fd, ctrl_alu_addsub, ctrl_same_pc;
 	 wire ctrl_mux_next_pc, ctrl_j_alpha, ctrl_j_beta, ctrl_reg_d_alpha, ctrl_reg_d_beta, ctrl_reg_din_alpha, ctrl_reg_din_beta;
 	 wire ctrl_write_data_out, ctrl_write_instr, stall_from_multdiv, ctrl_MULT, ctrl_DIV, nops_xm_from_md, enable_pw_instr, ctrl_ex_choice;
+	 wire ctrl_stall_bc_bypassing_doesnt_work;
 	 
 	 // Dummy wires
 	 wire add_pc_cout, add_pc_overflow, add_pc_neq, add_pc_lt;
@@ -163,7 +164,7 @@ module processor(
 	 controls_bypassing	ctrls_bypassing(fd_instr_out, dx_instr_out, xm_instr_out, write_instr_out, alu_neq, rd_lt_rs,
 													 dx_A_out, reg_d_alpha_out, stall_from_multdiv,
 													 ctrl_bypass_alu_in_A, ctrl_bypass_alu_in_B, ctrl_bypass_dm, ctrl_nop_dx,
-													 ctrl_nop_fd, ctrl_disable_fd, ctrl_mux_next_pc, ctrl_same_pc);
+													 ctrl_nop_fd, ctrl_disable_fd, ctrl_mux_next_pc, ctrl_same_pc, ctrl_stall_bc_bypassing_doesnt_work);
 	 controls_P				ctrls_P(dx_instr_out, md_rdy, pw_r_out, clock, reset, ctrl_write_data_out, ctrl_write_instr, stall_from_multdiv,
 										  ctrl_MULT, ctrl_DIV, nops_xm_from_md, enable_pw_instr, ctrl_ex_choice);
 	 
@@ -187,6 +188,22 @@ module processor(
 	 
 	 
 	 
+	 // Samuel's addition:
+	 // Counter for stalling twice between each instruction (instead of putting nop's in MIPS)
+	 // Quick and dirty way to guard against bypassing issues
+//	 wire [31:0] nop_next_count, nop_count;
+//	 register nop_counter(nop_next_count, 1'b1, clock, reset, nop_count);
+//	 assign nop_next_count = nop_count[3] ? 32'd1 : nop_count <<< 1;
+	 reg[2:0] nop_counter;
+	 always @(posedge clock) begin
+		if (nop_counter < 4)
+			nop_counter <= nop_counter + 1;
+		else
+			nop_counter <= 0;
+	 end
+	 
+	 assign ctrl_stall_bc_bypassing_doesnt_work = 0; //~nop_counter[2];
+	 
 	 ///
 	 //  Program Counter / Instruction Memory Area
 	 ///
@@ -194,10 +211,15 @@ module processor(
 	 register 	reg_pc(pc_in, 1'b1, clock, reset, curr_pc);
 	 adder    	adder_pc(curr_pc, 32'd1, 1'b0, curr_pc_plus_4, add_pc_cout, add_pc_overflow, add_pc_neq, add_pc_lt);
 	 mux_2		mux_next_pc(curr_pc_plus_4, jump_choice, ctrl_mux_next_pc, next_pc);
+	 
+	 wire mux_pc_in_select;
+	 assign mux_pc_in_select = ctrl_same_pc & ~ctrl_nop_fd;
 	 mux_2		mux_pc_in(next_pc, curr_pc, ctrl_same_pc, pc_in);
+	 
 	 assign address_imem = curr_pc[11:0];
     assign curr_instr = q_imem;
 	 mux_2		mux_fd_instr_in(curr_instr, 32'b0, ctrl_nop_fd, fd_instr_in);
+	 
 	 
 	 
 	 

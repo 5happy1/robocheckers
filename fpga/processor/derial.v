@@ -28,10 +28,12 @@ assign r27_out = r27;
 
 // Opcodes and expected data length
 integer opcode_receive_valid_move;
+integer opcode_reset;
 
 initial begin
 
 	opcode_receive_valid_move = 0;
+	opcode_reset = 1;
 	buffer_pos = 31;
 	
 	r26 = 0;
@@ -62,7 +64,7 @@ task check_buffer;
 		end
 		
 		
-		else if (buffer_pos == 27 - curr_expected_length) begin
+		if (buffer_pos == 27 - curr_expected_length) begin
 			// Else if data in buffer is of correct length for the opcode, process it based on the opcode
 			process_data();
 			buffer_pos = 31;
@@ -98,6 +100,7 @@ task update_data_reg;
 	begin
 		case (curr_opcode)
 			opcode_receive_valid_move : handle_valid_move();
+			opcode_reset : handle_reset();
 		endcase
 	end
 
@@ -117,6 +120,16 @@ task handle_valid_move;
 endtask // end handle_valid_move
 
 
+task handle_reset;
+
+	begin
+		
+	end
+
+
+endtask // end handle_valid_move
+
+
 
 
 
@@ -128,6 +141,7 @@ function integer expected_data_length;
 		expected_data_length = 0;
 		case (opcode)
 			opcode_receive_valid_move : expected_data_length = 15;
+			opcode_reset : expected_data_length = 0;
 		endcase
 	
 	end

@@ -1,10 +1,10 @@
 module controls_bypassing(fd_instr, dx_instr, xm_instr, mw_instr, alu_neq, rd_lt_rs, dx_A_out, mw_writing, stall_from_multdiv,
 								  bypassing_alu_in_A, bypassing_alu_in_B, bypassing_dm,
-								  nop_dx, nop_fd, disable_fd, mux_next_pc, same_pc);
+								  nop_dx, nop_fd, disable_fd, mux_next_pc, same_pc, stall_bc_bypassing_doesnt_work);
 
 input [31:0] fd_instr, dx_instr, xm_instr, mw_instr, dx_A_out;
 input [4:0] mw_writing;
-input alu_neq, rd_lt_rs, stall_from_multdiv;
+input alu_neq, rd_lt_rs, stall_from_multdiv, stall_bc_bypassing_doesnt_work;
 output [1:0] bypassing_alu_in_A, bypassing_alu_in_B;
 output bypassing_dm, nop_dx, nop_fd, mux_next_pc, disable_fd, same_pc;
 
@@ -136,7 +136,8 @@ comp_2_5bit comp_fdrs_dxrd(fd_rs, dx_rd, fd_rs_eq_dx_rd);
 comp_2_5bit comp_fdrt_dxrd(fd_rt, dx_rd, fd_rt_eq_dx_rd);
 
 assign stall_bypassing = (dx_op_eq_load & (fd_rs_eq_dx_rd | (fd_rt_eq_dx_rd & fd_op_neq_store))) |
-									stall_from_multdiv; // Regular stall, or stall from multdiv
+									stall_from_multdiv | stall_bc_bypassing_doesnt_work; // Regular stall, or stall from multdiv   [ ADDED TO STALL EVERY 2 ]
+//assign stall_bypassing = stall_bc_bypassing_doesnt_work;
 
 // stall for jump hazard
 wire jump, dx_A_out_neq_zero;

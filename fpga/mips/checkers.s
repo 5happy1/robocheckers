@@ -12,7 +12,16 @@
 # $28 - op code to Arduino, with ready flag, and also with 7-segment display values
 # $1  - data accompanying the op code
 
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+
 main:						# Main function
+	addi $sp, $zero, 4095	# Move stack pointer to end of stack (for our FPGA processor)
 	addi $s2, $zero, 1		# Stack word size (4 for MARS, 1 for our processor)
 	addi $s3, $zero, 0		# Previously seen op code ready flag starts at 0
 	
@@ -20,7 +29,7 @@ main:						# Main function
 	addi $s1, $sp, 0		# Save board start location to $s1
 	addi $sp, $sp, -32		# Reserve 32 words on stack for board
 	
-	jal reset_game			# Reset game
+	jal reset_game			# Reset game	
 	j game_loop				# Jump to game loop after setting up
 
 reset_game:					# Function to reset the game
@@ -130,11 +139,12 @@ game_loop:
 	addi $t1, $26, 0		# $t1 = $26 - data that accompanies op code
 	addi $s3, $t0, 0		# Set $s3 to previously seen op code ready flag
 	sra $t0, $27, 1			# $t0 = 4-bit op code
+
 	bne $t0, $zero, not_move# Branch if op code != 0, i.e. not a move
 	
 	# Op code == 0000, so checker was moved
 	addi $a0, $s1, 0		# $a0 = board position in memory
-	addi $t2, $zero, 31		# $t2 = 31 = 1111, "and" with data to get space
+	addi $t2, $zero, 31		# $t2 = 31 = 11111, "and" with data to get space
 	
 	and $a2, $t1, $t2		# $a2 = space_to
 	sra $t1, $t1, 5			# Shift data right to get space_from
@@ -151,30 +161,6 @@ game_loop:
 	# END DEBUGGING
 	
 	jal make_move			# Update board state to reflect new move
-
-	# START DEBUGGING - display values of spaces 0-3 in memory on 7sd displays
-	addi $t0, $s1, 0		# $t0 = board position in memory
-	lw $t1, 0($t0)			# $t1 = checker in space 0
-	addi $28, $t1, 0
-	sll $28, $28, 5
-	
-	sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
-	lw $t1, 0($t0)
-	addi $28, $t1, 0
-	sll $28, $28, 5
-
-	sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
-	lw $t1, 0($t0)
-	addi $28, $t1, 0
-	sll $28, $28, 5
-
-	sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
-	lw $t1, 0($t0)
-	addi $28, $t1, 0
-	sll $28, $28, 5
-
-	j game_loop
-	# END DEBUGGING
 	
 	# Check win
 	addi $a0, $s1, 0		# $a0 = board position in memory
@@ -183,14 +169,14 @@ game_loop:
 
 	# Change current player
 	addi $t0, $zero, 1		# $t0 = 1 for checking player
-	bne $s0, $t0, to_p1		# If $s0 != 1, branch becaues current player is 2
+	bne $s0, $t0, to_p1		# If $s0 != 1, branch because current player is 2
 	addi $s0, $zero, 2		# Change to player 2
 	j done_changing_player
 	to_p1:
 	addi $s0, $zero, 1		# Change to player 1
 	done_changing_player:	# After player changed
 
-	# jal find_move			# Find a move to make
+	jal find_move			# Find a move to make
 
 	# Convert and put move into $28 for seven-segment diplays
 	addi $a0, $v0, 0		# Put space_from in $a0
@@ -198,8 +184,67 @@ game_loop:
 	jal move_to_7sd			# Convert move into seven-segment display
 	addi $28, $v0, 0		# Put final value into $28 for display
 
+	# Display "U GO" for "you go" on player 1's turn on 7 seven-segment display
+	addi $t0, $zero, 1
+	bne $s0, $t0, not_p1
+	addi $28, $zero, 18		# 18 for U
+	sll $28, $28, 5
+	addi $28, $28, 19		# 19 for blank
+	sll $28, $28, 5
+	addi $28, $28, 16		# 16 for G
+	sll $28, $28, 5
+	addi $28, $28, 0		# 0 for O
+	sll $28, $28, 5
+	not_p1:
+
+	# START DEBUGGING - display values of spaces in memory on 7sd displays
+	# addi $28, $zero, 0		# $28 = 0
+	# addi $t0, $s1, -8		# $t0 = space 8 memory location
+	# lw $t1, 0($t0)			# $t1 = checker
+	# add $28, $28, $t1		# $28 += $t1
+	# sll $28, $28, 5			# Shift $28 left 5 bits to prepare for next piece of data
+	
+	# sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
+	# addi $t0, $s1, -12		# $t0 = space 12 memory location
+	# lw $t1, 0($t0)			# $t1 = checker
+	# add $28, $28, $t1		# $28 += $t1
+	# sll $28, $28, 5			# Shift $28 left 5 bits to prepare for next piece of data
+
+	# sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
+	# addi $t0, $s1, -17		# $t0 = space 17 memory location
+	# lw $t1, 0($t0)			# $t1 = checker
+	# add $28, $28, $t1		# $28 += $t1
+	# sll $28, $28, 5			# Shift $28 left 5 bits to prepare for next piece of data
+
+	# sub $t0, $t0, $s2		# Increment board pos (-1 because stack goes backwards)
+	# addi $t0, $s1, -21		# $t0 = space 21 memory location
+	# lw $t1, 0($t0)			# $t1 = checker
+	# add $28, $28, $t1		# $28 += $t1
+	# sll $28, $28, 5			# Shift $28 left 5 bits to prepare for next piece of data
+
+	# j game_loop			# Jump back to beginning of game loop (skip rest of algorithm)
+	# END DEBUGGING
+
+	j game_loop
 
 	not_move:				# Not "move made" op code
+
+	addi $t2, $zero, 1		# $t2 = 1 for comparison
+	bne $t0, $t2, not_reset	# Branch if op code != 1, i.e. not reset
+
+	jal reset_game
+
+	# Display "CHEC" for "checkers" on 7-segment displays
+	addi $28, $zero, 12		# 12 for C
+	sll $28, $28, 5
+	addi $28, $28, 17		# 17 for H
+	sll $28, $28, 5
+	addi $28, $28, 14		# 14 for E
+	sll $28, $28, 5
+	addi $28, $28, 12		# 12 for C
+	sll $28, $28, 5
+
+	not_reset:
 	
 	# START DEBUGGING
 	# jal print_board
@@ -214,8 +259,10 @@ game_loop:
 	addi $28, $v0, 0
 	sll $28, $28, 5
 
+	j game_loop
+
 #print_board:
-	##### REMOVE/COMMENT WHEN NOT USING MARS (i.e. actually using FPGA) #####
+	##### REMOVE OR COMMENT WHEN NOT USING MARS (i.e. actually using FPGA) #####
 #	addi $t0, $s1, 0		# Board position in stack
 #	addi $t2, $zero, 0		# Counter = 0
 #	addi $t3, $zero, 32		# Board length = 32
@@ -251,16 +298,15 @@ make_move:
 	sw $t5, 0($t1)			# [$t1] = checker formerly at space_from now at space_to
 	
 	# Remove jumped piece if needed
-	bne $t3, $zero, jumped	# Branch if jumped
+	bne $a3, $zero, jumped	# Branch if jumped
 	j after_jump			# Skip jumping code if no jump
 
 	jumped:
-	sub $t6, $a0, $t3		# $t6 = location of space_jumped in memory
-	sw $zero, 0($t7)		# [$t6] = 0 (blank space) in memory
+	sw $zero, 0($t3)		# [$t3] = 0 (blank space) in memory
 	
 	after_jump:
 	# Check for kings
-	addi $a0, $s1, 0		# $a0 = $s1, arg0 has start location of main board
+	# $a0 already has start location of main board
 	addi $a1, $a2, 0		# $a1 = $a2, arg1 has space_to
 	jal king_me				# Check for kings
 	
@@ -307,7 +353,7 @@ king_me:
 							# because checker == 2 and pos > 3 (not in bottom row)
 							
 	# Make checker 2 a king!
-	addi $t3, $zero, 3		# $t3 = 4 (king value for player 2)
+	addi $t3, $zero, 4		# $t3 = 4 (king value for player 2)
 	sw $t3, 0($t0)			# Store new king in memory
 	j ret_king				# Return because done
 	
@@ -450,9 +496,9 @@ space_to_7sd:
 	addi $t1, $t1, 9		# $t1 += 9 (adding to column to get letters on 7sd)
 
 	# Put into $v0
-	addi $v0, $t0, 0		# $v0 = $t0 (row)
-	sll $v0, $v0, 5			# Shift $v0 left 5 bits to prepare for column
-	add $v0, $v0, $t1		# $v0 += $t1 (column)
+	addi $v0, $t1, 0		# $v0 = $t1 (column)
+	sll $v0, $v0, 5			# Shift $v0 left 5 bits to prepare for row
+	add $v0, $v0, $t0		# $v0 += $t0 (row)
 
 	# Collapse stack
 	lw $ra, 0($sp)			# $ra = [$sp+0]
@@ -489,11 +535,11 @@ find_move:
 
 	# Check whose turn it is
 	addi $t0, $zero, 1		# $t0 = 1 for checking player
-	bne $s0, $t0, find2		# If $s0 != 1, branch becaues current player is 2
+	bne $s0, $t0, find2		# If $s0 != 1, branch because current player is 2
 	
 	### Find moves for player 1
 	addi $v0, $zero, 0
-	addi $v1, $zero, 0
+	addi $v1, $zero, 31
 	j return_find_move
 
 	### Find moves for player 2

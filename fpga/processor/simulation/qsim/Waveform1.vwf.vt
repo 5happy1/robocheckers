@@ -1,0 +1,92 @@
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "12/05/2019 23:24:11"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          skeleton
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module skeleton_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clock;
+reg reset_not;
+reg serial_clock_in;
+reg serial_data_in;
+// wires                                               
+wire [6:0] hex_from1;
+wire [6:0] hex_from2;
+wire [6:0] hex_to1;
+wire [6:0] hex_to2;
+wire [11:0] pc_test;
+wire serial_clock_out;
+wire serial_data_out;
+
+// assign statements (if any)                          
+skeleton i1 (
+// port map - connection between master ports and signals/registers   
+	.clock(clock),
+	.hex_from1(hex_from1),
+	.hex_from2(hex_from2),
+	.hex_to1(hex_to1),
+	.hex_to2(hex_to2),
+	.pc_test(pc_test),
+	.reset_not(reset_not),
+	.serial_clock_in(serial_clock_in),
+	.serial_clock_out(serial_clock_out),
+	.serial_data_in(serial_data_in),
+	.serial_data_out(serial_data_out)
+);
+initial 
+begin 
+#3000000 $finish;
+end 
+
+// clock
+always
+begin
+	clock = 1'b0;
+	clock = #20000 1'b1;
+	#20000;
+end 
+
+// reset_not
+initial
+begin
+	reset_not = 1'b0;
+	reset_not = #80000 1'b1;
+end 
+
+// serial_clock_in
+initial
+begin
+	serial_clock_in = 1'b0;
+end 
+
+// serial_data_in
+initial
+begin
+	serial_data_in = 1'b0;
+end 
+endmodule
+
