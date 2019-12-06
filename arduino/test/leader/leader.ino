@@ -281,5 +281,10 @@ void check_button() {
     Serial.println("Resetting changes");
     
     changes_pos = 0;
+
+    send_bit(0);
+    send_bit(0);
+    send_bit(0);
+    send_bit(1);
   }
 }
